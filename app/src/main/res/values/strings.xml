@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Brealth</string>
+    <string name="press_start">Press Start</string>
+    <string name="brain_mainmenu">Brain</string>
+    <string name="health_mainmenu">Health</string>
+    <string name="brealth_mainmenu">Brealth</string>
+    <string name="brainexercise_button">Übungen</string>
+    <string name="brain_daily_task">tägliche Aufgabe</string>
+    <string name="health_zentrale_button">Nährstoffzentrale</string>
+    <string name="health_rezepte_button">Rezepte</string>
+    <string name="health_tipps_button">Tipps</string>
+    <string name="health_bmi_button">BMI-Rechner</string>
+    <string name="brealth_test_button">Test</string>
+    <string name="brealth_tasks_button">Übungen</string>
+</resources>
