@@ -12,4 +12,5 @@
     <string name="health_bmi_button">BMI-Rechner</string>
     <string name="brealth_test_button">Test</string>
     <string name="brealth_tasks_button">Übungen</string>
+    <string name="title_brainmenu">Gehirntraining</string>
 </resources>

@@ -17,9 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainMenu"></activity>
-        <activity android:name=".BrainMenu"></activity>
+        <activity android:name=".BrainMenu" android:label="Gehirntraining"></activity>
         <activity android:name=".HealthMenu"></activity>
         <activity android:name=".BrealthMenu"></activity>
+        <activity android:name=".BrainTaskMenu" android:label="Übungen"></activity>
+        <activity android:name=".BrainDailyMenu" android:label="Tägliche Aufgabe"></activity>
     </application>
 
 </manifest>
