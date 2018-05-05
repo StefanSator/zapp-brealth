@@ -22,6 +22,7 @@
         <activity android:name=".BrealthMenu"></activity>
         <activity android:name=".BrainTaskMenu" android:label="Übungen"></activity>
         <activity android:name=".BrainDailyMenu" android:label="Tägliche Aufgabe"></activity>
+        <activity android:name=".RechnenTaskMenu" android:label="Rechnen"></activity>
     </application>
 
 </manifest>

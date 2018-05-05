@@ -2,8 +2,91 @@
 
 <!--Created by StefanSator on 05.05.18-->
 
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100">
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/braintask_button1"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="20"
+        android:backgroundTint="@color/colorButton1"
+        android:fontFamily="casual"
+        android:onClick="gotoTaskRechnen"
+        android:padding="0dp"
+        android:text="@string/braintask_button1"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/braintask_button2"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="20"
+        android:backgroundTint="@color/colorButton2"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:text="@string/braintask_button2"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/braintask_button3"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="20"
+        android:backgroundTint="@color/colorButton1"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:text="@string/braintask_button3"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/braintask_button4"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="20"
+        android:backgroundTint="@color/colorButton2"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:text="@string/braintask_button4"
+        android:textSize="36sp" />
+
+    <Button
+        android:id="@+id/braintask_button5"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="20"
+        android:backgroundTint="@color/colorButton1"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:text="@string/braintask_button5"
+        android:textSize="36sp" />
+
+</LinearLayout>
