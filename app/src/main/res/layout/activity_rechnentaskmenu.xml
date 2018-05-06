@@ -30,6 +30,7 @@
                 android:fontFamily="casual"
                 android:padding="0dp"
                 android:text="@string/rechnentask_button1"
+                android:onClick="gotoAddieren20"
                 android:textSize="@dimen/textsize_rechnentaskbuttons" />
 
             <Button

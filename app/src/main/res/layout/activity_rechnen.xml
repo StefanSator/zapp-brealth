@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Created by StefanSator on 06.05.18-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/rechenaufgabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="125dp"
+        android:text="12 + 15 ="
+        android:textSize="56sp" />
+
+    <EditText
+        android:id="@+id/rechenaufgabe_answer"
+        android:text="Ergebnis"
+        android:textSize="56sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/rechenaufgabe"/>
+
+    <Button
+        android:id="@+id/submitAddition_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/rechenaufgabe_answer"
+        android:onClick="showIfRight"
+        android:text="Submit"/>
+
+    <!-- Add image for right and wrong -->
+    <ImageSwitcher
+        android:id="@+id/ImageSwitcher1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/submitAddition_button"
+        android:layout_centerHorizontal="true"></ImageSwitcher>
+
+</RelativeLayout>
