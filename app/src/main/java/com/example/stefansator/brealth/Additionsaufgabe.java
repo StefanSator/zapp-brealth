@@ -12,8 +12,10 @@ public class Additionsaufgabe {
     public Additionsaufgabe(int limit) {
         max = limit / 2;
         min = 1;
-        x1 = randomNumberGenerator(min, max); System.out.println(x1);
-        x2 = randomNumberGenerator(min, max); System.out.println(x2);
+        x1 = randomNumberGenerator(min, max);
+        // System.out.println(x1);
+        x2 = randomNumberGenerator(min, max);
+        // System.out.println(x2);
     }
 
     public void setX1(int min, int max) {
