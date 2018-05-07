@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="125dp"
-        android:text="12 + 15 ="
         android:textSize="56sp" />
 
     <EditText
