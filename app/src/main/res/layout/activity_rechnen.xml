@@ -22,7 +22,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:layout_below="@+id/rechenaufgabe"
-        android:inputType="numberDecimal" />
+        android:inputType="numberSigned" />
 
     <Button
         android:id="@+id/submitRechnen_button"

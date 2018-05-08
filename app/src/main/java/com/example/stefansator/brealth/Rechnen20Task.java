@@ -17,7 +17,7 @@ public class Rechnen20Task extends AppCompatActivity {
     private EditText ergebnisfeld;
     private static final int  LIMIT = 20;
     private int aufgabeNr = 0;
-    private Additionsaufgabe rechenaufgaben[] = new Additionsaufgabe[10];
+    private Rechenaufgabe rechenaufgaben[] = new Rechenaufgabe[LIMIT];
     private long startzeit;
     private long endzeit;
     private int falseCounter = 0;
@@ -27,8 +27,8 @@ public class Rechnen20Task extends AppCompatActivity {
         setContentView(R.layout.activity_rechnen);
 
         /* Initialize Array with Addition Tasks */
-        for (int i = 0 ; i < 10 ; i++) {
-            rechenaufgaben[i] = new Additionsaufgabe(LIMIT);
+        for (int i = 0 ; i < LIMIT ; i++) {
+            rechenaufgaben[i] = new Rechenaufgabe();
         }
 
         aufgabe = findViewById(R.id.rechenaufgabe);
@@ -45,7 +45,7 @@ public class Rechnen20Task extends AppCompatActivity {
             Toast rightToast = Toast.makeText(getApplicationContext(), "Right", Toast.LENGTH_SHORT);
             rightToast.show();
             aufgabeNr++;
-            if (aufgabeNr == 10) {
+            if (aufgabeNr == LIMIT) {
                 aufgabeNr = 0;
                 endzeit = System.currentTimeMillis();
                 long bearbeitungsDauer = endzeit - startzeit;
