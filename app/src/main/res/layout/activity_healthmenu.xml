@@ -5,27 +5,50 @@
     android:orientation="vertical">
 
     <Button
+        style="@style/Widget.AppCompat.Button.Colored"
         android:id="@+id/health_zentrale_button"
         android:text="@string/health_zentrale_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButton1"
+        android:fontFamily="casual"
+        android:layout_weight="25"
+        android:textSize="36sp"
+        android:layout_marginBottom="2dp"/>
 
     <Button
+        style="@style/Widget.AppCompat.Button.Colored"
         android:id="@+id/health_rezepte_button"
         android:text="@string/health_rezepte_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButton2"
+        android:fontFamily="casual"
+        android:layout_weight="25"
+        android:textSize="36sp"
+        android:layout_marginBottom="2dp"/>
 
     <Button
+        style="@style/Widget.AppCompat.Button.Colored"
         android:id="@+id/health_tipps_button"
         android:text="@string/health_tipps_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButton1"
+        android:fontFamily="casual"
+        android:layout_weight="25"
+        android:textSize="36sp"
+        android:layout_marginBottom="2dp"/>
 
     <Button
+        style="@style/Widget.AppCompat.Button.Colored"
         android:id="@+id/health_bmi_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorButton2"
+        android:fontFamily="casual"
         android:text="@string/health_bmi_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_weight="25"
+        android:textSize="36sp"/>
 
 </LinearLayout>
