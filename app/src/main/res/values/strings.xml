@@ -28,4 +28,5 @@
     <string name="rechnentask_button8">Dividieren50</string>
     <string name="rechnentask_button9">Gemischtes Rechnen20</string>
     <string name="rechnentask_button10">Gemischtes Rechnen100</string>
+    <string name="rechnenend_ergebnis">Ergebnis</string>
 </resources>
