@@ -18,15 +18,10 @@
     <string name="braintask_button3">Merken</string>
     <string name="braintask_button4">Logik</string>
     <string name="braintask_button5">Zählen</string>
-    <string name="rechnentask_button1">Addieren20</string>
-    <string name="rechnentask_button2">Addieren50</string>
-    <string name="rechnentask_button3">Subtrahieren20</string>
-    <string name="rechnentask_button4">Subtrahieren50</string>
-    <string name="rechnentask_button5">Multiplizieren20</string>
-    <string name="rechnentask_button6">Multiplizieren50</string>
-    <string name="rechnentask_button7">Dividieren20</string>
-    <string name="rechnentask_button8">Dividieren50</string>
-    <string name="rechnentask_button9">Gemischtes Rechnen20</string>
-    <string name="rechnentask_button10">Gemischtes Rechnen100</string>
+    <string name="rechnentask_button1">Rechnen20</string>
+    <string name="rechnentask_button2">Rechnen50</string>
+    <string name="rechnentask_button3">Rechnen75</string>
+    <string name="rechnentask_button4">Rechnen100</string>
+    <string name="rechnentask_button5">Rechnen200</string>
     <string name="rechnenend_ergebnis">Ergebnis</string>
 </resources>

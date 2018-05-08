@@ -12,7 +12,7 @@ import android.widget.Toast;
  * Created by stefansator on 06.05.18.
  */
 
-public class Addieren20Task extends AppCompatActivity {
+public class Rechnen20Task extends AppCompatActivity {
     private TextView aufgabe;
     private EditText ergebnisfeld;
     private static final int  LIMIT = 20;
@@ -49,11 +49,11 @@ public class Addieren20Task extends AppCompatActivity {
                 aufgabeNr = 0;
                 endzeit = System.currentTimeMillis();
                 long bearbeitungsDauer = endzeit - startzeit;
-                Intent finishscreenIntent = new Intent(Addieren20Task.this, Addieren20End.class);
+                Intent finishscreenIntent = new Intent(Rechnen20Task.this, Rechnen20End.class);
                 finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
                 finishscreenIntent.putExtra("falsch", falseCounter);
-                Addieren20Task.this.startActivity(finishscreenIntent);
-                Addieren20Task.this.finish();
+                Rechnen20Task.this.startActivity(finishscreenIntent);
+                Rechnen20Task.this.finish();
             }
             aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
         } else {
