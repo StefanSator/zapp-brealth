@@ -23,8 +23,8 @@
         <activity android:name=".BrainTaskMenu" android:label="Übungen"></activity>
         <activity android:name=".BrainDailyMenu" android:label="Tägliche Aufgabe"></activity>
         <activity android:name=".RechnenTaskMenu" android:label="Rechnen"></activity>
-        <activity android:name=".Addieren20Task" android:label="Addieren20"></activity>
-        <activity android:name=".Addieren20End" android:label="Ergebnis"></activity>
+        <activity android:name=".Rechnen20Task" android:label="Rechnen20"></activity>
+        <activity android:name=".Rechnen20End" android:label="Ergebnis"></activity>
     </application>
 
 </manifest>

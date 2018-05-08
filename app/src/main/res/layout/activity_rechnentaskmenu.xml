@@ -8,9 +8,9 @@
     android:orientation="vertical">
 
     <ScrollView
+        android:id="@+id/scrollview_rechnentasks"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/scrollview_rechnentasks">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -27,10 +27,9 @@
                 android:layout_marginRight="-5dp"
                 android:layout_marginTop="-5dp"
                 android:backgroundTint="@color/colorButton1"
-                android:fontFamily="casual"
+                android:onClick="gotoRechnen20"
                 android:padding="0dp"
                 android:text="@string/rechnentask_button1"
-                android:onClick="gotoAddieren20"
                 android:textSize="@dimen/textsize_rechnentaskbuttons" />
 
             <Button
@@ -43,7 +42,6 @@
                 android:layout_marginRight="-5dp"
                 android:layout_marginTop="-5dp"
                 android:backgroundTint="@color/colorButton2"
-                android:fontFamily="casual"
                 android:padding="0dp"
                 android:text="@string/rechnentask_button2"
                 android:textSize="@dimen/textsize_rechnentaskbuttons" />
@@ -58,7 +56,6 @@
                 android:layout_marginRight="-5dp"
                 android:layout_marginTop="-5dp"
                 android:backgroundTint="@color/colorButton1"
-                android:fontFamily="casual"
                 android:padding="0dp"
                 android:text="@string/rechnentask_button3"
                 android:textSize="@dimen/textsize_rechnentaskbuttons" />
@@ -73,7 +70,6 @@
                 android:layout_marginRight="-5dp"
                 android:layout_marginTop="-5dp"
                 android:backgroundTint="@color/colorButton2"
-                android:fontFamily="casual"
                 android:padding="0dp"
                 android:text="@string/rechnentask_button4"
                 android:textSize="@dimen/textsize_rechnentaskbuttons" />
@@ -88,89 +84,11 @@
                 android:layout_marginRight="-5dp"
                 android:layout_marginTop="-5dp"
                 android:backgroundTint="@color/colorButton1"
-                android:fontFamily="casual"
                 android:padding="0dp"
                 android:text="@string/rechnentask_button5"
                 android:textSize="@dimen/textsize_rechnentaskbuttons" />
 
-            <Button
-                android:id="@+id/rechnentask_button6"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/buttonheight_rechnentaskbuttons"
-                android:layout_marginBottom="-5dp"
-                android:layout_marginLeft="-5dp"
-                android:layout_marginRight="-5dp"
-                android:layout_marginTop="-5dp"
-                android:backgroundTint="@color/colorButton2"
-                android:fontFamily="casual"
-                android:padding="0dp"
-                android:text="@string/rechnentask_button6"
-                android:textSize="@dimen/textsize_rechnentaskbuttons" />
-
-            <Button
-                android:id="@+id/rechnentask_button7"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/buttonheight_rechnentaskbuttons"
-                android:layout_marginBottom="-5dp"
-                android:layout_marginLeft="-5dp"
-                android:layout_marginRight="-5dp"
-                android:layout_marginTop="-5dp"
-                android:backgroundTint="@color/colorButton1"
-                android:fontFamily="casual"
-                android:padding="0dp"
-                android:text="@string/rechnentask_button7"
-                android:textSize="@dimen/textsize_rechnentaskbuttons" />
-
-            <Button
-                android:id="@+id/rechnentask_button8"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/buttonheight_rechnentaskbuttons"
-                android:layout_marginBottom="-5dp"
-                android:layout_marginLeft="-5dp"
-                android:layout_marginRight="-5dp"
-                android:layout_marginTop="-5dp"
-                android:backgroundTint="@color/colorButton2"
-                android:fontFamily="casual"
-                android:padding="0dp"
-                android:text="@string/rechnentask_button8"
-                android:textSize="@dimen/textsize_rechnentaskbuttons" />
-
-            <Button
-                android:id="@+id/rechnentask_button9"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/buttonheight_rechnentaskbuttons"
-                android:layout_marginBottom="-5dp"
-                android:layout_marginLeft="-5dp"
-                android:layout_marginRight="-5dp"
-                android:layout_marginTop="-5dp"
-                android:backgroundTint="@color/colorButton1"
-                android:fontFamily="casual"
-                android:padding="0dp"
-                android:text="@string/rechnentask_button9"
-                android:textSize="@dimen/textsize_rechnentaskbuttons" />
-
-            <Button
-                android:id="@+id/rechnentask_button10"
-                style="@style/Widget.AppCompat.Button.Colored"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/buttonheight_rechnentaskbuttons"
-                android:layout_marginBottom="-5dp"
-                android:layout_marginLeft="-5dp"
-                android:layout_marginRight="-5dp"
-                android:layout_marginTop="-5dp"
-                android:backgroundTint="@color/colorButton2"
-                android:fontFamily="casual"
-                android:padding="0dp"
-                android:text="@string/rechnentask_button10"
-                android:textSize="@dimen/textsize_rechnentaskbuttons" />
-
         </LinearLayout>
-
-
 
     </ScrollView>
 

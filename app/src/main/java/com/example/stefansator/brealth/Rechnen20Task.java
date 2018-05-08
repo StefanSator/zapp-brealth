@@ -12,12 +12,15 @@ import android.widget.Toast;
  * Created by stefansator on 06.05.18.
  */
 
-public class Addieren20Task extends AppCompatActivity {
+public class Rechnen20Task extends AppCompatActivity {
     private TextView aufgabe;
     private EditText ergebnisfeld;
     private static final int  LIMIT = 20;
     private int aufgabeNr = 0;
     private Additionsaufgabe rechenaufgaben[] = new Additionsaufgabe[10];
+    private long startzeit;
+    private long endzeit;
+    private int falseCounter = 0;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,7 @@ public class Addieren20Task extends AppCompatActivity {
 
         aufgabe = findViewById(R.id.rechenaufgabe);
         aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
+        startzeit = System.currentTimeMillis();
     }
 
     public void showIfRight(View view) {
@@ -42,14 +46,20 @@ public class Addieren20Task extends AppCompatActivity {
             rightToast.show();
             aufgabeNr++;
             if (aufgabeNr == 10) {
-                Intent finishscreenIntent = new Intent(Addieren20Task.this, Addieren20End.class);
-                Addieren20Task.this.startActivity(finishscreenIntent);
-                Addieren20Task.this.finish();
+                aufgabeNr = 0;
+                endzeit = System.currentTimeMillis();
+                long bearbeitungsDauer = endzeit - startzeit;
+                Intent finishscreenIntent = new Intent(Rechnen20Task.this, Rechnen20End.class);
+                finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
+                finishscreenIntent.putExtra("falsch", falseCounter);
+                Rechnen20Task.this.startActivity(finishscreenIntent);
+                Rechnen20Task.this.finish();
             }
             aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
         } else {
-           Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);
-           falseToast.show();
+            falseCounter++;
+            Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);
+            falseToast.show();
         }
     }
 }

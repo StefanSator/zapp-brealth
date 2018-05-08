@@ -16,29 +16,21 @@
 
     <EditText
         android:id="@+id/rechenaufgabe_answer"
-        android:text="Ergebnis"
         android:textSize="56sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
-        android:layout_below="@+id/rechenaufgabe"/>
+        android:layout_below="@+id/rechenaufgabe"
+        android:inputType="numberDecimal" />
 
     <Button
-        android:id="@+id/submitAddition_button"
+        android:id="@+id/submitRechnen_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/rechenaufgabe_answer"
         android:onClick="showIfRight"
-        android:text="Submit"/>
-
-    <!-- Add image for right and wrong -->
-    <ImageSwitcher
-        android:id="@+id/ImageSwitcher1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/submitAddition_button"
-        android:layout_centerHorizontal="true"></ImageSwitcher>
+        android:text="@string/submitRechnen_button"/>
 
 </RelativeLayout>

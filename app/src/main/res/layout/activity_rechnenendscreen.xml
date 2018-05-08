@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!-- Created by StefanSator on 07.05.18-->
+<!-- Created by StefanSator on 08.05.18-->
 
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/ergebnis_rechnenend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/rechnenend_ergebnis"
+        android:textSize="42sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/bemerkung_rechnenend"
+        android:layout_below="@+id/ergebnis_rechnenend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/falsch_rechnenend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bemerkung_rechnenend"
+        android:layout_centerHorizontal="true"
+        android:padding="20dp"
+        android:textSize="30sp"/>
+
+    <Button
+        android:id="@+id/back_button_rechnenend"
+        android:layout_below="@+id/falsch_rechnenend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Fertig"
+        android:textSize="24sp"
+        android:onClick="endResultScreen"/>
+
+</RelativeLayout>

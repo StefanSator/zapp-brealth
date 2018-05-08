@@ -16,8 +16,8 @@ public class RechnenTaskMenu extends AppCompatActivity {
         setContentView(R.layout.activity_rechnentaskmenu);
     }
 
-    public void gotoAddieren20(View view) {
-        Intent addieren20Intent = new Intent(RechnenTaskMenu.this, Addieren20Task.class);
+    public void gotoRechnen20(View view) {
+        Intent addieren20Intent = new Intent(RechnenTaskMenu.this, Rechnen20Task.class);
         RechnenTaskMenu.this.startActivity(addieren20Intent);
     }
 }
