@@ -72,7 +72,6 @@
         android:padding="0dp"
         android:text="@string/braintask_button4"
         android:textSize="36sp" />
-
     <Button
         android:id="@+id/braintask_button5"
         style="@style/Widget.AppCompat.Button.Colored"
@@ -84,9 +83,11 @@
         android:layout_marginTop="-5dp"
         android:layout_weight="20"
         android:backgroundTint="@color/colorButton1"
+        android:onClick="gotoTaskFarben"
         android:fontFamily="casual"
         android:padding="0dp"
         android:text="@string/braintask_button5"
         android:textSize="36sp" />
+
 
 </LinearLayout>

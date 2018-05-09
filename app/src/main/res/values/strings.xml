@@ -17,7 +17,7 @@
     <string name="braintask_button2">Lesen</string>
     <string name="braintask_button3">Merken</string>
     <string name="braintask_button4">Logik</string>
-    <string name="braintask_button5">Zählen</string>
+    <string name="braintask_button5">Farben</string>
     <string name="rechnentask_button1">Rechnen20</string>
     <string name="rechnentask_button2">Rechnen50</string>
     <string name="rechnentask_button3">Rechnen75</string>
@@ -25,4 +25,6 @@
     <string name="rechnentask_button5">Rechnen200</string>
     <string name="rechnenend_ergebnis">Ergebnis</string>
     <string name="submitRechnen_button">Submit</string>
+    <string name="farben_easymode_button">Easy Mode</string>
+    <string name="farben_hardmode_button">Hard Mode</string>
 </resources>
