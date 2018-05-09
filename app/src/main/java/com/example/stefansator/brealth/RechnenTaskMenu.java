@@ -17,7 +17,8 @@ public class RechnenTaskMenu extends AppCompatActivity {
     }
 
     public void gotoRechnen20(View view) {
-        Intent addieren20Intent = new Intent(RechnenTaskMenu.this, Rechnen20Task.class);
+        Intent addieren20Intent = new Intent(RechnenTaskMenu.this, RechnenTask.class);
+        addieren20Intent.putExtra("limit", 20);
         RechnenTaskMenu.this.startActivity(addieren20Intent);
     }
 }

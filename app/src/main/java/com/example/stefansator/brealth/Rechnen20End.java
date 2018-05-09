@@ -19,7 +19,7 @@ public class Rechnen20End extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rechnenendscreen);
 
-        if (getIntent().hasExtra("dauer") == true) {
+        if (getIntent().hasExtra("dauer") == true && getIntent().hasExtra("falsch") == true) {
             bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
             falseCounter = getIntent().getExtras().getInt("falsch");
         }

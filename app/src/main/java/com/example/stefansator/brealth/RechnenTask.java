@@ -12,12 +12,12 @@ import android.widget.Toast;
  * Created by stefansator on 06.05.18.
  */
 
-public class Rechnen20Task extends AppCompatActivity {
+public class RechnenTask extends AppCompatActivity {
     private TextView aufgabe;
     private EditText ergebnisfeld;
-    private static final int  LIMIT = 20;
+    private int LIMIT;
     private int aufgabeNr = 0;
-    private Rechenaufgabe rechenaufgaben[] = new Rechenaufgabe[LIMIT];
+    private Rechenaufgabe rechenaufgaben[];
     private long startzeit;
     private long endzeit;
     private int falseCounter = 0;
@@ -25,6 +25,11 @@ public class Rechnen20Task extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rechnen);
+
+        if (getIntent().hasExtra("limit") == true) {
+            LIMIT = getIntent().getExtras().getInt("limit");
+        }
+        rechenaufgaben = new Rechenaufgabe[LIMIT];
 
         /* Initialize Array with Addition Tasks */
         for (int i = 0 ; i < LIMIT ; i++) {
@@ -49,11 +54,11 @@ public class Rechnen20Task extends AppCompatActivity {
                 aufgabeNr = 0;
                 endzeit = System.currentTimeMillis();
                 long bearbeitungsDauer = endzeit - startzeit;
-                Intent finishscreenIntent = new Intent(Rechnen20Task.this, Rechnen20End.class);
+                Intent finishscreenIntent = new Intent(RechnenTask.this, Rechnen20End.class);
                 finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
                 finishscreenIntent.putExtra("falsch", falseCounter);
-                Rechnen20Task.this.startActivity(finishscreenIntent);
-                Rechnen20Task.this.finish();
+                RechnenTask.this.startActivity(finishscreenIntent);
+                RechnenTask.this.finish();
             }
             aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
         } else {
