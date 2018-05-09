@@ -25,4 +25,6 @@
     <string name="rechnentask_button5">Rechnen200</string>
     <string name="rechnenend_ergebnis">Ergebnis</string>
     <string name="submitRechnen_button">Submit</string>
+    <string name="bemerkung_rechnenend">Dauer:</string>
+    <string name="falsch_rechnenend">Falsch:</string>
 </resources>
