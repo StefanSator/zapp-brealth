@@ -9,7 +9,7 @@ import android.widget.TextView;
  * Created by stefansator on 07.05.18.
  */
 
-public class Rechnen20End extends AppCompatActivity {
+public class RechnenEnd extends AppCompatActivity {
     private TextView dauerFeld;
     private TextView falschFeld;
     private long bearbeitungsDauer;
@@ -31,6 +31,6 @@ public class Rechnen20End extends AppCompatActivity {
     }
 
     public void endResultScreen(View view) {
-        Rechnen20End.this.finish();
+        RechnenEnd.this.finish();
     }
 }
