@@ -23,7 +23,8 @@
             android:layout_weight="1"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text = "A"
+            android:onClick="revealMemoryCard"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp"/>
 
@@ -35,7 +36,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="B"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
 
@@ -47,7 +48,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="C"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
     </LinearLayout>
@@ -67,7 +68,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="D"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
 
@@ -79,7 +80,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="E"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
 
@@ -91,7 +92,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="F"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
     </LinearLayout>
@@ -111,7 +112,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="G"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
 
@@ -123,7 +124,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="H"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
 
@@ -135,7 +136,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="I"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
     </LinearLayout>
@@ -155,7 +156,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="J"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
 
@@ -167,7 +168,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="K"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
 
@@ -179,7 +180,7 @@
             android:background="@color/colorAccent"
             android:paddingTop="@dimen/memorycard_paddingTop"
             android:layout_margin="@dimen/memorycard_margin"
-            android:text="L"
+            android:text = "@string/memorycard_unrevealedText"
             android:textAlignment="center"
             android:textSize="30sp" />
     </LinearLayout>
