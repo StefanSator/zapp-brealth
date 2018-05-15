@@ -28,6 +28,7 @@
         <activity android:name=".FarbenTaskMenu" android:label="Farben"></activity>
         <activity android:name=".FarbenEasyMode" android:label="Farben Easy Mode"></activity>
         <activity android:name=".FarbenHardMode" android:label="Farben Hard Mode"></activity>
+        <activity android:name=".FarbenEndscreen" android:label="Ergebnis"></activity>
 
     </application>
 
