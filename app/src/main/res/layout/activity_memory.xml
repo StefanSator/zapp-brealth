@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Created by StefanSator on 13.05.18-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/memory_card1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@color/colorAccent"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text = "A"
+            android:textAlignment="center"
+            android:textSize="30sp"/>
+
+        <TextView
+            android:id="@+id/memory_card2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="B"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/memory_card3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="C"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/memory_card4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="D"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/memory_card5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="E"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/memory_card6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="F"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/memory_card7"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="G"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/memory_card8"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="H"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/memory_card9"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="I"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/memory_card10"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="J"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/memory_card11"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="K"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/memory_card12"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:text="L"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+</LinearLayout>
