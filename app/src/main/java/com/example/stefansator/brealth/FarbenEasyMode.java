@@ -81,7 +81,11 @@ public class FarbenEasyMode extends AppCompatActivity {
 
     private void gotoEndscreen() {
         Intent farbenEndscreen = new Intent(FarbenEasyMode.this, FarbenEndscreen.class);
+
+        farbenEndscreen.putExtra("dauer", 10);
+        farbenEndscreen.putExtra("falsch", 0);
         FarbenEasyMode.this.startActivity(farbenEndscreen);
+        FarbenEasyMode.this.finish();
     }
 
 
