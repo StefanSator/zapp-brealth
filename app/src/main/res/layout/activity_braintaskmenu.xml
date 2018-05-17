@@ -54,6 +54,7 @@
         android:backgroundTint="@color/colorButton1"
         android:fontFamily="casual"
         android:padding="0dp"
+        android:onClick="gotoTaskMemory"
         android:text="@string/braintask_button3"
         android:textSize="36sp" />
 
