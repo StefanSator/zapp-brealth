@@ -1,5 +1,6 @@
 package com.example.stefansator.brealth;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -7,11 +8,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Random;
-import java.util.Timer;
-import java.util.TimerTask;
 
 /**
- * Created by StefanSator on 13.05.18.
+ * Created by StefanSator on 17.05.18.
  */
 
 public class MemoryTask extends AppCompatActivity {
@@ -19,9 +18,12 @@ public class MemoryTask extends AppCompatActivity {
     private String cardNames[] = {"A", "A", "B", "B", "C", "C", "D", "D", "E", "E", "F", "F"};
     private int countCards;
     private TextView memoryCard[];
+    private long startZeit, endZeit;
+    private int falseCounter = 0, rightCounter = 0;
     /* variables which will later include index of drawn cards */
     private int firstDraw = -1;
     private int secondDraw = -1;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,13 +59,9 @@ public class MemoryTask extends AppCompatActivity {
             cardPos[i] = name;
         }
 
-        new Timer().schedule(new TimerTask() {
-            @Override
-            public void run() {
-                // this code will be executed after 2 seconds
+        startZeit = System.currentTimeMillis();
 
-            }
-        }, 2000);
+        /* ASync Task for setText() */
     }
 
     private int randomNumberGenerator(int min, int max) {
@@ -90,14 +88,30 @@ public class MemoryTask extends AppCompatActivity {
         boolean test = testIfDrawnCardsAreRight(firstDraw, secondDraw);
         if (test == true) {
             disableRightCards(firstDraw, secondDraw);
+            rightCounter++;
             Toast rightToast = Toast.makeText(getApplicationContext(), "Right", Toast.LENGTH_SHORT);
             rightToast.show();
         } else {
             unrevealMemoryCards(firstDraw, secondDraw);
+            falseCounter++;
             Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);
             falseToast.show();
         }
+
+        if (rightCounter == 6) {
+            endGame();
+        }
         beginNewDraw();
+    }
+
+    private void endGame() {
+        endZeit = System.currentTimeMillis();
+        long bearbeitungsDauer = endZeit - startZeit;
+        Intent finishscreenIntent = new Intent(MemoryTask.this, RechnenEnd.class);
+        finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
+        finishscreenIntent.putExtra("falsch", falseCounter);
+        MemoryTask.this.startActivity(finishscreenIntent);
+        MemoryTask.this.finish();
     }
 
     private boolean testIfDrawnCardsAreRight(int first, int second) {

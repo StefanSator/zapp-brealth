@@ -52,13 +52,7 @@ public class RechnenTask extends AppCompatActivity {
             aufgabeNr++;
             if (aufgabeNr == LIMIT) {
                 aufgabeNr = 0;
-                endzeit = System.currentTimeMillis();
-                long bearbeitungsDauer = endzeit - startzeit;
-                Intent finishscreenIntent = new Intent(RechnenTask.this, RechnenEnd.class);
-                finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
-                finishscreenIntent.putExtra("falsch", falseCounter);
-                RechnenTask.this.startActivity(finishscreenIntent);
-                RechnenTask.this.finish();
+                endGame();
             }
             aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
         } else {
@@ -66,5 +60,15 @@ public class RechnenTask extends AppCompatActivity {
             Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);
             falseToast.show();
         }
+    }
+
+    private void endGame() {
+        endzeit = System.currentTimeMillis();
+        long bearbeitungsDauer = endzeit - startzeit;
+        Intent finishscreenIntent = new Intent(RechnenTask.this, RechnenEnd.class);
+        finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
+        finishscreenIntent.putExtra("falsch", falseCounter);
+        RechnenTask.this.startActivity(finishscreenIntent);
+        RechnenTask.this.finish();
     }
 }
