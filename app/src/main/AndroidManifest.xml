@@ -26,6 +26,7 @@
         <activity android:name=".RechnenTask" android:label="Rechnen20"></activity>
         <activity android:name=".RechnenEnd" android:label="Ergebnis"></activity>
         <activity android:name=".MemoryTask" android:label="Memory"></activity>
+        <activity android:name=".LesenTask" android:label="Laut Lesen"></activity>
     </application>
 
 </manifest>

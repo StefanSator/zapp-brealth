@@ -1,0 +1,3 @@
+Hallo dies ist eine Testfile für die TextReader Klasse.
+Wird dies korrekt ausgegeben so funktioniert der Text
+Reader.
