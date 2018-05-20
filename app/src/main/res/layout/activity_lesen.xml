@@ -2,18 +2,31 @@
 
 <!--Created by StefanSator on 20.05.18-->
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/lesetext"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10sp"
+            android:textAllCaps="false"
+            android:textAppearance="@android:style/TextAppearance.Material.Display2"
+            android:textSize="36sp" />
     </ScrollView>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/lesen_end_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="endBookReading"
+        android:text="@string/lesen_end_button" />
+
+</RelativeLayout>

@@ -28,4 +28,5 @@
     <string name="bemerkung_rechnenend">Dauer:</string>
     <string name="falsch_rechnenend">Falsch:</string>
     <string name="memorycard_unrevealedText">/@</string>
+    <string name="lesen_end_button">Fertig</string>
 </resources>
