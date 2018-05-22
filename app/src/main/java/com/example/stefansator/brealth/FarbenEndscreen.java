@@ -20,11 +20,13 @@ public class FarbenEndscreen extends AppCompatActivity {
             bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
             falseCounter = getIntent().getExtras().getInt("falsch");
         }
-
+        String extraString ="";
+        if (falseCounter == 0 || falseCounter > 1)
+            extraString ="n";
         anmerkungsFeld = findViewById(R.id.Bemerkung);
         anmerkungsFeld.setText("Du hast " + (bearbeitungsDauer / 1000) + " s gebraucht um die Übung zu beenden.");
         falschFeld = findViewById(R.id.falsche_Antwort);
-        falschFeld.setText("Du hast " + falseCounter + " Aufgaben falsch beantwortet.");
+        falschFeld.setText("Du hast " + falseCounter + " Aufgabe"+extraString+ " falsch beantwortet.");
     }
 
     public void endResultScreen(View view) {

@@ -7,15 +7,20 @@ import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 import java.util.Random;
 
 public class FarbenEasyMode extends AppCompatActivity {
-    TextView text,explanation;
-    int counter;
-    String mainColor;
+    private TextView text,explanation;
+    private int start;
+    private int counter;
+    private int falseCounter = 0;
+    private long startzeit;
+    private long endzeit;
+    private String mainColor,textColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +29,13 @@ public class FarbenEasyMode extends AppCompatActivity {
         text = (TextView) findViewById(R.id.farbenView);
         explanation = (TextView) findViewById(R.id.explanation);
         mainColor = setColorText();
-        explanation.setText("Klicken Sie True wenn die Farbe in "+mainColor+" geschrieben ist");
+        explanation.setText("Klicken Sie True wenn " +mainColor+" geschrieben ist");
+    }
 
+    public void start(View view){
+        start = 1;
+        startzeit = System.currentTimeMillis();
+        changeColor();
     }
 
     private void setColor(TextView textview) {
@@ -67,26 +77,51 @@ public class FarbenEasyMode extends AppCompatActivity {
         return null;
     }
 
-
-    void changeColor(View view){
-        String color = setColorText();
+    void changeColor(){
+        textColor = setColorText();
         setColor(text);
-        text.setText(color);
+        text.setText(textColor);
+    }
 
-        counter++;
+    void checkOption (View view){
+        if (start == 0)
+            return;
+
+        switch (view.getId()){
+            case R.id.buttonTrue:
+                if(textColor == mainColor) {
+                    Toast.makeText(this, "Richtig", Toast.LENGTH_SHORT).show();
+                    counter++;
+                } else {
+                    Toast.makeText(this,"Falsch",Toast.LENGTH_SHORT).show();
+                    falseCounter++;
+                }
+                break;
+            case R.id.buttonFalse:
+                if(textColor != mainColor) {
+                    Toast.makeText(this, "Richtig", Toast.LENGTH_SHORT).show();
+                    counter++;
+                } else {
+                    Toast.makeText(this,"Falsch",Toast.LENGTH_SHORT).show();
+                    falseCounter++;
+                }
+                break;
+        }
 
         if(counter == 10)
             gotoEndscreen();
+        else
+            changeColor();
     }
 
     private void gotoEndscreen() {
+        endzeit = System.currentTimeMillis();
+        long bearbeitungsDauer = endzeit - startzeit;
         Intent farbenEndscreen = new Intent(FarbenEasyMode.this, FarbenEndscreen.class);
 
-        farbenEndscreen.putExtra("dauer", 10);
-        farbenEndscreen.putExtra("falsch", 0);
+        farbenEndscreen.putExtra("dauer", bearbeitungsDauer);
+        farbenEndscreen.putExtra("falsch",falseCounter);
         FarbenEasyMode.this.startActivity(farbenEndscreen);
         FarbenEasyMode.this.finish();
     }
-
-
 }
