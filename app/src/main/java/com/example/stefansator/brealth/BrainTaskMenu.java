@@ -21,6 +21,12 @@ public class BrainTaskMenu extends AppCompatActivity {
         BrainTaskMenu.this.startActivity(rechnenMenuIntent);
     }
 
+    public void gotoTaskMemory(View view) {
+        Intent memoryIntent = new Intent(BrainTaskMenu.this, MemoryTask.class);
+        BrainTaskMenu.this.startActivity(memoryIntent);
+
+    }
+
     public void gotoTaskFarben(View view) {
         Intent farbenMenuIntent = new Intent(BrainTaskMenu.this, FarbenTaskMenu.class);
         BrainTaskMenu.this.startActivity(farbenMenuIntent);
