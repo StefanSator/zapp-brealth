@@ -2,22 +2,19 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/farbenView"
-        android:layout_width="400dp"
-        android:layout_height="334dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/farbenView_em"
+        android:layout_width="wrap_content"
+        android:layout_height="256dp"
         android:clickable="true"
-        android:onClick="start"
         android:gravity="center"
-        android:textAlignment="center"
+        android:onClick="start"
         android:text="Click to Start"
+        android:textAlignment="center"
         android:textSize="32pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,42 +22,45 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/explanation"
+        android:id="@+id/farben_explanation_em"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:text="TextView"
         android:textSize="10pt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/buttonTrue"
+        android:id="@+id/farben_buttonTrue_em"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="32dp"
+        android:visibility="invisible"
+        android:clickable="false"
         android:onClick="checkOption"
         android:text="Richtig"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/buttonFalse"
+        app:layout_constraintEnd_toStartOf="@+id/farben_buttonFalse_em"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/buttonFalse"
+        android:id="@+id/farben_buttonFalse_em"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:layout_marginEnd="32dp"
         android:layout_marginStart="24dp"
+        android:visibility="invisible"
+        android:clickable="false"
         android:onClick="checkOption"
         android:text="Falsch"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonTrue" />
+        app:layout_constraintStart_toEndOf="@+id/farben_buttonTrue_em" />
 
 </android.support.constraint.ConstraintLayout>

@@ -3,37 +3,39 @@ package com.example.stefansator.brealth;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.Random;
 
 public class FarbenEasyMode extends AppCompatActivity {
-    private TextView text,explanation;
-    private int start;
-    private int counter;
-    private int falseCounter = 0;
-    private long startzeit;
-    private long endzeit;
-    private String mainColor,textColor;
+    private TextView text, explanation;
+    private Button fButton,rButton;
+    private int counter, falseCounter = 0;
+    private long startzeit, endzeit;
+    private String mainColor, textColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farbeneasymode);
-        text = (TextView) findViewById(R.id.farbenView);
-        explanation = (TextView) findViewById(R.id.explanation);
+        text = findViewById(R.id.farbenView_em);
+        explanation = findViewById(R.id.farben_explanation_em);
+        rButton = findViewById(R.id.farben_buttonTrue_em);
+        fButton = findViewById(R.id.farben_buttonFalse_em);
         mainColor = setColorText();
         explanation.setText("Klicken Sie True wenn " +mainColor+" geschrieben ist");
     }
 
     public void start(View view){
-        start = 1;
+        rButton.setClickable(true);
+        rButton.setVisibility(View.VISIBLE);
+        fButton.setClickable(true);
+        fButton.setVisibility(View.VISIBLE);
+        text.setClickable(false);
         startzeit = System.currentTimeMillis();
         changeColor();
     }
@@ -84,11 +86,8 @@ public class FarbenEasyMode extends AppCompatActivity {
     }
 
     void checkOption (View view){
-        if (start == 0)
-            return;
-
         switch (view.getId()){
-            case R.id.buttonTrue:
+            case R.id.farben_buttonTrue_em:
                 if(textColor == mainColor) {
                     Toast.makeText(this, "Richtig", Toast.LENGTH_SHORT).show();
                     counter++;
@@ -97,7 +96,7 @@ public class FarbenEasyMode extends AppCompatActivity {
                     falseCounter++;
                 }
                 break;
-            case R.id.buttonFalse:
+            case R.id.farben_buttonFalse_em:
                 if(textColor != mainColor) {
                     Toast.makeText(this, "Richtig", Toast.LENGTH_SHORT).show();
                     counter++;
