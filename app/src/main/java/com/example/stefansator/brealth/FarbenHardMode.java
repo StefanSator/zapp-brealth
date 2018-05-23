@@ -107,7 +107,7 @@ public class FarbenHardMode extends AppCompatActivity {
         return null;
     }
 
-    void changeColor(){
+    public void changeColor(){
         mainColor = setColorText();
         setExplanationText(mainColor);
         ftextColor = setColor(firsttext);
@@ -118,7 +118,7 @@ public class FarbenHardMode extends AppCompatActivity {
         thirdtext.setText(setColorText());
     }
 
-    void checkOption (View view){
+    public void checkOption (View view){
         switch (view.getId()){
             case R.id.farben_view1_hm:
                 if (variante == VARIANTE.GESCHRIEBEN) {

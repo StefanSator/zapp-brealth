@@ -79,13 +79,13 @@ public class FarbenEasyMode extends AppCompatActivity {
         return null;
     }
 
-    void changeColor(){
+    public void changeColor(){
         textColor = setColorText();
         setColor(text);
         text.setText(textColor);
     }
 
-    void checkOption (View view){
+    public void checkOption (View view){
         switch (view.getId()){
             case R.id.farben_buttonTrue_em:
                 if(textColor == mainColor) {
