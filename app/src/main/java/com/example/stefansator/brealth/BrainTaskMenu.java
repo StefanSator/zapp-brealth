@@ -31,4 +31,9 @@ public class BrainTaskMenu extends AppCompatActivity {
         Intent farbenMenuIntent = new Intent(BrainTaskMenu.this, FarbenTaskMenu.class);
         BrainTaskMenu.this.startActivity(farbenMenuIntent);
     }
+
+    public void gotoTaskLesen(View view) {
+        Intent lesenIntent = new Intent(BrainTaskMenu.this, LesenTask.class);
+        BrainTaskMenu.this.startActivity(lesenIntent);
+    }
 }
