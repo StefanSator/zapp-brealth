@@ -19,15 +19,31 @@ public class RechnenEnd extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rechnenendscreen);
 
+        dauerFeld = findViewById(R.id.zeit_rechnen);
+        falschFeld = findViewById(R.id.falschCounter_rechnenend);
+
         if (getIntent().hasExtra("dauer") == true && getIntent().hasExtra("falsch") == true) {
             bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
             falseCounter = getIntent().getExtras().getInt("falsch");
+            setDauerAndFalschFeld();
+        } else if (getIntent().hasExtra("dauer") == true && getIntent().hasExtra("falsch") == false) {
+            bearbeitungsDauer = getIntent().getExtras().getInt("dauer");
+            setOnlyDauerFeld();
+        } else {
+            System.out.println("Error in RechnenEnd");
+            RechnenEnd.this.finish();
         }
+    }
 
-        dauerFeld = findViewById(R.id.zeit_rechnen);
+    private void setDauerAndFalschFeld() {
         dauerFeld.setText("" + (bearbeitungsDauer/1000) + " s");
-        falschFeld = findViewById(R.id.falschCounter_rechnenend);
         falschFeld.setText("" + falseCounter);
+    }
+
+    private void setOnlyDauerFeld() {
+        dauerFeld.setText("" + (bearbeitungsDauer/1000) + " s");
+        TextView falschText = findViewById(R.id.falsch_rechnenend);
+        falschText.setText("");
     }
 
     public void endResultScreen(View view) {
