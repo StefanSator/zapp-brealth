@@ -28,7 +28,14 @@
     <string name="bemerkung_rechnenend">Dauer:</string>
     <string name="falsch_rechnenend">Falsch:</string>
     <string name="memorycard_unrevealedText">/@</string>
+
+    <string name="title_activity_zentrale">Nährstoffzentrale</string>
+    <string name="title_nahrung">Nahrungsmittel</string>
+    <string name="title_tagebuch">Tagebuch</string>
+    <string name="title_statistik">Statistik</string>
+
     <string name="lesen_end_button">Fertig</string>
     <string name="farben_easymode_button">Easy Mode</string>
     <string name="farben_hardmode_button">Hard Mode</string>
+
 </resources>

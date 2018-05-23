@@ -16,6 +16,40 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainMenu" />
+        <activity
+            android:name=".BrainMenu"
+            android:label="Gehirntraining" />
+        <activity android:name=".HealthMenu" />
+        <activity android:name=".BrealthMenu" />
+        <activity
+            android:name=".BrainTaskMenu"
+            android:label="Übungen" />
+        <activity
+            android:name=".BrainDailyMenu"
+            android:label="Tägliche Aufgabe" />
+        <activity
+            android:name=".RechnenTaskMenu"
+            android:label="Rechnen" />
+        <activity
+            android:name=".RechnenTask"
+            android:label="Rechnen20" />
+        <activity
+            android:name=".RechnenEnd"
+            android:label="Ergebnis" />
+        <activity
+            android:name=".MemoryTask"
+            android:label="Memory" />
+        <activity
+            android:name=".Zentrale"
+            android:label="@string/title_activity_zentrale"
+            android:parentActivityName=".HealthMenu">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.stefansator.brealth.HealthMenu" />
+        </activity>
+      
         <activity android:name=".MainMenu"></activity>
         <activity android:name=".BrainMenu" android:label="Gehirntraining"></activity>
         <activity android:name=".HealthMenu"></activity>
