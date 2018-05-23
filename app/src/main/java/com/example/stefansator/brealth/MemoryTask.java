@@ -16,7 +16,6 @@ import java.util.Random;
 public class MemoryTask extends AppCompatActivity {
     private String cardPos[];
     private String cardNames[] = {"A", "A", "B", "B", "C", "C", "D", "D", "E", "E", "F", "F"};
-    private int countCards;
     private TextView memoryCard[];
     private long startZeit, endZeit;
     private int falseCounter = 0, rightCounter = 0;
@@ -29,9 +28,8 @@ public class MemoryTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory);
 
-        countCards = 12;
-        cardPos = new String[countCards];
-        memoryCard = new TextView[countCards];
+        cardPos = new String[12];
+        memoryCard = new TextView[12];
 
         /* Initialize memoryCard Array */
         memoryCard[0] = findViewById(R.id.memory_card1);
@@ -48,7 +46,7 @@ public class MemoryTask extends AppCompatActivity {
         memoryCard[11] = findViewById(R.id.memory_card12);
 
         /* Initialize Position of the memory cards */
-        for (int i = 0 ; i < countCards ; i++) {
+        for (int i = 0 ; i < memoryCard.length ; i++) {
             int randomNumber = randomNumberGenerator(0, 11);
             while (cardNames[randomNumber].equals("empty")) {
                 randomNumber = randomNumberGenerator(0, 11);
@@ -70,9 +68,9 @@ public class MemoryTask extends AppCompatActivity {
     }
 
     public void revealMemoryCard(View view) throws InterruptedException {
-        for (int i = 0 ; i < countCards ; i++) {
+        for (int i = 0 ; i < memoryCard.length ; i++) {
             if (memoryCard[i] == view) {
-                memoryCard[i].setText(cardPos[i]);
+                ((TextView) view).setText(cardPos[i]);
                 if (firstDraw == -1) firstDraw = i;
                 else secondDraw = i;
             }
