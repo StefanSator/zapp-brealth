@@ -27,6 +27,11 @@
         <activity android:name=".RechnenEnd" android:label="Ergebnis"></activity>
         <activity android:name=".MemoryTask" android:label="Memory"></activity>
         <activity android:name=".LesenTask" android:label="Laut Lesen"></activity>
+        <activity android:name=".FarbenTaskMenu" android:label="Farben"></activity>
+        <activity android:name=".FarbenEasyMode" android:label="Farben Easy Mode"></activity>
+        <activity android:name=".FarbenHardMode" android:label="Farben Hard Mode"></activity>
+        <activity android:name=".FarbenEndscreen" android:label="Ergebnis"></activity>
+
     </application>
 
 </manifest>
