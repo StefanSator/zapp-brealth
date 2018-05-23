@@ -27,7 +27,7 @@ public class RechnenEnd extends AppCompatActivity {
             falseCounter = getIntent().getExtras().getInt("falsch");
             setDauerAndFalschFeld();
         } else if (getIntent().hasExtra("dauer") == true && getIntent().hasExtra("falsch") == false) {
-            bearbeitungsDauer = getIntent().getExtras().getInt("dauer");
+            bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
             setOnlyDauerFeld();
         } else {
             System.out.println("Error in RechnenEnd");
