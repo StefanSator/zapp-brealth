@@ -4,9 +4,11 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -142,10 +144,9 @@ public class MemoryTask extends AppCompatActivity {
 
     private void createInformationDialog(final View view1, final View view2) {
         dlgBuilder = new AlertDialog.Builder(MemoryTask.this);
-        dlgBuilder.setTitle("Leider Falsch!");
-        dlgBuilder.setMessage("Versuch: Nr " + falseCounter);
+        dlgBuilder.setMessage("Leider Falsch!\n\nVersuch: Nr " + falseCounter);
         dlgBuilder.setCancelable(false);
-        dlgBuilder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+        dlgBuilder.setPositiveButton("Neuer Versuch", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 unrevealMemoryCards(view1, view2);
@@ -155,6 +156,11 @@ public class MemoryTask extends AppCompatActivity {
         alert = dlgBuilder.create();
         alert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         alert.show();
+
+        TextView messageView = (TextView)alert.findViewById(android.R.id.message);
+        messageView.setGravity(Gravity.CENTER);
+        messageView.setTextSize(32.0f);
+        messageView.setTypeface(null, Typeface.BOLD);
     }
 
 }
