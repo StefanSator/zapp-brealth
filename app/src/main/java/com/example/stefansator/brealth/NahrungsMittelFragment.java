@@ -20,11 +20,11 @@ public class NahrungsMittelFragment extends Fragment {
 
     public static List<NahrungItem> getData() {
         List<NahrungItem> data = new ArrayList<>();
-        int[] icons = {R.drawable.broccoli, R.drawable.ic_home_black_24dp};
+//        int[] icons = {R.drawable.broccoli, R.drawable.ic_home_black_24dp};
         String[] titles = {"Brokkoli", "Spargel"};
-        for(int i = 0; i < titles.length && i < icons.length; i++) {
+        for(int i = 0; i < titles.length; i++) {
             NahrungItem current = new NahrungItem();
-            current.iconId = icons[i];
+//            current.iconId = icons[i];
             current.title = titles[i];
             data.add(current);
         }
