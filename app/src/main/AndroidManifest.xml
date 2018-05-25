@@ -55,6 +55,7 @@
         <activity android:name=".FarbenEasyMode" android:label="Farben Easy Mode"></activity>
         <activity android:name=".FarbenHardMode" android:label="Farben Hard Mode"></activity>
         <activity android:name=".FarbenEndscreen" android:label="Ergebnis"></activity>
+        <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
 
     </application>
 
