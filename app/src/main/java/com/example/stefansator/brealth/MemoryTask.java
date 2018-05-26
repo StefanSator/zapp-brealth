@@ -68,8 +68,6 @@ public class MemoryTask extends AppCompatActivity {
         }
 
         startZeit = System.currentTimeMillis();
-
-        /* ASync Task for setText() */
     }
 
     private int randomNumberGenerator(int min, int max) {

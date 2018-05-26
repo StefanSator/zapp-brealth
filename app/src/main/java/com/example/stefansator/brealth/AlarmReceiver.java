@@ -28,8 +28,16 @@ public class AlarmReceiver extends BroadcastReceiver {
 
         NotificationCompat.Builder mNotifyBuilder = new NotificationCompat.Builder(context);
         mNotifyBuilder.setSmallIcon(R.drawable.ic_launcher_foreground);
-        mNotifyBuilder.setContentTitle("Brealth");
-        mNotifyBuilder.setContentText("Dies ist eine automatische Benachrichtigung");
+        if (intent.hasExtra("title") == true) {
+            mNotifyBuilder.setContentTitle(intent.getExtras().getString("title"));
+        } else {
+            mNotifyBuilder.setContentTitle("Default");
+        }
+        if (intent.hasExtra("text") == true) {
+            mNotifyBuilder.setContentText(intent.getExtras().getString("text"));
+        } else {
+            mNotifyBuilder.setContentText("Default Text");
+        }
         mNotifyBuilder.setAutoCancel(true).setWhen(when);
         mNotifyBuilder.setContentIntent(pendingIntent);
         mNotifyBuilder.setVibrate(new long[]{1000, 1000, 1000, 1000});
