@@ -36,7 +36,7 @@
             android:name=".RechnenTask"
             android:label="Rechnen" />
         <activity
-            android:name=".RechnenEnd"
+            android:name=".TaskEndscreen"
             android:label="Ergebnis" />
         <activity
             android:name=".MemoryTask"

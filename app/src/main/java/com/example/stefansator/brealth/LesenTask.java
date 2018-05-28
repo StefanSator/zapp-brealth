@@ -53,11 +53,9 @@ public class LesenTask extends AppCompatActivity {
     public void endBookReading(View view) {
         endZeit = System.currentTimeMillis();
         long bearbeitungsdauer = endZeit - startZeit;
-        /* Toast dauerToast = Toast.makeText(getApplicationContext(), "Dauer: " + bearbeitungsDauer, Toast.LENGTH_SHORT);
-         * dauerToast.show();
-         */
-        Intent finishscreenIntent = new Intent(LesenTask.this, RechnenEnd.class);
-        finishscreenIntent.putExtra("dauer", bearbeitungsdauer); // Hier wird die bearbeitungsdauer nicht richtig übergeben
+
+        Intent finishscreenIntent = new Intent(LesenTask.this, TaskEndscreen.class);
+        finishscreenIntent.putExtra("dauer", bearbeitungsdauer);
         LesenTask.this.startActivity(finishscreenIntent);
         LesenTask.this.finish();
     }

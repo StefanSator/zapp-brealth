@@ -12,7 +12,7 @@ import com.airbnb.lottie.LottieAnimationView;
  * Revised by stefansator on 28.05.18
  */
 
-public class RechnenEnd extends AppCompatActivity {
+public class TaskEndscreen extends AppCompatActivity {
     private TextView dauerFeld;
     private TextView falschFeld;
     private long bearbeitungsDauer;
@@ -50,7 +50,7 @@ public class RechnenEnd extends AppCompatActivity {
             setOnlyDauerFeld();
         } else {
             System.out.println("Error in RechnenEnd");
-            RechnenEnd.this.finish();
+            TaskEndscreen.this.finish();
         }
 
         /* Show right Star Rating */
@@ -98,6 +98,6 @@ public class RechnenEnd extends AppCompatActivity {
     }
 
     public void endResultScreen(View view) {
-        RechnenEnd.this.finish();
+        TaskEndscreen.this.finish();
     }
 }

@@ -65,7 +65,7 @@ public class RechnenTask extends AppCompatActivity {
     private void endGame() {
         endzeit = System.currentTimeMillis();
         long bearbeitungsDauer = endzeit - startzeit;
-        Intent finishscreenIntent = new Intent(RechnenTask.this, RechnenEnd.class);
+        Intent finishscreenIntent = new Intent(RechnenTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
         finishscreenIntent.putExtra("falsch", falseCounter);
         RechnenTask.this.startActivity(finishscreenIntent);

@@ -113,7 +113,7 @@ public class MemoryTask extends AppCompatActivity {
     private void endGame() {
         endZeit = System.currentTimeMillis();
         long bearbeitungsDauer = endZeit - startZeit;
-        Intent finishscreenIntent = new Intent(MemoryTask.this, RechnenEnd.class);
+        Intent finishscreenIntent = new Intent(MemoryTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
         finishscreenIntent.putExtra("falsch", falseCounter);
         MemoryTask.this.startActivity(finishscreenIntent);
