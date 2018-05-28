@@ -53,10 +53,30 @@ public class LesenTask extends AppCompatActivity {
     public void endBookReading(View view) {
         endZeit = System.currentTimeMillis();
         long bearbeitungsdauer = endZeit - startZeit;
+        int bewertung = RateThePlayer(bearbeitungsdauer);
 
         Intent finishscreenIntent = new Intent(LesenTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsdauer);
+        finishscreenIntent.putExtra("rating", bewertung);
         LesenTask.this.startActivity(finishscreenIntent);
         LesenTask.this.finish();
+    }
+
+    /* Rates your Skill in this particular Task */
+    private int RateThePlayer(long duration) {
+        long durationInSeconds = duration / 1000;
+        if (durationInSeconds < 60) {
+            return 5;
+        } else if (durationInSeconds >= 60 && durationInSeconds < 120) {
+            return 4;
+        } else if (durationInSeconds >= 120 && durationInSeconds < 240) {
+            return 3;
+        } else if (durationInSeconds >= 240 && durationInSeconds < 360) {
+            return 2;
+        } else if (durationInSeconds >= 360 && durationInSeconds < 480) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

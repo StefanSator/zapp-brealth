@@ -3,9 +3,8 @@ package com.example.stefansator.brealth;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.RatingBar;
 import android.widget.TextView;
-
-import com.airbnb.lottie.LottieAnimationView;
 
 /**
  * Created by stefansator on 07.05.18.
@@ -15,31 +14,18 @@ import com.airbnb.lottie.LottieAnimationView;
 public class TaskEndscreen extends AppCompatActivity {
     private TextView dauerFeld;
     private TextView falschFeld;
+    private RatingBar rating;
     private long bearbeitungsDauer;
     private int falseCounter;
     private int bewertung;
-    private LottieAnimationView stars[]; // Stars for Rating the Game
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rechnenendscreen);
 
-        /* Initialize stars Array with LottieViews */
-        stars = new LottieAnimationView[6];
-        stars[0] = findViewById(R.id.zero_stars_rating);
-        stars[1] = findViewById(R.id.one_stars_rating);
-        stars[2] = findViewById(R.id.two_stars_rating);
-        stars[3] = findViewById(R.id.three_stars_rating);
-        stars[4] = findViewById(R.id.four_stars_rating);
-        stars[5] = findViewById(R.id.five_stars_rating);
-
-        /* Hide at beginning all Star Rating LottieViews */
-        for (int i = 0 ; i < stars.length ; i++) {
-            stars[0].setVisibility(View.INVISIBLE);
-        }
-
         dauerFeld = findViewById(R.id.zeit_rechnen);
         falschFeld = findViewById(R.id.falschCounter_rechnenend);
+        rating = findViewById(R.id.setRating);
 
         if (getIntent().hasExtra("dauer") == true && getIntent().hasExtra("falsch") == true) {
             bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
@@ -72,7 +58,7 @@ public class TaskEndscreen extends AppCompatActivity {
         if (getIntent().hasExtra("rating") == true) {
             setNumberOfStars();
         } else {
-            stars[0].setVisibility(View.VISIBLE);
+            rating.setRating(0.0f);
         }
     }
 
@@ -81,19 +67,26 @@ public class TaskEndscreen extends AppCompatActivity {
 
         switch (bewertung) {
             case 0:
-                stars[0].setVisibility(View.VISIBLE);
+                rating.setRating(0.0f);
+                break;
             case 1:
-                stars[1].setVisibility(View.VISIBLE);
+                rating.setRating(1.0f);
+                break;
             case 2:
-                stars[2].setVisibility(View.VISIBLE);
+                rating.setRating(2.0f);
+                break;
             case 3:
-                stars[3].setVisibility(View.VISIBLE);
+                rating.setRating(3.0f);
+                break;
             case 4:
-                stars[4].setVisibility(View.VISIBLE);
+                rating.setRating(4.0f);
+                break;
             case 5:
-                stars[5].setVisibility(View.VISIBLE);
+                rating.setRating(5.0f);
+                break;
             default:
-                stars[0].setVisibility(View.VISIBLE);
+                rating.setRating(0.0f);
+                break;
         }
     }
 
