@@ -34,7 +34,7 @@
             android:label="Rechnen" />
         <activity
             android:name=".RechnenTask"
-            android:label="Rechnen20" />
+            android:label="Rechnen" />
         <activity
             android:name=".RechnenEnd"
             android:label="Ergebnis" />
@@ -55,6 +55,7 @@
         <activity android:name=".FarbenEasyMode" android:label="Farben Easy Mode"></activity>
         <activity android:name=".FarbenHardMode" android:label="Farben Hard Mode"></activity>
         <activity android:name=".FarbenEndscreen" android:label="Ergebnis"></activity>
+        <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
 
     </application>
 

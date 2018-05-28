@@ -1,11 +1,19 @@
 package com.example.stefansator.brealth;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import java.util.Random;
 
@@ -16,10 +24,11 @@ import java.util.Random;
 public class MemoryTask extends AppCompatActivity {
     private String cardPos[];
     private String cardNames[] = {"A", "A", "B", "B", "C", "C", "D", "D", "E", "E", "F", "F"};
-    private int countCards;
     private TextView memoryCard[];
     private long startZeit, endZeit;
     private int falseCounter = 0, rightCounter = 0;
+    private AlertDialog alert;
+    private AlertDialog.Builder dlgBuilder;
     /* variables which will later include index of drawn cards */
     private int firstDraw = -1;
     private int secondDraw = -1;
@@ -29,9 +38,8 @@ public class MemoryTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory);
 
-        countCards = 12;
-        cardPos = new String[countCards];
-        memoryCard = new TextView[countCards];
+        cardPos = new String[12];
+        memoryCard = new TextView[12];
 
         /* Initialize memoryCard Array */
         memoryCard[0] = findViewById(R.id.memory_card1);
@@ -48,7 +56,7 @@ public class MemoryTask extends AppCompatActivity {
         memoryCard[11] = findViewById(R.id.memory_card12);
 
         /* Initialize Position of the memory cards */
-        for (int i = 0 ; i < countCards ; i++) {
+        for (int i = 0 ; i < memoryCard.length ; i++) {
             int randomNumber = randomNumberGenerator(0, 11);
             while (cardNames[randomNumber].equals("empty")) {
                 randomNumber = randomNumberGenerator(0, 11);
@@ -60,8 +68,6 @@ public class MemoryTask extends AppCompatActivity {
         }
 
         startZeit = System.currentTimeMillis();
-
-        /* ASync Task for setText() */
     }
 
     private int randomNumberGenerator(int min, int max) {
@@ -70,9 +76,9 @@ public class MemoryTask extends AppCompatActivity {
     }
 
     public void revealMemoryCard(View view) throws InterruptedException {
-        for (int i = 0 ; i < countCards ; i++) {
+        for (int i = 0 ; i < memoryCard.length ; i++) {
             if (memoryCard[i] == view) {
-                memoryCard[i].setText(cardPos[i]);
+                ((TextView) view).setText(cardPos[i]);
                 if (firstDraw == -1) firstDraw = i;
                 else secondDraw = i;
             }
@@ -92,10 +98,10 @@ public class MemoryTask extends AppCompatActivity {
             Toast rightToast = Toast.makeText(getApplicationContext(), "Right", Toast.LENGTH_SHORT);
             rightToast.show();
         } else {
-            unrevealMemoryCards(firstDraw, secondDraw);
             falseCounter++;
             Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);
             falseToast.show();
+            createInformationDialog(memoryCard[firstDraw], memoryCard[secondDraw]);
         }
 
         if (rightCounter == 6) {
@@ -129,9 +135,30 @@ public class MemoryTask extends AppCompatActivity {
         memoryCard[second].setClickable(false);
     }
 
-    private void unrevealMemoryCards(int first, int second) {
-        memoryCard[first].setText("/@");
-        memoryCard[second].setText("/@");
+    public void unrevealMemoryCards(View view1, View view2) {
+        ((TextView) view1).setText("/@");
+        ((TextView) view2).setText("/@");
+    }
+
+    private void createInformationDialog(final View view1, final View view2) {
+        dlgBuilder = new AlertDialog.Builder(MemoryTask.this);
+        dlgBuilder.setMessage("Leider Falsch!\n\nVersuch: Nr " + falseCounter);
+        dlgBuilder.setCancelable(false);
+        dlgBuilder.setPositiveButton("Neuer Versuch", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                unrevealMemoryCards(view1, view2);
+            }
+        });
+
+        alert = dlgBuilder.create();
+        alert.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        alert.show();
+
+        TextView messageView = (TextView)alert.findViewById(android.R.id.message);
+        messageView.setGravity(Gravity.CENTER);
+        messageView.setTextSize(32.0f);
+        messageView.setTypeface(null, Typeface.BOLD);
     }
 
 }

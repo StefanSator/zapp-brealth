@@ -37,5 +37,8 @@
     <string name="lesen_end_button">Fertig</string>
     <string name="farben_easymode_button">Easy Mode</string>
     <string name="farben_hardmode_button">Hard Mode</string>
+    <string name="lesentask_rules">Lesen Sie den Text laut und ordentlich durch. Diese Übungen soll Ihnen helfen, ihre Lesegeschwindigkeit zu verbessern.</string>
+    <string name="memorytask_rules">In dieser Übung haben Sie die Möglichkeit Ihre Gedächtnis durch ein einfaches Memory Spiel zu trainieren.</string>
+    <string name="startButtonDailyTask">Start Task</string>
 
 </resources>
