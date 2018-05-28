@@ -5,10 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
     tools:context="com.example.stefansator.brealth.MainActivity">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/brainImg"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -18,20 +20,33 @@
         app:srcCompat="@drawable/brain" />
 
     <TextView
-        android:id="@+id/textView"
-        android:backgroundTint="@color/white"
+        android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:gravity="bottom"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:text="Click to Start"
         android:onClick="gotoMainMenu"
-        android:text="Press to Start"
+        android:gravity="bottom"
         android:textAlignment="center"
-        android:textSize="26sp"
-        android:paddingBottom="30dp"
+        android:paddingBottom="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imageView3"
-        app:layout_constraintStart_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:paddingTop="8dp"
+        android:textColor="#000000"
+        android:text="BREALTH"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
