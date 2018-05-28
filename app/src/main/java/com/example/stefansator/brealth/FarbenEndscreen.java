@@ -5,11 +5,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.FileOutputStream;
+
 public class FarbenEndscreen extends AppCompatActivity {
     private TextView anmerkungsFeld;
     private TextView falschFeld;
     private long bearbeitungsDauer;
     private int falseCounter;
+    private String farben_Result_File;
+    private FileOutputStream outputStream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +24,7 @@ public class FarbenEndscreen extends AppCompatActivity {
             bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
             falseCounter = getIntent().getExtras().getInt("falsch");
         }
+
         String extraString ="";
         if (falseCounter == 0 || falseCounter > 1)
             extraString ="n";
@@ -32,4 +37,5 @@ public class FarbenEndscreen extends AppCompatActivity {
     public void endResultScreen(View view) {
         FarbenEndscreen.this.finish();
     }
+
 }

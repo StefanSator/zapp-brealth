@@ -14,7 +14,7 @@ import java.util.Random;
 public class FarbenEasyMode extends AppCompatActivity {
     private TextView text, explanation;
     private Button fButton,rButton;
-    private int counter, falseCounter = 0;
+    private int LIMIT = 10,counter, falseCounter = 0;
     private long startzeit, endzeit;
     private String mainColor, textColor;
 
@@ -107,7 +107,7 @@ public class FarbenEasyMode extends AppCompatActivity {
                 break;
         }
 
-        if(counter == 10)
+        if(counter > LIMIT)
             gotoEndscreen();
         else
             changeColor();
