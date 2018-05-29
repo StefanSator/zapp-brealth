@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:textColor="@color/white"
+        android:textColor="@color/yellow"
         android:text="@string/rechnenend_ergebnis"
         android:textSize="42sp"
         android:textStyle="bold" />
@@ -26,7 +26,7 @@
         android:paddingTop="50dp"
         android:paddingStart="50dp"
         android:textSize="30sp"
-        android:textColor="@color/white"
+        android:textColor="@color/yellow"
         android:text="@string/bemerkung_rechnenend"/>
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_below="@+id/ergebnis_rechnenend"
         android:paddingTop="50dp"
         android:paddingEnd="50dp"
-        android:textColor="@color/white"
+        android:textColor="@color/yellow"
         android:textSize="30sp" />
 
 
@@ -48,7 +48,7 @@
         android:layout_below="@+id/bemerkung_rechnenend"
         android:padding="50dp"
         android:textSize="30sp"
-        android:textColor="@color/white"
+        android:textColor="@color/yellow"
         android:text="@string/falsch_rechnenend"/>
 
     <TextView
@@ -59,7 +59,7 @@
         android:layout_alignBottom="@+id/falsch_rechnenend"
         android:layout_toEndOf="@+id/back_button_rechnenend"
         android:padding="50dp"
-        android:textColor="@color/white"
+        android:textColor="@color/yellow"
         android:textSize="30sp" />
 
     <RatingBar
