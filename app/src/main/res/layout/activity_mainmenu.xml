@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF5E0">
+    android:background="#FFFFFF">
 
     <Button
         android:id="@+id/brain_button"
@@ -15,8 +15,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="88dp"
         android:background="@drawable/circle_button"
-        android:backgroundTint="@color/colorButton1"
-        android:fontFamily="casual"
+        android:backgroundTint="@color/red"
         android:onClick="gotoBrainMenu"
         android:text="@string/brain_mainmenu"
         android:textColor="@color/white"
@@ -36,9 +35,8 @@
         android:background="@drawable/circle_button"
         android:onClick="gotoHealthMenu"
         android:text="@string/health_mainmenu"
-        android:backgroundTint="@color/colorButton2"
+        android:backgroundTint="@color/bluegreen"
         android:textColor="@color/white"
-        android:fontFamily="casual"
         android:textSize="26sp"
         android:padding="0dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,9 +53,8 @@
         android:background="@drawable/circle_button"
         android:onClick="gotoBrealthMenu"
         android:text="@string/brealth_mainmenu"
-        android:backgroundTint="@color/colorButton4"
+        android:backgroundTint="@color/blue"
         android:textColor="@color/white"
-        android:fontFamily="casual"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

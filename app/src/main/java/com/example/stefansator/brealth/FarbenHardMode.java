@@ -14,7 +14,7 @@ import java.util.Random;
 public class FarbenHardMode extends AppCompatActivity {
     private TextView firsttext, sectext, thirdtext, explanation, startText;
     private Button falseButton;
-    private int start, counter = 0, falseCounter = 0;
+    private int LIMIT = 10, counter = 0, falseCounter = 0;
     private long startzeit, endzeit;
     private String mainColor, ftextColor, stextColor, ttextColor;
     private VARIANTE variante;
@@ -198,7 +198,7 @@ public class FarbenHardMode extends AppCompatActivity {
                 break;
         }
 
-        if(counter == 10)
+        if(counter > LIMIT)
             gotoEndscreen();
         else
             changeColor();
