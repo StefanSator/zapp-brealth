@@ -113,9 +113,12 @@ public class MemoryTask extends AppCompatActivity {
     private void endGame() {
         endZeit = System.currentTimeMillis();
         long bearbeitungsDauer = endZeit - startZeit;
-        Intent finishscreenIntent = new Intent(MemoryTask.this, RechnenEnd.class);
+        int bewertung = RateThePlayer(bearbeitungsDauer, falseCounter);
+
+        Intent finishscreenIntent = new Intent(MemoryTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
         finishscreenIntent.putExtra("falsch", falseCounter);
+        finishscreenIntent.putExtra("rating", bewertung);
         MemoryTask.this.startActivity(finishscreenIntent);
         MemoryTask.this.finish();
     }
@@ -138,6 +141,13 @@ public class MemoryTask extends AppCompatActivity {
     public void unrevealMemoryCards(View view1, View view2) {
         ((TextView) view1).setText("/@");
         ((TextView) view2).setText("/@");
+    }
+
+    /* Rates your Skill in this particular Task */
+    private int RateThePlayer(long duration, int attempts) {
+        long durationInSeconds = duration / 1000;
+        GameRater gameRater = new MemoryRater(durationInSeconds, attempts);
+        return gameRater.getRating();
     }
 
     private void createInformationDialog(final View view1, final View view2) {

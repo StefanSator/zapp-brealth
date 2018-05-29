@@ -4,7 +4,8 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lightblack">
 
     <TextView
         android:id="@+id/rechenaufgabe"
@@ -12,11 +13,13 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="125dp"
-        android:textSize="56sp" />
+        android:textSize="56sp"
+        android:textColor="@color/yellow" />
 
     <EditText
         android:id="@+id/rechenaufgabe_answer"
         android:textSize="56sp"
+        android:textColor="@color/yellow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -30,6 +33,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/rechenaufgabe_answer"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp"
         android:onClick="showIfRight"
         android:text="@string/submitRechnen_button"/>
 

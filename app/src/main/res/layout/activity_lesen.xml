@@ -4,7 +4,8 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lightblack">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,7 +18,8 @@
             android:lineSpacingExtra="10sp"
             android:textAllCaps="false"
             android:textAppearance="@android:style/TextAppearance.Material.Display2"
-            android:textSize="36sp" />
+            android:textSize="36sp"
+            android:textColor="@color/yellow" />
     </ScrollView>
 
     <Button

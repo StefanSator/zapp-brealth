@@ -53,12 +53,18 @@ public class LesenTask extends AppCompatActivity {
     public void endBookReading(View view) {
         endZeit = System.currentTimeMillis();
         long bearbeitungsdauer = endZeit - startZeit;
-        /* Toast dauerToast = Toast.makeText(getApplicationContext(), "Dauer: " + bearbeitungsDauer, Toast.LENGTH_SHORT);
-         * dauerToast.show();
-         */
-        Intent finishscreenIntent = new Intent(LesenTask.this, RechnenEnd.class);
-        finishscreenIntent.putExtra("dauer", bearbeitungsdauer); // Hier wird die bearbeitungsdauer nicht richtig übergeben
+        int bewertung = RateThePlayer(bearbeitungsdauer);
+
+        Intent finishscreenIntent = new Intent(LesenTask.this, TaskEndscreen.class);
+        finishscreenIntent.putExtra("dauer", bearbeitungsdauer);
+        finishscreenIntent.putExtra("rating", bewertung);
         LesenTask.this.startActivity(finishscreenIntent);
         LesenTask.this.finish();
+    }
+
+    private int RateThePlayer(long duration) {
+        long durationInSeconds = duration / 1000;
+        GameRater gameRater = new LeseRater(durationInSeconds);
+        return gameRater.getRating();
     }
 }
