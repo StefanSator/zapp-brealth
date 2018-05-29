@@ -65,10 +65,19 @@ public class RechnenTask extends AppCompatActivity {
     private void endGame() {
         endzeit = System.currentTimeMillis();
         long bearbeitungsDauer = endzeit - startzeit;
+        int bewertung = RateTheGame(bearbeitungsDauer, falseCounter, LIMIT);
+
         Intent finishscreenIntent = new Intent(RechnenTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
         finishscreenIntent.putExtra("falsch", falseCounter);
+        finishscreenIntent.putExtra("rating", bewertung);
         RechnenTask.this.startActivity(finishscreenIntent);
         RechnenTask.this.finish();
+    }
+
+    private int RateTheGame(long duration, int attempts, int limit) {
+        long durationInSeconds = duration / 1000;
+        GameRater gameRater = new RechnenRater(durationInSeconds, attempts, limit);
+        return gameRater.getRating();
     }
 }

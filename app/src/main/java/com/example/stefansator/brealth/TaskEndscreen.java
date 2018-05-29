@@ -21,7 +21,7 @@ public class TaskEndscreen extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rechnenendscreen);
+        setContentView(R.layout.activity_taskendscreen);
 
         dauerFeld = findViewById(R.id.zeit_rechnen);
         falschFeld = findViewById(R.id.falschCounter_rechnenend);
