@@ -36,6 +36,11 @@ public class BrainTaskMenu extends AppCompatActivity {
         BrainTaskMenu.this.startActivity(farbenMenuIntent);
     }
 
+    public void gotoTaskLogik (View view) {
+        Intent logikIntent = new Intent(BrainTaskMenu.this,Logik.class);
+        BrainTaskMenu.this.startActivity(logikIntent);
+    }
+
     public void gotoTaskLesen(View view) {
         createInformationDialog(view);
     }

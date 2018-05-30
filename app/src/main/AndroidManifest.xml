@@ -57,6 +57,7 @@
         <activity android:name=".FarbenEndscreen" android:label="Ergebnis"></activity>
         <activity android:name=".BrealthUebungen" android:label="Uebungen"></activity>
         <activity android:name=".BrealthTest" android:label="Test"></activity>
+        <activity android:name=".Logik" android:label="Logik"></activity>
         <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
 
     </application>
