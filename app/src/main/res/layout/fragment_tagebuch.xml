@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
+        android:maxLines="2000"
+        android:scrollbars="vertical"
+        android:id="@+id/text_tagebuch"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tagebuch"
         android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"/>
+
+    <Button
+        android:id="@+id/getServerDataButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Server Data"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="47dp" />
 </android.support.constraint.ConstraintLayout>
