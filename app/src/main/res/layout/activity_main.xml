@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
+    android:background="@color/lightblack"
     tools:context="com.example.stefansator.brealth.MainActivity">
 
     <ImageView
@@ -23,7 +23,7 @@
         android:id="@+id/textView3"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:textSize="30sp"
         android:text="Click to Start"
         android:onClick="gotoMainMenu"
@@ -43,7 +43,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:paddingTop="8dp"
-        android:textColor="#000000"
+        android:textColor="@color/white"
         android:text="BREALTH"
         android:textSize="40sp"
         app:layout_constraintEnd_toEndOf="parent"

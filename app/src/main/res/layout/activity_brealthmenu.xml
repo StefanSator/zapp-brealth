@@ -7,13 +7,35 @@
     <Button
         android:id="@+id/brealth_test_button"
         android:text="@string/brealth_test_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="50"
+        android:backgroundTint="@color/neonred"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:textSize="36sp"
+        android:onClick="gotoTest" />
 
     <Button
         android:id="@+id/brealth_tasks_button"
         android:text="@string/brealth_tasks_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="50"
+        android:backgroundTint="@color/lightblue"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:textSize="36sp"
+        android:onClick="gotoUebungen" />
 
 </LinearLayout>
