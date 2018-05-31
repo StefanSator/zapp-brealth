@@ -13,6 +13,7 @@ public class BrealthUebungen extends AppCompatActivity {
 
     public void gotoEffortCalculatingTask(View view) {
         Intent effortIntent = new Intent(BrealthUebungen.this, EffortCalculatingTask.class);
+        effortIntent.putExtra("limit", 20);
         BrealthUebungen.this.startActivity(effortIntent);
     }
 }

@@ -1,6 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+<!-- Created by StefanSator on 31.05.18-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightblack">
+
+    <TextView
+        android:id="@+id/effortaufgabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="125dp"
+        android:textSize="56sp"
+        android:textColor="@color/yellow" />
+
+    <EditText
+        android:id="@+id/effort_answer"
+        android:textSize="56sp"
+        android:textColor="@color/yellow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/effortaufgabe"
+        android:inputType="numberSigned" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/stopwatch_animation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/submitEffort_button"
+        android:layout_centerHorizontal="true"
+        app:lottie_fileName="stopwatch.json"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true" />
+
+    <Button
+        android:id="@+id/submitEffort_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/effort_answer"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp"
+        android:onClick="gotoNextTask"
+        android:text="@string/submitRechnen_button"/>
+
+    <Button
+        android:id="@+id/readyEffort_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/effort_answer"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp"
+        android:onClick="endSportsTask"
+        android:text="@string/submitRechnen_button"/>
+
+    <TextView
+        android:id="@+id/sportaufgabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/submitEffort_button"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/yellow"
+        android:textSize="26sp"
+        android:text="Machen Sie 10 Liegestützen"/>
+
+</RelativeLayout>
