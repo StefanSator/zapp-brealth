@@ -64,7 +64,7 @@
         android:paddingRight="25dp"
         android:paddingLeft="25dp"
         android:onClick="endSportsTask"
-        android:text="@string/submitRechnen_button"/>
+        android:text="@string/readyEffort_button"/>
 
     <TextView
         android:id="@+id/sportaufgabe"
@@ -74,7 +74,6 @@
         android:layout_below="@+id/submitEffort_button"
         android:layout_marginTop="50dp"
         android:textColor="@color/yellow"
-        android:textSize="26sp"
-        android:text="Machen Sie 10 Liegestützen"/>
+        android:textSize="26sp" />
 
 </RelativeLayout>

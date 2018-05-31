@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ public class EffortCalculatingTask extends AppCompatActivity {
     private EditText ergebnisfeld;
     private LottieAnimationView stopwatch;
     private TextView sporttask;
+    private Button submitButton, readyButton;
     private int LIMIT;
     private int aufgabeNr = 0;
     private Rechenaufgabe rechenaufgaben[];
@@ -40,16 +42,19 @@ public class EffortCalculatingTask extends AppCompatActivity {
             rechenaufgaben[i] = new Rechenaufgabe();
         }
 
-        /* Hide stopwatch and sporttask at beginning of game */
+        /* Hide Sport Task at beginning of game */
         stopwatch = findViewById(R.id.stopwatch_animation);
         stopwatch.setVisibility(View.INVISIBLE);
         sporttask = findViewById(R.id.sportaufgabe);
         sporttask.setVisibility(View.INVISIBLE);
-        findViewById(R.id.readyEffort_button).setVisibility(View.INVISIBLE);
+        readyButton = findViewById(R.id.readyEffort_button);
+        readyButton.setVisibility(View.INVISIBLE);
 
         aufgabe = findViewById(R.id.effortaufgabe);
         aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
         ergebnisfeld = findViewById(R.id.effort_answer);
+        submitButton = findViewById(R.id.submitEffort_button);
+
         startzeit = System.currentTimeMillis();
     }
 
@@ -81,22 +86,29 @@ public class EffortCalculatingTask extends AppCompatActivity {
     }
 
     public void endSportsTask(View view) {
+        Toast goodToast = Toast.makeText(getApplicationContext(), "Gut gemacht!", Toast.LENGTH_SHORT);
+        goodToast.show();
         switchToRechnenTask();
     }
 
     private void switchToSportsTask() {
+        /* Hide Calculating Task */
         ergebnisfeld.setVisibility(View.INVISIBLE);
         aufgabe.setVisibility(View.INVISIBLE);
-        findViewById(R.id.submitEffort_button).setVisibility(View.INVISIBLE);
+        submitButton.setVisibility(View.INVISIBLE);
+        /* Show Sport Task */
         stopwatch.setVisibility(View.VISIBLE);
         sporttask.setVisibility(View.VISIBLE);
-        findViewById(R.id.readyEffort_button).setVisibility(View.VISIBLE);
+        sporttask.setText(new Leistungsaufgabe(10).toString());
+        readyButton.setVisibility(View.VISIBLE);
     }
 
     private void switchToRechnenTask() {
+        /* Hide Sport Task */
         ergebnisfeld.setVisibility(View.VISIBLE);
         aufgabe.setVisibility(View.VISIBLE);
         findViewById(R.id.submitEffort_button).setVisibility(View.VISIBLE);
+        /* Show Calculating Task */
         stopwatch.setVisibility(View.INVISIBLE);
         sporttask.setVisibility(View.INVISIBLE);
         findViewById(R.id.readyEffort_button).setVisibility(View.INVISIBLE);
@@ -117,7 +129,7 @@ public class EffortCalculatingTask extends AppCompatActivity {
 
     private int RateTheGame(long duration, int attempts, int limit) {
         long durationInSeconds = duration / 1000;
-        GameRater gameRater = new RechnenRater(durationInSeconds, attempts, limit);
+        GameRater gameRater = new EffortCalculatingRater(durationInSeconds, attempts, limit);
         return gameRater.getRating();
     }
 }
