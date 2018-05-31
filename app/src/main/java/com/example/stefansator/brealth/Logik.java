@@ -20,13 +20,18 @@ public class Logik extends AppCompatActivity{
         secondSymbol = findViewById(R.id.logik_symbol2);
         thirdSymbol = findViewById(R.id.logik_symbol3);
         firstRowResult = findViewById(R.id.logik_firstRowResult);
+        setInitialRows();
+    }
+
+    public void setInitialRows() {
+        setRow();
     }
 
     public void setRows(View view) {
-        setFirstRow(view);
+        setRow();
     }
 
-    public void setFirstRow(View view) {
+    public void setRow() {
         int zahl;
         String firstResult;
         Random r = new Random();
@@ -54,9 +59,5 @@ public class Logik extends AppCompatActivity{
 
         firstResult = Integer.toString(zahl);
         firstRowResult.setText("= "+firstResult);
-
-        firstSymbol.setVisibility(View.VISIBLE);
-        secondSymbol.setVisibility(View.VISIBLE);
-        thirdSymbol.setVisibility(View.VISIBLE);
     }
 }
