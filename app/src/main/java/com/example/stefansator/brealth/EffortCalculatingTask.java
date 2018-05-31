@@ -107,17 +107,17 @@ public class EffortCalculatingTask extends AppCompatActivity {
         /* Hide Sport Task */
         ergebnisfeld.setVisibility(View.VISIBLE);
         aufgabe.setVisibility(View.VISIBLE);
-        findViewById(R.id.submitEffort_button).setVisibility(View.VISIBLE);
+        submitButton.setVisibility(View.VISIBLE);
         /* Show Calculating Task */
         stopwatch.setVisibility(View.INVISIBLE);
         sporttask.setVisibility(View.INVISIBLE);
-        findViewById(R.id.readyEffort_button).setVisibility(View.INVISIBLE);
+        readyButton.setVisibility(View.INVISIBLE);
     }
 
     private void endGame() {
         endzeit = System.currentTimeMillis();
         long bearbeitungsDauer = endzeit - startzeit;
-        int bewertung = RateTheGame(bearbeitungsDauer, falseCounter, LIMIT);
+        int bewertung = RateTheGame(bearbeitungsDauer, falseCounter, LIMIT, 10);
 
         Intent finishscreenIntent = new Intent(EffortCalculatingTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
@@ -127,9 +127,9 @@ public class EffortCalculatingTask extends AppCompatActivity {
         EffortCalculatingTask.this.finish();
     }
 
-    private int RateTheGame(long duration, int attempts, int limit) {
+    private int RateTheGame(long duration, int attempts, int limit, int sportTasksPerUnit) {
         long durationInSeconds = duration / 1000;
-        GameRater gameRater = new EffortCalculatingRater(durationInSeconds, attempts, limit);
+        GameRater gameRater = new EffortCalculatingRater(durationInSeconds, attempts, limit, sportTasksPerUnit);
         return gameRater.getRating();
     }
 }

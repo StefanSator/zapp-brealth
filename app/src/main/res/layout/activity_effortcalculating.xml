@@ -34,9 +34,20 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/submitEffort_button"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
         app:lottie_fileName="stopwatch.json"
         app:lottie_autoPlay="true"
         app:lottie_loop="true" />
+
+    <TextView
+        android:id="@+id/sportaufgabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/stopwatch_animation"
+        android:layout_marginBottom="50dp"
+        android:textColor="@color/yellow"
+        android:textSize="26sp" />
 
     <Button
         android:id="@+id/submitEffort_button"
@@ -57,7 +68,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/effort_answer"
+        android:layout_below="@+id/sportaufgabe"
         android:background="@drawable/button_bg_rounded_corners"
         android:paddingTop="15dp"
         android:paddingBottom="15dp"
@@ -65,15 +76,5 @@
         android:paddingLeft="25dp"
         android:onClick="endSportsTask"
         android:text="@string/readyEffort_button"/>
-
-    <TextView
-        android:id="@+id/sportaufgabe"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/submitEffort_button"
-        android:layout_marginTop="50dp"
-        android:textColor="@color/yellow"
-        android:textSize="26sp" />
 
 </RelativeLayout>

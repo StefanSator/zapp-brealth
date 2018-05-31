@@ -8,11 +8,13 @@ public class EffortCalculatingRater implements GameRater {
     private long duration;
     private int attempts;
     private int LIMIT;
+    private int sportTasksPerUnit;
 
-    public EffortCalculatingRater(long duration, int attempts, int limit) {
+    public EffortCalculatingRater(long duration, int attempts, int limit, int cnt) {
         this.duration = duration;
         this.attempts = attempts;
         LIMIT = limit;
+        sportTasksPerUnit = cnt;
     }
 
     public long getDuration() {
@@ -32,7 +34,8 @@ public class EffortCalculatingRater implements GameRater {
     }
 
     public int getRating() {
-        int sportTasks = (LIMIT / 5) - 1; // Anzahl Sportaufgaben
+        int sportUnits = ((LIMIT / 5) - 1);
+        int sportTasks = sportUnits * sportTasksPerUnit; // Anzahl Sportaufgaben
         int calculatingTasks = LIMIT - sportTasks; // Anzahl Rechenaufgaben
         int perfectDuration = 3 * calculatingTasks + 4 * sportTasks;
         int normalDuration = 4 * calculatingTasks + 5 * sportTasks;

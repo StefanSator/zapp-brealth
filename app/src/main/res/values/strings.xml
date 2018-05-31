@@ -41,5 +41,10 @@
     <string name="memorytask_rules">In dieser Übung haben Sie die Möglichkeit Ihre Gedächtnis durch ein einfaches Memory Spiel zu trainieren.</string>
     <string name="startButtonDailyTask">Start Task</string>
     <string name="readyEffort_button">Fertig</string>
+    <string name="effortcalculating20">EffortCalculating20</string>
+    <string name="effortcalculating50">EffortCalculating50</string>
+    <string name="effortcalculating75">EffortCalculating75</string>
+    <string name="effortcalculating100">EffortCalculating100</string>
+    <string name="effortcalculating200">EffortCalculating200</string>
 
 </resources>
