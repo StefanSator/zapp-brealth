@@ -11,8 +11,8 @@ public class BrealthUebungen extends AppCompatActivity {
         setContentView(R.layout.activity_brealthuebungen);
     }
 
-    public void gotoEffortCalculatingTask(View view) {
-        Intent effortIntent = new Intent(BrealthUebungen.this, EffortCalculatingTask.class);
+    public void gotoEffortCalculatingMenu(View view) {
+        Intent effortIntent = new Intent(BrealthUebungen.this, EffortCalculatingMenu.class);
         BrealthUebungen.this.startActivity(effortIntent);
     }
 }
