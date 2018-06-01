@@ -187,22 +187,37 @@
     <TextView
         android:id="@+id/logik_thirdRowResult"
         android:layout_width="75dp"
-        android:layout_height="56dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="8dp"
         android:layout_marginStart="8dp"
         android:gravity="center"
         android:textSize="30sp"
+        android:text="= ?"
         app:layout_constraintBottom_toBottomOf="@+id/logik_symbol_9"
         app:layout_constraintStart_toEndOf="@+id/logik_symbol_9" />
+
+    <EditText
+        android:id="@+id/logik_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:inputType="numberSigned"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/LogikSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/LogikSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:onClick="setRows"
+        android:onClick="checkIfRight"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
