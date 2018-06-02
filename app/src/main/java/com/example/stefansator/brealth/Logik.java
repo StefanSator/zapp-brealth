@@ -13,9 +13,9 @@ import java.util.Random;
 
 public class Logik extends AppCompatActivity{
     private ImageView firstSymbol,secondSymbol,thirdSymbol;
-    private TextView firstRowResult,secondRowResult,thirdRowResult;
+    private TextView firstRowResult,secondRowResult;
     private EditText submitAnswer;
-    private int symbolCNumber, symbolTNumber, endResult=0, counter = 0, falseCounter = 0, LIMIT = 10 ;
+    private int symbolCNumber, symbolTNumber, endResult=0, counter = 0, falseCounter = 0, LIMIT = 10;
     private long starttime, endtime;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,6 @@ public class Logik extends AppCompatActivity{
         thirdSymbol = findViewById(R.id.logik_symbol_9);
         firstRowResult = findViewById(R.id.logik_firstRowResult);
         secondRowResult = findViewById(R.id.logik_secondRowResult);
-        thirdRowResult = findViewById(R.id.logik_thirdRowResult);
         submitAnswer = findViewById(R.id.logik_answer);
         setFirstRow();
         setSecondRow();
@@ -36,27 +35,25 @@ public class Logik extends AppCompatActivity{
     }
 
     public void setFirstRow() {
-        String result;
+        int result;
         Random r = new Random();
+        symbolCNumber = r.nextInt(33) + 1;
 
-        do {
-            symbolCNumber = r.nextInt(99) + 1;
-        } while(symbolCNumber % 3 != 0);
 
-        result = Integer.toString(symbolCNumber);
-        firstRowResult.setText("= " +result);
+        result = symbolCNumber * 3;
+        firstRowResult.setText("= "+result);
         return;
     }
 
     public void setSecondRow() {
-        String result;
+        int result;
         Random r = new Random();
 
         do {
-            symbolTNumber = r.nextInt(99) + 1;
-        } while(symbolTNumber % 3 != 0 && symbolTNumber != symbolCNumber);
+            symbolTNumber = r.nextInt(33) + 1;
+        } while(symbolTNumber == symbolCNumber);
 
-        result = Integer.toString(symbolTNumber);
+        result = symbolTNumber * 3;
         secondRowResult.setText("= " +result);
         return;
     }
@@ -131,14 +128,15 @@ public class Logik extends AppCompatActivity{
             Toast.makeText(this, "Richtig", Toast.LENGTH_SHORT).show();
             counter++;
         } else {
-            Toast.makeText(this,""+endResult, Toast.LENGTH_SHORT).show();
             falseCounter++;
         }
 
-        if(counter > LIMIT)
+        if(counter == LIMIT) {
             gotoEndscreen();
-        else
+        } else {
+            endResult = 0;
             setRows();
+        }
     }
 
     private int RateTheGame(long duration, int attempts) {

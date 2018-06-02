@@ -30,7 +30,7 @@ public class LogikRater implements GameRater{
         if (attempts < 3) {
             if (duration <= 30) {
                 return 5;
-            } else if (duration > 30 && duration <= 45) {
+            } else if (duration > 45 && duration <= 60) {
                 return 4;
             } else {
                 return 3;
@@ -38,7 +38,7 @@ public class LogikRater implements GameRater{
         } else if (attempts >= 3 && attempts < 6) {
             if (duration <= 30) {
                 return 4;
-            } else if (duration > 30 && duration <= 45) {
+            } else if (duration > 45 && duration <= 60) {
                 return 3;
             } else {
                 return 2;
@@ -46,7 +46,7 @@ public class LogikRater implements GameRater{
         } else if (attempts >= 6 && attempts < 8) {
             if (duration <= 30) {
                 return 3;
-            } else if (duration > 15 && duration <= 45) {
+            } else if (duration > 45 && duration <=60) {
                 return 2;
             } else {
                 return 1;
@@ -54,7 +54,7 @@ public class LogikRater implements GameRater{
         } else if (attempts >= 8 && attempts < 10) {
             if (duration <= 30) {
                 return 2;
-            } else if (duration > 30 && duration <= 45) {
+            } else if (duration > 45 && duration <= 60) {
                 return 1;
             } else {
                 return 0;
