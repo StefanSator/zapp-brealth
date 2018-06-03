@@ -52,7 +52,7 @@ public class FarbenHardMode extends AppCompatActivity {
 
     public void setExplanationText(String color) {
         Random r = new Random();
-        int choice = r.nextInt(3 - 1) + 1;
+        int choice = r.nextInt(2) + 1;
         switch (choice) {
             case 1:
                 explanation.setText("Tippen Sie den Text der "+color+" ist");
@@ -69,7 +69,7 @@ public class FarbenHardMode extends AppCompatActivity {
 
     private String setColor(TextView textview) {
         Random r = new Random();
-        int color = r.nextInt(5 - 1) + 1;
+        int color = r.nextInt(4) + 1;
         switch (color) {
             case 1:
                 textview.setTextColor(Color.RED);
@@ -91,7 +91,7 @@ public class FarbenHardMode extends AppCompatActivity {
 
     private String setColorText() {
         Random r = new Random();
-        int textFeld = r.nextInt(5 - 1) + 1;
+        int textFeld = r.nextInt(4) + 1;
         switch (textFeld) {
             case 1:
                 return "rot";

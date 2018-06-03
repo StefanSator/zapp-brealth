@@ -39,6 +39,7 @@
     <string name="farben_hardmode_button">Hard Mode</string>
     <string name="lesentask_rules">Lesen Sie den Text laut und ordentlich durch. Diese Übungen soll Ihnen helfen, ihre Lesegeschwindigkeit zu verbessern.</string>
     <string name="memorytask_rules">In dieser Übung haben Sie die Möglichkeit Ihre Gedächtnis durch ein einfaches Memory Spiel zu trainieren.</string>
+    <string name="logiktask_rules">Finden Sie heraus was ? ist</string>
     <string name="startButtonDailyTask">Start Task</string>
     <string name="readyEffort_button">Fertig</string>
     <string name="effortcalculating20">EffortCalculating20</string>
