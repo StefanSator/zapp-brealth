@@ -58,6 +58,8 @@
         <activity android:name=".BrealthUebungen" android:label="Uebungen"></activity>
         <activity android:name=".BrealthTest" android:label="Test"></activity>
         <activity android:name=".Logik" android:label="Logik"></activity>
+        <activity android:name=".EffortCalculatingMenu" android:label="EffortCalculating"></activity>
+        <activity android:name=".EffortCalculatingTask" android:label="EffortCalculating"></activity>
         <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
 
     </application>
