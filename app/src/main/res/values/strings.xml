@@ -39,6 +39,9 @@
     <string name="farben_hardmode_button">Hard Mode</string>
     <string name="lesentask_rules">Lesen Sie den Text laut und ordentlich durch. Diese Übungen soll Ihnen helfen, ihre Lesegeschwindigkeit zu verbessern.</string>
     <string name="memorytask_rules">In dieser Übung haben Sie die Möglichkeit Ihre Gedächtnis durch ein einfaches Memory Spiel zu trainieren.</string>
+    <string name="farbentaskenEM_rules">Klicken Sie die Richtig Taste wenn die jeweilige "Farbe" geschrieben ist"</string>
+    <string name="farbentaskHM_rules"> Tippen Sie den Text der in der jeweiligen Farbe geschriebenoder ist, den Text wenn Farbe
+                      geschrieben ist oder\n Klicke nicht vorhanden wenn nicht existend</string>
     <string name="startButtonDailyTask">Start Task</string>
     <string name="readyEffort_button">Fertig</string>
     <string name="effortcalculating20">EffortCalculating20</string>
