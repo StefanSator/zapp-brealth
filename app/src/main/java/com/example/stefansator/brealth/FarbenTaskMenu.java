@@ -47,10 +47,10 @@ public class FarbenTaskMenu extends AppCompatActivity {
     private void setRulesInDialog(View view) {
        switch (view.getId()) {
            case R.id.farben_easymode_button:
-               dlgBuilder.setMessage(R.string.farbentaskenEM_rules);
+               dlgBuilder.setMessage(R.string.farbentaskEM_rules);
                break;
            case R.id.farben_hardmode_button:
-               dlgBuilder.setMessage("hallo");
+               dlgBuilder.setMessage(R.string.farbentaskHM_rules);
                break;
            default:
                return;
