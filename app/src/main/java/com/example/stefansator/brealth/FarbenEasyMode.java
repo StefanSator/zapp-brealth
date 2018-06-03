@@ -42,7 +42,7 @@ public class FarbenEasyMode extends AppCompatActivity {
 
     private void setColor(TextView textview) {
         Random r = new Random();
-        int color = r.nextInt(5 - 1) + 1;
+        int color = r.nextInt(4) + 1;
         switch (color) {
             case 1:
                 textview.setTextColor(Color.RED);
@@ -63,7 +63,7 @@ public class FarbenEasyMode extends AppCompatActivity {
 
     private String setColorText() {
         Random r = new Random();
-        int textFeld = r.nextInt(5 - 1) + 1;
+        int textFeld = r.nextInt(4) + 1;
         switch (textFeld) {
             case 1:
                 return "rot";

@@ -37,7 +37,7 @@ public class Logik extends AppCompatActivity{
     public void setFirstRow() {
         int result;
         Random r = new Random();
-        symbolCNumber = r.nextInt(33) + 1;
+        symbolCNumber = r.nextInt(3) + 1;
 
 
         result = symbolCNumber * 3;
@@ -59,9 +59,9 @@ public class Logik extends AppCompatActivity{
     }
 
     public void setThirdRow(){
-        int triangeCnt = 0, circleCnt = 0, symbol = 0;
-        Random r = new Random();
+        int triangleCnt = 0, circleCnt = 0, symbol;
 
+        Random r = new Random();
         symbol = r.nextInt(2) + 1;
         switch (symbol) {
             case 1:
@@ -72,7 +72,7 @@ public class Logik extends AppCompatActivity{
             case 2:
                 firstSymbol.setImageResource(R.drawable.triangle);
                 endResult = endResult + symbolTNumber;
-                triangeCnt++;
+                triangleCnt++;
                 break;
         }
 
@@ -86,30 +86,26 @@ public class Logik extends AppCompatActivity{
             case 2:
                 secondSymbol.setImageResource(R.drawable.triangle);
                 endResult = endResult + symbolTNumber;
-                triangeCnt++;
+                triangleCnt++;
                 break;
         }
 
-
-        if (circleCnt == 2 && triangeCnt == 0) {
+        if (circleCnt == 2 && triangleCnt == 0) {
             thirdSymbol.setImageResource(R.drawable.triangle);
             endResult = endResult + symbolTNumber;
-        } else if (circleCnt == 0 && triangeCnt == 2) {
+        } else if (circleCnt == 0 && triangleCnt == 2) {
             thirdSymbol.setImageResource(R.drawable.circle);
             endResult = endResult + symbolCNumber;
         } else {
-            symbol = r.nextInt((2 - 1) + 1);
-
-            switch (symbol) {
+            symbol = r.nextInt(2 ) + 1;
+            switch(symbol){
                 case 1:
                     thirdSymbol.setImageResource(R.drawable.circle);
                     endResult = endResult + symbolCNumber;
-                    circleCnt++;
                     break;
                 case 2:
                     thirdSymbol.setImageResource(R.drawable.triangle);
-                    endResult =endResult + symbolTNumber;
-                    triangeCnt++;
+                    endResult = endResult + symbolTNumber;
                     break;
             }
         }
@@ -122,13 +118,22 @@ public class Logik extends AppCompatActivity{
     }
 
     public void checkIfRight(View view) {
+        if (submitAnswer.getText().length() == 0){
+            Toast.makeText(this, "Zahl eingeben", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         Integer result = Integer.parseInt(submitAnswer.getText().toString());
 
         if (endResult == result){
             Toast.makeText(this, "Richtig", Toast.LENGTH_SHORT).show();
+            submitAnswer.setText("");
             counter++;
         } else {
+            Toast.makeText(this, "Falsch", Toast.LENGTH_SHORT).show();
+            submitAnswer.setText("");
             falseCounter++;
+            return;
         }
 
         if(counter == LIMIT) {
