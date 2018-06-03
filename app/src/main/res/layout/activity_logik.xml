@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="81dp">
+
+    <ImageView
+        android:id="@+id/logik_symbol_1"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/logik_symbol_2"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toEndOf="@+id/logik_plus_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/logik_symbol_3"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintStart_toEndOf="@+id/logik_plus_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/logik_symbol_4"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logik_symbol_1"
+        app:srcCompat="@drawable/triangle" />
+
+    <ImageView
+        android:id="@+id/logik_symbol_5"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/logik_plus_3"
+        app:layout_constraintTop_toBottomOf="@+id/logik_symbol_2"
+        app:srcCompat="@drawable/triangle" />
+
+    <ImageView
+        android:id="@+id/logik_symbol_6"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/logik_plus_4"
+        app:layout_constraintTop_toBottomOf="@+id/logik_symbol_3"
+        app:srcCompat="@drawable/triangle" />
+
+    <ImageView
+        android:id="@+id/logik_symbol_7"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logik_symbol_4"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/logik_symbol_8"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/logik_plus_5"
+        app:layout_constraintTop_toBottomOf="@+id/logik_symbol_5"
+        app:srcCompat="@drawable/circle" />
+
+    <ImageView
+        android:id="@+id/logik_symbol_9"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toEndOf="@+id/logik_plus_6"
+        app:layout_constraintTop_toBottomOf="@+id/logik_symbol_6"
+        app:srcCompat="@drawable/circle" />
+
+    <TextView
+        android:id="@+id/logik_plus_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/logik_symbol_1"
+        app:layout_constraintStart_toEndOf="@+id/logik_symbol_1" />
+
+    <TextView
+        android:id="@+id/logik_plus_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/logik_symbol_2"
+        app:layout_constraintStart_toEndOf="@+id/logik_symbol_2" />
+
+    <TextView
+        android:id="@+id/logik_plus_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/logik_symbol_4"
+        app:layout_constraintStart_toEndOf="@+id/logik_symbol_4" />
+
+    <TextView
+        android:id="@+id/logik_plus_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/logik_symbol_5"
+        app:layout_constraintStart_toEndOf="@+id/logik_symbol_5" />
+
+    <TextView
+        android:id="@+id/logik_plus_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/logik_symbol_7"
+        app:layout_constraintStart_toEndOf="@+id/logik_symbol_7" />
+
+    <TextView
+        android:id="@+id/logik_plus_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="8dp"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/logik_symbol_8"
+        app:layout_constraintStart_toEndOf="@+id/logik_symbol_8" />
+
+    <TextView
+        android:id="@+id/logik_firstRowResult"
+        android:layout_width="75dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/logik_symbol_3"
+        app:layout_constraintStart_toEndOf="@+id/logik_symbol_3" />
+
+    <TextView
+        android:id="@+id/logik_secondRowResult"
+        android:layout_width="75dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="@+id/logik_symbol_6"
+        app:layout_constraintStart_toEndOf="@+id/logik_symbol_6" />
+
+    <TextView
+        android:id="@+id/logik_thirdRowResult"
+        android:layout_width="75dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:textSize="30sp"
+        android:text="= ?"
+        app:layout_constraintBottom_toBottomOf="@+id/logik_symbol_9"
+        app:layout_constraintStart_toEndOf="@+id/logik_symbol_9" />
+
+    <EditText
+        android:id="@+id/logik_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:inputType="numberSigned"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/LogikSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/LogikSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:onClick="checkIfRight"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>
