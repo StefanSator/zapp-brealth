@@ -22,8 +22,7 @@ import java.util.Random;
  */
 
 public class MemoryTask extends AppCompatActivity {
-    private String cardPos[];
-    private String cardNames[] = {"A", "A", "B", "B", "C", "C", "D", "D", "E", "E", "F", "F"};
+    private MemoryGame memoryGame;
     private TextView memoryCard[];
     private long startZeit, endZeit;
     private int falseCounter = 0, rightCounter = 0;
@@ -38,7 +37,6 @@ public class MemoryTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory);
 
-        cardPos = new String[12];
         memoryCard = new TextView[12];
 
         /* Initialize memoryCard Array */
@@ -55,30 +53,15 @@ public class MemoryTask extends AppCompatActivity {
         memoryCard[10] = findViewById(R.id.memory_card11);
         memoryCard[11] = findViewById(R.id.memory_card12);
 
-        /* Initialize Position of the memory cards */
-        for (int i = 0 ; i < memoryCard.length ; i++) {
-            int randomNumber = randomNumberGenerator(0, 11);
-            while (cardNames[randomNumber].equals("empty")) {
-                randomNumber = randomNumberGenerator(0, 11);
-            }
-            String name = cardNames[randomNumber];
-            cardNames[randomNumber] = "empty";
-
-            cardPos[i] = name;
-        }
+        memoryGame = new NormalMemoryGame();
 
         startZeit = System.currentTimeMillis();
-    }
-
-    private int randomNumberGenerator(int min, int max) {
-        Random random = new Random();
-        return random.nextInt(max - min + 1) + min;
     }
 
     public void revealMemoryCard(View view) throws InterruptedException {
         for (int i = 0 ; i < memoryCard.length ; i++) {
             if (memoryCard[i] == view) {
-                ((TextView) view).setText(cardPos[i]);
+                ((TextView) view).setText(memoryGame.getMemoryCard(i));
                 if (firstDraw == -1) firstDraw = i;
                 else secondDraw = i;
             }
@@ -86,13 +69,12 @@ public class MemoryTask extends AppCompatActivity {
 
         /* 2 cards selected, now test if right cards where selected */
         if (firstDraw != -1 && secondDraw != -1) {
-            checkMemoryCards();
+            checkMemoryCards(firstDraw, secondDraw);
         }
     }
 
-    private void checkMemoryCards() {
-        boolean test = testIfDrawnCardsAreRight(firstDraw, secondDraw);
-        if (test == true) {
+    private void checkMemoryCards(int firstDraw, int secondDraw) {
+        if (memoryGame.areEqual(firstDraw, secondDraw)) {
             disableRightCards(firstDraw, secondDraw);
             rightCounter++;
             Toast rightToast = Toast.makeText(getApplicationContext(), "Right", Toast.LENGTH_SHORT);
@@ -121,11 +103,6 @@ public class MemoryTask extends AppCompatActivity {
         finishscreenIntent.putExtra("rating", bewertung);
         MemoryTask.this.startActivity(finishscreenIntent);
         MemoryTask.this.finish();
-    }
-
-    private boolean testIfDrawnCardsAreRight(int first, int second) {
-        if (cardPos[first] == cardPos[second]) return true;
-        return false;
     }
 
     private void beginNewDraw() {
