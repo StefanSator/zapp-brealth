@@ -23,7 +23,7 @@
         android:padding="0dp"
         android:text="@string/farben_easymode_button"
         android:textSize="36sp"
-        android:onClick="gotoEasyMode"/>
+        android:onClick="createInformationDialog"/>
 
     <Button
         android:id="@+id/farben_hardmode_button"
@@ -40,6 +40,6 @@
         android:padding="0dp"
         android:text="@string/farben_hardmode_button"
         android:textSize="36sp"
-        android:onClick="gotoHardMode"/>
+        android:onClick="createInformationDialog"/>
 
 </LinearLayout>
