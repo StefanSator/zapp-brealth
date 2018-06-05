@@ -22,6 +22,7 @@
         android:id="@+id/brealth_uebungen3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:onClick="gotoYogaMemoryMenu"
         android:text="YogaMemory" />
 
     <Button

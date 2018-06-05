@@ -15,4 +15,9 @@ public class BrealthUebungen extends AppCompatActivity {
         Intent effortIntent = new Intent(BrealthUebungen.this, EffortCalculatingMenu.class);
         BrealthUebungen.this.startActivity(effortIntent);
     }
+
+    public void gotoYogaMemoryMenu(View view) {
+        Intent yogaIntent = new Intent(BrealthUebungen.this, YogaMemoryMenu.class);
+        BrealthUebungen.this.startActivity(yogaIntent);
+    }
 }
