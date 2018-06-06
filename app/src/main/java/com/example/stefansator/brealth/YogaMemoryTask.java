@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -77,11 +78,12 @@ public class YogaMemoryTask extends AppCompatActivity {
             rightCounter++;
             Toast rightToast = Toast.makeText(getApplicationContext(), "Right", Toast.LENGTH_SHORT);
             rightToast.show();
+            createTutorialDialog();
         } else {
             falseCounter++;
             Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);
             falseToast.show();
-            createInformationDialog(memoryCard[firstDraw], memoryCard[secondDraw]);
+            createFalseDialog(memoryCard[firstDraw], memoryCard[secondDraw]);
         }
 
         if (rightCounter == 6) {
@@ -123,11 +125,31 @@ public class YogaMemoryTask extends AppCompatActivity {
     /* Rates your Skill in this particular Task */
     private int RateThePlayer(long duration, int attempts) {
         long durationInSeconds = duration / 1000;
-        GameRater gameRater = new MemoryRater(durationInSeconds, attempts);
+        GameRater gameRater = new MemoryRater(durationInSeconds, attempts); // change this
         return gameRater.getRating();
     }
 
-    private void createInformationDialog(final View view1, final View view2) {
+    private void createTutorialDialog() {
+        ImageView image = new ImageView(this);
+        image.setImageResource(R.drawable.yoga_hund);
+        image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alert.dismiss();
+            }
+        });
+
+        dlgBuilder = new AlertDialog.Builder(YogaMemoryTask.this);
+        dlgBuilder.setMessage("Führen Sie folgende Yoga Übung durch.");
+        dlgBuilder.setCancelable(false);
+        dlgBuilder.setView(image);
+
+        alert = dlgBuilder.create();
+        alert.show();
+        alert.getWindow().setLayout(1000, 1000);
+    }
+
+    private void createFalseDialog(final View view1, final View view2) {
         dlgBuilder = new AlertDialog.Builder(YogaMemoryTask.this);
         dlgBuilder.setMessage("Leider Falsch!\n\nVersuch: Nr " + falseCounter);
         dlgBuilder.setCancelable(false);
