@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by StefanSator on 05.06.18.
  */
@@ -78,7 +80,7 @@ public class YogaMemoryTask extends AppCompatActivity {
             rightCounter++;
             Toast rightToast = Toast.makeText(getApplicationContext(), "Right", Toast.LENGTH_SHORT);
             rightToast.show();
-            createTutorialDialog();
+            createTutorialDialog(firstDraw);
         } else {
             falseCounter++;
             Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);
@@ -125,13 +127,13 @@ public class YogaMemoryTask extends AppCompatActivity {
     /* Rates your Skill in this particular Task */
     private int RateThePlayer(long duration, int attempts) {
         long durationInSeconds = duration / 1000;
-        GameRater gameRater = new MemoryRater(durationInSeconds, attempts); // change this
+        GameRater gameRater = new YogaMemoryRater(durationInSeconds, attempts);
         return gameRater.getRating();
     }
 
-    private void createTutorialDialog() {
+    private void createTutorialDialog(int yogaTask) {
         ImageView image = new ImageView(this);
-        image.setImageResource(R.drawable.yoga_hund);
+        image.setImageResource(Integer.parseInt(memoryGame.getMemoryCard(yogaTask)));
         image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
