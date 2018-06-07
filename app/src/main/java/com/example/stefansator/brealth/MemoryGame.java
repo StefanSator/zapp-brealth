@@ -42,7 +42,7 @@ public abstract class MemoryGame {
     }
 
     public boolean areEqual(int index1, int index2) {
-        if (cardPos[index1] == cardPos[index2]) return true;
+        if (cardPos[index1].equals(cardPos[index2])) return true;
         return false;
     }
 

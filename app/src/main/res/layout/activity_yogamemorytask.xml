@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- Created by StefanSator on 05.06.18-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightblack"
+    android:orientation="vertical"
+    android:weightSum="4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/yogamemory_card1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+        <ImageView
+            android:id="@+id/yogamemory_card2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask" />
+
+        <ImageView
+            android:id="@+id/yogamemory_card3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/yogamemory_card4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+        <ImageView
+            android:id="@+id/yogamemory_card5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+        <ImageView
+            android:id="@+id/yogamemory_card6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/yogamemory_card7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+        <ImageView
+            android:id="@+id/yogamemory_card8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+        <ImageView
+            android:id="@+id/yogamemory_card9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/yogamemory_card10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+        <ImageView
+            android:id="@+id/yogamemory_card11"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+        <ImageView
+            android:id="@+id/yogamemory_card12"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/blue"
+            android:layout_weight="1"
+            android:paddingTop="@dimen/memorycard_paddingTop"
+            android:layout_margin="@dimen/memorycard_margin"
+            android:scaleType="fitXY"
+            android:onClick="revealYogaTask"/>
+
+    </LinearLayout>
+
+</LinearLayout>
