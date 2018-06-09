@@ -1,10 +1,11 @@
 package com.example.stefansator.brealth;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -14,16 +15,27 @@ import java.io.InputStreamReader;
 
 /**
  * Created by stefansator on 20.05.18.
+ * Revised by stefansator on 09.06.18
  */
 
 public class LesenTask extends AppCompatActivity {
-    private TextView tv;
+    private RelativeLayout rl;
+    private ScrollingTextView tv;
     private Book book;
     private long startZeit, endZeit;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesen);
+
+        rl = (RelativeLayout) findViewById(R.id.lesen_layout);
+        tv = new ScrollingTextView(getApplicationContext(), 1.2f);
+
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, // Width of TextView
+                RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+
+        tv.setLayoutParams(lp);
 
         startZeit = System.currentTimeMillis();
         book = new Book();
@@ -46,8 +58,11 @@ public class LesenTask extends AppCompatActivity {
         }
         is.close();
 
-        tv = (TextView) findViewById(R.id.lesetext);
         tv.setText(buf.toString());
+        tv.setTextColor(Color.parseColor("#FFFE19"));
+        tv.setTextSize(36.0f);
+
+        rl.addView(tv);
     }
 
     public void endBookReading(View view) {
