@@ -1,5 +1,7 @@
 package com.example.stefansator.brealth;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -19,17 +21,25 @@ import java.io.InputStreamReader;
  */
 
 public class LesenTask extends AppCompatActivity {
+    private AlertDialog alert;
+    private AlertDialog.Builder dlgBuilder;
     private RelativeLayout rl;
     private ScrollingTextView tv;
     private Book book;
     private long startZeit, endZeit;
+    private String difficulty;
+    private float animationSpeed;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesen);
 
+        createDifficultyDialog();
+    }
+
+    private void startReadingGame() {
         rl = (RelativeLayout) findViewById(R.id.lesen_layout);
-        tv = new ScrollingTextView(getApplicationContext(), 1.2f);
+        tv = new ScrollingTextView(getApplicationContext(), animationSpeed);
 
         RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
                 RelativeLayout.LayoutParams.MATCH_PARENT, // Width of TextView
@@ -79,7 +89,43 @@ public class LesenTask extends AppCompatActivity {
 
     private int RateThePlayer(long duration) {
         long durationInSeconds = duration / 1000;
-        GameRater gameRater = new LeseRater(durationInSeconds);
+        GameRater gameRater = new LeseRater(durationInSeconds, difficulty);
         return gameRater.getRating();
+    }
+
+    private void createDifficultyDialog() {
+        dlgBuilder = new AlertDialog.Builder(LesenTask.this);
+        dlgBuilder.setTitle("Schwierigkeitsgrad");
+        dlgBuilder.setMessage("Wählen Sie Ihren gewünschten Schwierigkeitsgrad");
+        dlgBuilder.setCancelable(false);
+        dlgBuilder.setPositiveButton("Schwer", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                difficulty = "schwer";
+                animationSpeed = 3.0f;
+                startReadingGame();
+            }
+        });
+
+        dlgBuilder.setNeutralButton("Leicht", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                difficulty = "leicht";
+                animationSpeed = 6.5f;
+                startReadingGame();
+            }
+        });
+
+        dlgBuilder.setNegativeButton("Normal", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                difficulty = "normal";
+                animationSpeed = 5.0f;
+                startReadingGame();
+            }
+        });
+
+        alert = dlgBuilder.create();
+        alert.show();
     }
 }
