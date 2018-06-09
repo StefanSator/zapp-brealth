@@ -1,4 +1,4 @@
-package com.example.stefansator.brealth;
+package com.example.stefansator.brealth.naehrstoffzentrale;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -6,6 +6,10 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import com.example.stefansator.brealth.R;
+import com.example.stefansator.brealth.StatistikFragment;
+import com.example.stefansator.brealth.TagebuchFragment;
 
 public class Zentrale extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 

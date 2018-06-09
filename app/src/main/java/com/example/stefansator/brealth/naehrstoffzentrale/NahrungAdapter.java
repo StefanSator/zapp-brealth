@@ -1,4 +1,4 @@
-package com.example.stefansator.brealth;
+package com.example.stefansator.brealth.naehrstoffzentrale;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.stefansator.brealth.R;
 
 import java.util.Collections;
 import java.util.List;

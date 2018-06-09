@@ -1,4 +1,4 @@
-package com.example.stefansator.brealth;
+package com.example.stefansator.brealth.naehrstoffzentrale;
 
 public class NahrungItem {
     int iconId;
