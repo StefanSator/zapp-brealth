@@ -1,4 +1,4 @@
-package com.example.stefansator.brealth;
+package com.example.stefansator.brealth.naehrstoffzentrale;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.stefansator.brealth.R;
 
 import java.util.Collections;
 import java.util.List;

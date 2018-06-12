@@ -12,10 +12,9 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class FarbenHardMode extends AppCompatActivity {
-    private TextView firsttext, sectext, thirdtext, explanation, startText;
-    private Button falseButton;
-    private int start, counter = 0, falseCounter = 0;
-    private long startzeit, endzeit;
+    private TextView firsttext, sectext, thirdtext, explanation;
+    private int LIMIT = 10, counter = 0, falseCounter = 0;
+    private long starttime, endtime;
     private String mainColor, ftextColor, stextColor, ttextColor;
     private VARIANTE variante;
 
@@ -30,29 +29,14 @@ public class FarbenHardMode extends AppCompatActivity {
         firsttext = findViewById(R.id.farben_view1_hm);
         sectext = findViewById(R.id.farben_view2_hm);
         thirdtext = findViewById(R.id.farben_view3_hm);
-        startText = findViewById(R.id.farben_start_hm) ;
         explanation = findViewById(R.id.farben_explanation_hm);
-        falseButton = findViewById(R.id.farben_falseButton_hm);
-    }
-
-    public void start(View view){
-        startText.setVisibility(View.INVISIBLE);
-        startText.setClickable(false);
-        falseButton.setVisibility(View.VISIBLE);
-        falseButton.setClickable(true);
-        firsttext.setVisibility(View.VISIBLE);
-        firsttext.setClickable(true);
-        sectext.setVisibility(View.VISIBLE);
-        sectext.setClickable(true);
-        thirdtext.setVisibility(View.VISIBLE);
-        thirdtext.setClickable(true);
-        startzeit = System.currentTimeMillis();
         changeColor();
+        starttime = System.currentTimeMillis();
     }
 
     public void setExplanationText(String color) {
         Random r = new Random();
-        int choice = r.nextInt(3 - 1) + 1;
+        int choice = r.nextInt(2) + 1;
         switch (choice) {
             case 1:
                 explanation.setText("Tippen Sie den Text der "+color+" ist");
@@ -69,7 +53,7 @@ public class FarbenHardMode extends AppCompatActivity {
 
     private String setColor(TextView textview) {
         Random r = new Random();
-        int color = r.nextInt(5 - 1) + 1;
+        int color = r.nextInt(4) + 1;
         switch (color) {
             case 1:
                 textview.setTextColor(Color.RED);
@@ -91,7 +75,7 @@ public class FarbenHardMode extends AppCompatActivity {
 
     private String setColorText() {
         Random r = new Random();
-        int textFeld = r.nextInt(5 - 1) + 1;
+        int textFeld = r.nextInt(4) + 1;
         switch (textFeld) {
             case 1:
                 return "rot";
@@ -198,20 +182,28 @@ public class FarbenHardMode extends AppCompatActivity {
                 break;
         }
 
-        if(counter == 10)
+        if(counter == LIMIT)
             gotoEndscreen();
         else
             changeColor();
     }
 
-    private void gotoEndscreen() {
-        endzeit = System.currentTimeMillis();
-        long bearbeitungsDauer = endzeit - startzeit;
-        Intent farbenEndscreen = new Intent(FarbenHardMode.this, FarbenEndscreen.class);
+    private int RateThePlayer(long duration, int attempts) {
+        long durationInSeconds = duration / 1000;
+        GameRater gameRater = new FarbenModeRater(durationInSeconds, attempts);
+        return gameRater.getRating();
+    }
 
-        farbenEndscreen.putExtra("dauer", bearbeitungsDauer);
-        farbenEndscreen.putExtra("falsch",falseCounter);
-        FarbenHardMode.this.startActivity(farbenEndscreen);
+    private void gotoEndscreen() {
+        endtime = System.currentTimeMillis();
+        long duration = endtime - starttime;
+        int rating = RateThePlayer(duration, falseCounter);
+
+        Intent finishscreenIntent = new Intent(FarbenHardMode.this, TaskEndscreen.class);
+        finishscreenIntent.putExtra("dauer", duration);
+        finishscreenIntent.putExtra("falsch", falseCounter);
+        finishscreenIntent.putExtra("rating", rating);
+        FarbenHardMode.this.startActivity( finishscreenIntent);
         FarbenHardMode.this.finish();
     }
 }

@@ -4,7 +4,8 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/lightblack">
 
     <TextView
         android:id="@+id/ergebnis_rechnenend"
@@ -12,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
+        android:textColor="@color/yellow"
         android:text="@string/rechnenend_ergebnis"
         android:textSize="42sp"
         android:textStyle="bold" />
@@ -24,6 +26,7 @@
         android:paddingTop="50dp"
         android:paddingStart="50dp"
         android:textSize="30sp"
+        android:textColor="@color/yellow"
         android:text="@string/bemerkung_rechnenend"/>
 
     <TextView
@@ -34,6 +37,7 @@
         android:layout_below="@+id/ergebnis_rechnenend"
         android:paddingTop="50dp"
         android:paddingEnd="50dp"
+        android:textColor="@color/yellow"
         android:textSize="30sp" />
 
 
@@ -44,6 +48,7 @@
         android:layout_below="@+id/bemerkung_rechnenend"
         android:padding="50dp"
         android:textSize="30sp"
+        android:textColor="@color/yellow"
         android:text="@string/falsch_rechnenend"/>
 
     <TextView
@@ -54,7 +59,21 @@
         android:layout_alignBottom="@+id/falsch_rechnenend"
         android:layout_toEndOf="@+id/back_button_rechnenend"
         android:padding="50dp"
+        android:textColor="@color/yellow"
         android:textSize="30sp" />
+
+    <RatingBar
+        android:id="@+id/setRating"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/back_button_rechnenend"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="35dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:rating="5"
+        android:stepSize="1" />
 
     <Button
         android:id="@+id/back_button_rechnenend"
@@ -63,6 +82,11 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="50dp"
+        android:background="@drawable/button_bg_rounded_corners"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingRight="25dp"
+        android:paddingLeft="25dp"
         android:onClick="endResultScreen"
         android:text="Fertig"
         android:textSize="24sp" />

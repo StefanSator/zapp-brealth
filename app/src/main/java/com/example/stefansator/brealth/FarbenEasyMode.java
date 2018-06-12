@@ -13,9 +13,8 @@ import java.util.Random;
 
 public class FarbenEasyMode extends AppCompatActivity {
     private TextView text, explanation;
-    private Button fButton,rButton;
-    private int counter, falseCounter = 0;
-    private long startzeit, endzeit;
+    private int LIMIT = 10,counter, falseCounter = 0;
+    private long starttime, endtime;
     private String mainColor, textColor;
 
     @Override
@@ -24,25 +23,15 @@ public class FarbenEasyMode extends AppCompatActivity {
         setContentView(R.layout.activity_farbeneasymode);
         text = findViewById(R.id.farbenView_em);
         explanation = findViewById(R.id.farben_explanation_em);
-        rButton = findViewById(R.id.farben_buttonTrue_em);
-        fButton = findViewById(R.id.farben_buttonFalse_em);
         mainColor = setColorText();
-        explanation.setText("Klicken Sie True wenn " +mainColor+" geschrieben ist");
-    }
-
-    public void start(View view){
-        rButton.setClickable(true);
-        rButton.setVisibility(View.VISIBLE);
-        fButton.setClickable(true);
-        fButton.setVisibility(View.VISIBLE);
-        text.setClickable(false);
-        startzeit = System.currentTimeMillis();
+        explanation.setText("Klicken Sie Richtig wenn " +mainColor+" geschrieben ist");
+        starttime = System.currentTimeMillis();
         changeColor();
     }
 
     private void setColor(TextView textview) {
         Random r = new Random();
-        int color = r.nextInt(5 - 1) + 1;
+        int color = r.nextInt(4) + 1;
         switch (color) {
             case 1:
                 textview.setTextColor(Color.RED);
@@ -63,7 +52,7 @@ public class FarbenEasyMode extends AppCompatActivity {
 
     private String setColorText() {
         Random r = new Random();
-        int textFeld = r.nextInt(5 - 1) + 1;
+        int textFeld = r.nextInt(4) + 1;
         switch (textFeld) {
             case 1:
                 return "rot";
@@ -107,20 +96,28 @@ public class FarbenEasyMode extends AppCompatActivity {
                 break;
         }
 
-        if(counter == 10)
+        if(counter == LIMIT)
             gotoEndscreen();
         else
             changeColor();
     }
 
-    private void gotoEndscreen() {
-        endzeit = System.currentTimeMillis();
-        long bearbeitungsDauer = endzeit - startzeit;
-        Intent farbenEndscreen = new Intent(FarbenEasyMode.this, FarbenEndscreen.class);
+    private int RateThePlayer(long duration, int attempts) {
+        long durationInSeconds = duration / 1000;
+        GameRater gameRater = new FarbenModeRater(durationInSeconds, attempts);
+        return gameRater.getRating();
+    }
 
-        farbenEndscreen.putExtra("dauer", bearbeitungsDauer);
-        farbenEndscreen.putExtra("falsch",falseCounter);
-        FarbenEasyMode.this.startActivity(farbenEndscreen);
+    private void gotoEndscreen() {
+        endtime = System.currentTimeMillis();
+        long duration = endtime - starttime;
+        int rating = RateThePlayer(duration, falseCounter);
+
+        Intent finishscreenIntent = new Intent(FarbenEasyMode.this, TaskEndscreen.class);
+        finishscreenIntent.putExtra("dauer", duration);
+        finishscreenIntent.putExtra("falsch", falseCounter);
+        finishscreenIntent.putExtra("rating", rating);
+        FarbenEasyMode.this.startActivity( finishscreenIntent);
         FarbenEasyMode.this.finish();
     }
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <Button
+        android:id="@+id/brealth_uebungen1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="gotoEffortCalculatingMenu"
+        android:text="EffortCalculating" />
+
+    <Button
+        android:id="@+id/brealth_uebungen2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VocableRun" />
+
+    <Button
+        android:id="@+id/brealth_uebungen3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="gotoYogaMemoryMenu"
+        android:text="YogaMemory" />
+
+    <Button
+        android:id="@+id/brealth_uebungen4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MindColors" />
+
+    <Button
+        android:id="@+id/brealth_uebungen5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PowerLogic" />
+</LinearLayout>

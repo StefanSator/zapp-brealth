@@ -1,37 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightblack">
 
     <TextView
         android:id="@+id/farben_explanation_hm"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/yellow"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
         android:textAlignment="center"
-        android:text="Folgen Sie den Anweisungen:\n Tippen Sie den Text der Farbe ist oder Tippen sie den Text wenn Farbe
-                      geschrieben ist oder\n Klicke nicht vorhanden wenn nicht existend"
+        android:text=""
         android:textSize="10pt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/farben_start_hm"
-        android:layout_width="wrap_content"
-        android:layout_height="69dp"
-        android:layout_marginTop="248dp"
-        android:clickable="true"
-        android:gravity="center"
-        android:onClick="start"
-        android:text="Click to Start"
-        android:textAlignment="center"
-        android:textSize="20pt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,8 +28,6 @@ android:layout_height="match_parent">
         android:layout_marginBottom="256dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:visibility="invisible"
-        android:clickable="false"
         android:onClick="checkOption"
         android:gravity="center"
         android:textAlignment="center"
@@ -61,8 +44,6 @@ android:layout_height="match_parent">
         android:layout_marginBottom="128dp"
         android:layout_marginEnd="24dp"
         android:layout_marginStart="8dp"
-        android:visibility="invisible"
-        android:clickable="false"
         android:onClick="checkOption"
         android:gravity="center"
         android:textAlignment="center"
@@ -79,8 +60,6 @@ android:layout_height="match_parent">
         android:layout_marginBottom="128dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="24dp"
-        android:visibility="invisible"
-        android:clickable="false"
         android:onClick="checkOption"
         android:gravity="center"
         android:textAlignment="center"
@@ -92,8 +71,6 @@ android:layout_height="match_parent">
 
     <Button
         android:id="@+id/farben_falseButton_hm"
-        android:visibility="invisible"
-        android:clickable="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"

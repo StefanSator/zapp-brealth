@@ -3,7 +3,6 @@
     package="com.example.stefansator.brealth">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -38,13 +37,13 @@
             android:name=".RechnenTask"
             android:label="Rechnen" />
         <activity
-            android:name=".RechnenEnd"
+            android:name=".TaskEndscreen"
             android:label="Ergebnis" />
         <activity
             android:name=".MemoryTask"
             android:label="Memory" />
         <activity
-            android:name=".Zentrale"
+            android:name=".naehrstoffzentrale.Zentrale"
             android:label="@string/title_activity_zentrale"
             android:parentActivityName=".HealthMenu">
             <meta-data
@@ -57,6 +56,14 @@
         <activity android:name=".FarbenEasyMode" android:label="Farben Easy Mode"></activity>
         <activity android:name=".FarbenHardMode" android:label="Farben Hard Mode"></activity>
         <activity android:name=".FarbenEndscreen" android:label="Ergebnis"></activity>
+        <activity android:name=".BrealthUebungen" android:label="Uebungen"></activity>
+        <activity android:name=".BrealthTest" android:label="Test"></activity>
+        <activity android:name=".Logik" android:label="Logik"></activity>
+        <activity android:name=".EffortCalculatingMenu" android:label="EffortCalculating"></activity>
+        <activity android:name=".EffortCalculatingTask" android:label="EffortCalculating"></activity>
+        <activity android:name=".YogaMemoryMenu" android:label="YogaMemory"></activity>
+        <activity android:name=".YogaMemoryTask" android:label="YogaMemory"></activity>
+        <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
 
     </application>
 

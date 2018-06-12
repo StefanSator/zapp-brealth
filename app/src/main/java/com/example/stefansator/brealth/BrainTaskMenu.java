@@ -36,6 +36,8 @@ public class BrainTaskMenu extends AppCompatActivity {
         BrainTaskMenu.this.startActivity(farbenMenuIntent);
     }
 
+    public void gotoTaskLogik (View view) { createInformationDialog(view); }
+
     public void gotoTaskLesen(View view) {
         createInformationDialog(view);
     }
@@ -71,6 +73,8 @@ public class BrainTaskMenu extends AppCompatActivity {
             dlgBuilder.setMessage(R.string.lesentask_rules);
         } else if (findViewById(R.id.braintask_button3) == view) {
             dlgBuilder.setMessage(R.string.memorytask_rules);
+        } else if (findViewById(R.id.braintask_button4)== view) {
+            dlgBuilder.setMessage(R.string.logiktask_rules);
         }
     }
 
@@ -81,6 +85,9 @@ public class BrainTaskMenu extends AppCompatActivity {
         } else if (findViewById(R.id.braintask_button2) == view) {
             Intent lesenIntent = new Intent(BrainTaskMenu.this, LesenTask.class);
             BrainTaskMenu.this.startActivity(lesenIntent);
+        } else if (findViewById(R.id.braintask_button4) == view) {
+            Intent logikIntent = new Intent(BrainTaskMenu.this,Logik.class);
+            BrainTaskMenu.this.startActivity(logikIntent);
         }
     }
 }

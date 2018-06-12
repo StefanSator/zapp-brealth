@@ -1,10 +1,13 @@
 package com.example.stefansator.brealth;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -14,16 +17,35 @@ import java.io.InputStreamReader;
 
 /**
  * Created by stefansator on 20.05.18.
+ * Revised by stefansator on 09.06.18
  */
 
 public class LesenTask extends AppCompatActivity {
-    private TextView tv;
+    private AlertDialog alert;
+    private AlertDialog.Builder dlgBuilder;
+    private RelativeLayout rl;
+    private ScrollingTextView tv;
     private Book book;
     private long startZeit, endZeit;
+    private String difficulty;
+    private float animationSpeed;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesen);
+
+        createDifficultyDialog();
+    }
+
+    private void startReadingGame() {
+        rl = (RelativeLayout) findViewById(R.id.lesen_layout);
+        tv = new ScrollingTextView(getApplicationContext(), animationSpeed);
+
+        RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, // Width of TextView
+                RelativeLayout.LayoutParams.WRAP_CONTENT); // Height of TextView
+
+        tv.setLayoutParams(lp);
 
         startZeit = System.currentTimeMillis();
         book = new Book();
@@ -46,19 +68,64 @@ public class LesenTask extends AppCompatActivity {
         }
         is.close();
 
-        tv = (TextView) findViewById(R.id.lesetext);
         tv.setText(buf.toString());
+        tv.setTextColor(Color.parseColor("#FFFE19"));
+        tv.setTextSize(36.0f);
+
+        rl.addView(tv);
     }
 
     public void endBookReading(View view) {
         endZeit = System.currentTimeMillis();
         long bearbeitungsdauer = endZeit - startZeit;
-        /* Toast dauerToast = Toast.makeText(getApplicationContext(), "Dauer: " + bearbeitungsDauer, Toast.LENGTH_SHORT);
-         * dauerToast.show();
-         */
-        Intent finishscreenIntent = new Intent(LesenTask.this, RechnenEnd.class);
-        finishscreenIntent.putExtra("dauer", bearbeitungsdauer); // Hier wird die bearbeitungsdauer nicht richtig übergeben
+        int bewertung = RateThePlayer(bearbeitungsdauer);
+
+        Intent finishscreenIntent = new Intent(LesenTask.this, TaskEndscreen.class);
+        finishscreenIntent.putExtra("dauer", bearbeitungsdauer);
+        finishscreenIntent.putExtra("rating", bewertung);
         LesenTask.this.startActivity(finishscreenIntent);
         LesenTask.this.finish();
+    }
+
+    private int RateThePlayer(long duration) {
+        long durationInSeconds = duration / 1000;
+        GameRater gameRater = new LeseRater(durationInSeconds, difficulty);
+        return gameRater.getRating();
+    }
+
+    private void createDifficultyDialog() {
+        dlgBuilder = new AlertDialog.Builder(LesenTask.this);
+        dlgBuilder.setTitle("Schwierigkeitsgrad");
+        dlgBuilder.setMessage("Wählen Sie Ihren gewünschten Schwierigkeitsgrad");
+        dlgBuilder.setCancelable(false);
+        dlgBuilder.setPositiveButton("Schwer", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                difficulty = "schwer";
+                animationSpeed = 3.0f;
+                startReadingGame();
+            }
+        });
+
+        dlgBuilder.setNeutralButton("Leicht", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                difficulty = "leicht";
+                animationSpeed = 6.5f;
+                startReadingGame();
+            }
+        });
+
+        dlgBuilder.setNegativeButton("Normal", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                difficulty = "normal";
+                animationSpeed = 5.0f;
+                startReadingGame();
+            }
+        });
+
+        alert = dlgBuilder.create();
+        alert.show();
     }
 }
