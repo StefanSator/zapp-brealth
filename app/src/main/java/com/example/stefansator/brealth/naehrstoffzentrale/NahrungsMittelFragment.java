@@ -102,6 +102,7 @@ public class NahrungsMittelFragment extends Fragment {
 
                 ListView listView = (ListView) getView().findViewById(R.id.foodList);
                 adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, foodItems);
+                adapter.clear();
                 for(int i = 0; i < hintList.size(); i++) {
                     adapter.add(hintList.get(i).getFood().getLabel());
                 }
