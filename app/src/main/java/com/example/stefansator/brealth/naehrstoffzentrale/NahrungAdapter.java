@@ -19,11 +19,11 @@ import java.util.List;
 
 public class NahrungAdapter extends RecyclerView.Adapter<NahrungAdapter.NahrungViewHolder>{
 
-    List<NahrungItem> data = Collections.emptyList();
+    List<Food> data = Collections.emptyList();
     private LayoutInflater inflater;
     Context context;
 
-    public NahrungAdapter(Context context, List<NahrungItem> data) {
+    public NahrungAdapter(Context context, List<Food> data) {
         inflater=LayoutInflater.from(context);
         this.data = data;
         this.context = context;
@@ -38,9 +38,9 @@ public class NahrungAdapter extends RecyclerView.Adapter<NahrungAdapter.NahrungV
 
     @Override
     public void onBindViewHolder(@NonNull NahrungViewHolder holder, int position) {
-        NahrungItem current = data.get(position);
+        Food current = data.get(position);
 
-        holder.title.setText(current.title);
+        holder.title.setText(current.getLabel());
         if(position%2 == 0) {
             holder.setBackgroundColor("#FFFFFF");
         } else {

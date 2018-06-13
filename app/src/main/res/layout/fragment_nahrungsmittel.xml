@@ -15,7 +15,7 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:inputType="text"
-        android:text="Foodname"
+        android:text=""
         tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="16dp" />
 
@@ -86,4 +86,17 @@
         android:layout_alignStart="@+id/textViewCarbsLabel"
         android:layout_alignTop="@+id/textViewFat"
         android:text="" />
+
+    <ListView
+        android:id="@+id/foodList"
+        android:layout_width="wrap_content"
+        android:layout_height="384dp"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textViewFat"
+        android:drawSelectorOnTop="false" />
+    <!--<android.support.v7.widget.RecyclerView-->
+        <!--android:id="@+id/nahrungsmittel_list"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>-->
+
 </RelativeLayout>
