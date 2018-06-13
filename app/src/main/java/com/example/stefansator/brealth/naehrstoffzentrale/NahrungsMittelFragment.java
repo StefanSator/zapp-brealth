@@ -132,29 +132,29 @@ public class NahrungsMittelFragment extends Fragment {
         if (fat == null) {
             fatView.setText("N.A.");
         } else {
-            fatView.setText(fat.toString());
+            fatView.setText(String.format("%.2f",fat));
         }
     }
 
     private void setProteinText(int position) {
-        TextView fatView = (TextView) getView().findViewById(R.id.textViewProtein);
+        TextView proteinView = (TextView) getView().findViewById(R.id.textViewProtein);
         Double protein = hintList.get(position).getFood().getNutrients().getProtein();
 
         if (protein == null) {
-            fatView.setText("N.A.");
+            proteinView.setText("N.A.");
         } else {
-            fatView.setText(protein.toString());
+            proteinView.setText(String.format("%.2f",protein));
         }
     }
 
     private void setCarbsText(int position) {
-        TextView fatView = (TextView) getView().findViewById(R.id.textViewCarbs);
+        TextView carbsView = (TextView) getView().findViewById(R.id.textViewCarbs);
         Double carbs = hintList.get(position).getFood().getNutrients().getCarbohydrates();
 
         if (carbs == null) {
-            fatView.setText("N.A.");
+            carbsView.setText("N.A.");
         } else {
-            fatView.setText(carbs.toString());
+            carbsView.setText(String.format("%.2f",carbs));
         }
     }
 }
