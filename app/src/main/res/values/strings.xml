@@ -51,5 +51,10 @@
     <string name="effortcalculating75">EffortCalculating75</string>
     <string name="effortcalculating100">EffortCalculating100</string>
     <string name="effortcalculating200">EffortCalculating200</string>
+    <string name="powerlogic">PowerLogic</string>
+    <string name="mind_colors">Mind Colors</string>
+    <string name="yogamemory">YogaMemory</string>
+    <string name="effortcalculating">EffortCalculating</string>
+    <string name="vocablerun">VocableRun</string>
 
 </resources>
