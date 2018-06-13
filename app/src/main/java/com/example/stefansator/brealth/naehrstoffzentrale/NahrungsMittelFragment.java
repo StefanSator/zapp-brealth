@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -92,9 +93,9 @@ public class NahrungsMittelFragment extends Fragment {
             public void onResponse(Call<Model> call, Response<Model> response) {
                 hintList = response.body().getHints();
                 if(!hintList.isEmpty()) {
-                    setFatText();
-                    setProteinText();
-                    setCarbsText();
+                    setFatText(0);
+                    setProteinText(0);
+                    setCarbsText(0);
                 } else {
                     Log.d("mainAct", "test - empty");
                 }
@@ -105,6 +106,15 @@ public class NahrungsMittelFragment extends Fragment {
                     adapter.add(hintList.get(i).getFood().getLabel());
                 }
                 listView.setAdapter(adapter);
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        setFatText(position);
+                        setProteinText(position);
+                        setCarbsText(position);
+                        Log.d("blabla", adapter.getItem(position).toString());
+                    }
+                });
             }
 
             @Override
@@ -114,9 +124,9 @@ public class NahrungsMittelFragment extends Fragment {
         });
     }
 
-    private void setFatText() {
+    private void setFatText(int position) {
         TextView fatView = (TextView) getView().findViewById(R.id.textViewFat);
-        Double fat = hintList.get(0).getFood().getNutrients().getFat();
+        Double fat = hintList.get(position).getFood().getNutrients().getFat();
 
         if (fat == null) {
             fatView.setText("N.A.");
@@ -125,9 +135,9 @@ public class NahrungsMittelFragment extends Fragment {
         }
     }
 
-    private void setProteinText() {
+    private void setProteinText(int position) {
         TextView fatView = (TextView) getView().findViewById(R.id.textViewProtein);
-        Double protein = hintList.get(0).getFood().getNutrients().getProtein();
+        Double protein = hintList.get(position).getFood().getNutrients().getProtein();
 
         if (protein == null) {
             fatView.setText("N.A.");
@@ -136,9 +146,9 @@ public class NahrungsMittelFragment extends Fragment {
         }
     }
 
-    private void setCarbsText() {
+    private void setCarbsText(int position) {
         TextView fatView = (TextView) getView().findViewById(R.id.textViewCarbs);
-        Double carbs = hintList.get(0).getFood().getNutrients().getCarbohydrates();
+        Double carbs = hintList.get(position).getFood().getNutrients().getCarbohydrates();
 
         if (carbs == null) {
             fatView.setText("N.A.");
