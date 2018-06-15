@@ -3,6 +3,7 @@
     package="com.example.stefansator.brealth">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MainMenu" />
         <activity
             android:name=".BrainMenu"
@@ -50,21 +50,56 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.stefansator.brealth.HealthMenu" />
         </activity>
+        <activity
+            android:name=".LesenTask"
+            android:label="Laut Lesen" />
+        <activity
+            android:name=".FarbenTaskMenu"
+            android:label="Farben" />
+        <activity
+            android:name=".FarbenEasyMode"
+            android:label="Farben Easy Mode" />
+        <activity
+            android:name=".FarbenHardMode"
+            android:label="Farben Hard Mode" />
+        <activity
+            android:name=".FarbenEndscreen"
+            android:label="Ergebnis" />
+        <activity
+            android:name=".BrealthUebungen"
+            android:label="Uebungen" />
+        <activity
+            android:name=".BrealthTest"
+            android:label="Test" />
+        <activity
+            android:name=".Logik"
+            android:label="Logik" />
+        <activity
+            android:name=".EffortCalculatingMenu"
+            android:label="EffortCalculating" />
+        <activity
+            android:name=".EffortCalculatingTask"
+            android:label="EffortCalculating" />
+        <activity
+            android:name=".YogaMemoryMenu"
+            android:label="YogaMemory" />
+        <activity
+            android:name=".YogaMemoryTask"
+            android:label="YogaMemory" />
 
-        <activity android:name=".LesenTask" android:label="Laut Lesen"></activity>
-        <activity android:name=".FarbenTaskMenu" android:label="Farben"></activity>
-        <activity android:name=".FarbenEasyMode" android:label="Farben Easy Mode"></activity>
-        <activity android:name=".FarbenHardMode" android:label="Farben Hard Mode"></activity>
-        <activity android:name=".FarbenEndscreen" android:label="Ergebnis"></activity>
-        <activity android:name=".BrealthUebungen" android:label="Uebungen"></activity>
-        <activity android:name=".BrealthTest" android:label="Test"></activity>
-        <activity android:name=".Logik" android:label="Logik"></activity>
-        <activity android:name=".EffortCalculatingMenu" android:label="EffortCalculating"></activity>
-        <activity android:name=".EffortCalculatingTask" android:label="EffortCalculating"></activity>
-        <activity android:name=".YogaMemoryMenu" android:label="YogaMemory"></activity>
-        <activity android:name=".YogaMemoryTask" android:label="YogaMemory"></activity>
-        <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:process=":remote" />
 
+        <activity
+            android:name=".naehrstoffzentrale.NahrungDetails"
+            android:parentActivityName=".naehrstoffzentrale.Zentrale">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.stefansator.brealth.naehrstoffzentrale.Zentrale" />
+
+        </activity>
     </application>
 
 </manifest>
