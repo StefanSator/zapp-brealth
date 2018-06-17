@@ -21,7 +21,7 @@ public class RechnenTask extends AppCompatActivity {
     private long startzeit;
     private long endzeit;
     private int falseCounter = 0;
-    private static boolean wipeHighscore = false;
+    private static final boolean wipeHighscore = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

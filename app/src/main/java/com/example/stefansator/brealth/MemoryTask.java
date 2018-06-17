@@ -28,7 +28,7 @@ public class MemoryTask extends AppCompatActivity {
     private int falseCounter = 0, rightCounter = 0;
     private AlertDialog alert;
     private AlertDialog.Builder dlgBuilder;
-    private static boolean wipeHighscore = false;
+    private static final boolean wipeHighscore = false;
     /* variables which will later include index of drawn cards */
     private int firstDraw = -1;
     private int secondDraw = -1;
@@ -98,7 +98,7 @@ public class MemoryTask extends AppCompatActivity {
         long bearbeitungsDauer = endZeit - startZeit;
         int bewertung = RateThePlayer(bearbeitungsDauer, falseCounter);
 
-        Highscore highscore = new Highscore(this,bearbeitungsDauer,bewertung,"rechnen");
+        Highscore highscore = new Highscore(this,bearbeitungsDauer,bewertung,"memory");
         boolean isNewHighscore = highscore.isNewHighscore();
         highscore.deleteHighscore(wipeHighscore);
 

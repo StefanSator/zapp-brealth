@@ -16,7 +16,7 @@ public class FarbenEasyMode extends AppCompatActivity {
     private int LIMIT = 10,counter, falseCounter = 0;
     private long starttime, endtime;
     private String mainColor, textColor;
-    private static boolean wipeHighscore = false;
+    private static final boolean wipeHighscore = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -17,7 +17,7 @@ public class FarbenHardMode extends AppCompatActivity {
     private long starttime, endtime;
     private String mainColor, ftextColor, stextColor, ttextColor;
     private VARIANTE variante;
-    private static boolean wipeHighscore = false;
+    private static final boolean wipeHighscore = false;
 
     public enum VARIANTE {
         TEXTFARBE,GESCHRIEBEN

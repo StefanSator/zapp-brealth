@@ -17,7 +17,7 @@ public class Logik extends AppCompatActivity{
     private EditText submitAnswer;
     private int symbolCNumber, symbolTNumber, endResult=0, counter = 0, falseCounter = 0, LIMIT = 10;
     private long starttime, endtime;
-    private static boolean wipeHighscore = false;
+    private static final boolean wipeHighscore = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
