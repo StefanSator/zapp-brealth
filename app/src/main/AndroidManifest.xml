@@ -64,6 +64,7 @@
         <activity android:name=".YogaMemoryMenu" android:label="YogaMemory"></activity>
         <activity android:name=".YogaMemoryTask" android:label="YogaMemory"></activity>
         <activity android:name=".VocableRunTask" android:label="VocableRun"></activity>
+        <activity android:name=".VocableEvaluationScreen" android:label="VocableRun Evaluation"></activity>
         <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
 
     </application>

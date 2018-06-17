@@ -51,5 +51,6 @@
     <string name="effortcalculating75">EffortCalculating75</string>
     <string name="effortcalculating100">EffortCalculating100</string>
     <string name="effortcalculating200">EffortCalculating200</string>
+    <string name="evaluationtitle">Wie viele Aufgaben konnten Sie nicht lösen?</string>
 
 </resources>

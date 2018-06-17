@@ -16,8 +16,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="35dp"
         android:textColor="@color/yellow"
-        android:textSize="26sp"
-        android:text="Rückwärts"/>
+        android:textSize="26sp" />
 
     <TextView
         android:id="@+id/vocable_task"
@@ -27,8 +26,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"
         android:textColor="@color/yellow"
-        android:textSize="40sp"
-        android:text="Wanderlust"/>
+        android:textSize="40sp" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/walkingman_animation"
