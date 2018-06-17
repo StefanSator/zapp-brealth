@@ -33,9 +33,16 @@ public class VocableEvaluationScreen extends AppCompatActivity {
             return;
         }
 
+        int rating = RateThePlayer(falseCounter);
         Intent finishScreenIntent = new Intent(VocableEvaluationScreen.this, TaskEndscreen.class);
         finishScreenIntent.putExtra("falsch", falseCounter);
+        finishScreenIntent.putExtra("rating", rating);
         VocableEvaluationScreen.this.startActivity(finishScreenIntent);
         VocableEvaluationScreen.this.finish();
+    }
+
+    private int RateThePlayer(int falseCounter) {
+        GameRater gameRater = new VocableRunRater(falseCounter);
+        return gameRater.getRating();
     }
 }
