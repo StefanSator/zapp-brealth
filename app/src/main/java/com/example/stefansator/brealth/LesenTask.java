@@ -82,7 +82,7 @@ public class LesenTask extends AppCompatActivity {
         int bewertung = RateThePlayer(bearbeitungsdauer);
 
         Highscore highscore = new Highscore(this,bearbeitungsdauer,bewertung,"lesen");
-        boolean isNewHighscore = highscore.isNewHighscore();
+        boolean isNewHighscore = highscore.isNewHighscoreLesen();
         highscore.deleteHighscore(wipeHighscore);
 
         Intent finishscreenIntent = new Intent(LesenTask.this, TaskEndscreen.class);

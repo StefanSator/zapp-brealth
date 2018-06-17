@@ -34,6 +34,20 @@ public class Highscore {
         return false;
     }
 
+    public boolean isNewHighscoreLesen() {
+        preferencesEditor = preferences.edit();
+
+        if (preferences.getInt(task+"rating",0) <= rating){
+            if (preferences.getLong(task+"duration", Long.MIN_VALUE) < duration) {
+                preferencesEditor.putInt(task+"rating", rating);
+                preferencesEditor.putLong(task+"duration",duration);
+                preferencesEditor.apply();
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void deleteHighscore(boolean wipe){
         if (wipe == true) {
             preferencesEditor.clear();
