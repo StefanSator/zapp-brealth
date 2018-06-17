@@ -20,7 +20,12 @@ public class BrealthUebungen extends AppCompatActivity {
         Intent yogaIntent = new Intent(BrealthUebungen.this, YogaMemoryMenu.class);
         BrealthUebungen.this.startActivity(yogaIntent);
     }
-
+  
+    public void gotoVocableRun(View view) {
+        Intent vocableIntent = new Intent(BrealthUebungen.this, VocableRunTask.class);
+        BrealthUebungen.this.startActivity(vocableIntent);
+    }
+  
     public void gotoMindColors(View view) {
         Intent mindColorIntent= new Intent(BrealthUebungen.this, MindColors.class);
         BrealthUebungen.this.startActivity(mindColorIntent);

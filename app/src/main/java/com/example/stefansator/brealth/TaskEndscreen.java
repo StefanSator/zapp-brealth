@@ -34,6 +34,9 @@ public class TaskEndscreen extends AppCompatActivity {
         } else if (getIntent().hasExtra("dauer") == true && getIntent().hasExtra("falsch") == false) {
             bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
             setOnlyDauerFeld();
+        } else if (getIntent().hasExtra("dauer") == false && getIntent().hasExtra("falsch") == true){
+            falseCounter = getIntent().getExtras().getInt("falsch");
+            setOnlyFalschFeld();
         } else {
             System.out.println("Error in RechnenEnd");
             TaskEndscreen.this.finish();
@@ -54,6 +57,12 @@ public class TaskEndscreen extends AppCompatActivity {
         falschText.setText("");
     }
 
+    private void setOnlyFalschFeld() {
+        falschFeld.setText("" + falseCounter);
+        TextView dauerText = findViewById(R.id.bemerkung_rechnenend);
+        dauerText.setText("");
+    }
+
     private void setStarRating() {
         if (getIntent().hasExtra("rating") == true) {
             setNumberOfStars();
@@ -63,7 +72,9 @@ public class TaskEndscreen extends AppCompatActivity {
     }
 
     private void setNumberOfStars() {
-        bewertung = getIntent().getExtras().getInt("rating");
+        if (getIntent().hasExtra("rating")) {
+            bewertung = getIntent().getExtras().getInt("rating");
+        }
 
         switch (bewertung) {
             case 0:
