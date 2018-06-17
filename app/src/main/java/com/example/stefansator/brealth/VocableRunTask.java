@@ -88,7 +88,7 @@ public class VocableRunTask extends AppCompatActivity {
         taskVocable = findViewById(R.id.vocable_task);
 
         int secs = 25;
-        new CountDownTimer((secs +1) * 1000, 1000) // Wait 5 secs, tick every 1 sec
+        new CountDownTimer((secs +1) * 5000, 5000)
         {
             @Override
             public final void onTick(final long millisUntilFinished)
@@ -96,6 +96,14 @@ public class VocableRunTask extends AppCompatActivity {
                 if (exerciseNr >= 25) return;
 
                 taskTitle.setText(exercises[exerciseNr].getTask());
+                if (taskTitle.getText().toString().equals("Kopfüber"))
+                    taskVocable.setRotation(180);
+                else
+                    taskVocable.setRotation(0);
+                if (taskTitle.getText().toString().equals("Rückwärts"))
+                    taskVocable.setScaleX(-1);
+                else
+                    taskVocable.setScaleX(1);
                 taskVocable.setText(exercises[exerciseNr].getChosenVocable());
                 exerciseNr++;
             }
