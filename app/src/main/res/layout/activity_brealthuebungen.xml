@@ -7,34 +7,88 @@
 
     <Button
         android:id="@+id/brealth_uebungen1"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="20"
+        android:backgroundTint="@color/neonred"
         android:onClick="gotoEffortCalculatingMenu"
-        android:text="EffortCalculating" />
+        android:text="@string/effortcalculating"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:textSize="36sp"/>
 
     <Button
         android:id="@+id/brealth_uebungen2"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:onClick="gotoVocableRun"
-        android:text="VocableRun" />
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="20"
+        android:backgroundTint="@color/brightred"
+        android:text="@string/vocablerun"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:textSize="36sp"/>
 
     <Button
         android:id="@+id/brealth_uebungen3"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="20"
+        android:backgroundTint="@color/bluegreen"
         android:onClick="gotoYogaMemoryMenu"
-        android:text="YogaMemory" />
+        android:text="@string/yogamemory"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:textSize="36sp" />
 
     <Button
-        android:id="@+id/brealth_uebungen4"
+        android:id="@+id/brealth_mindcolors"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MindColors" />
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="20"
+        android:backgroundTint="@color/blue"
+        android:onClick="gotoMindColors"
+        android:text="@string/mind_colors"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:textSize="36sp" />
 
     <Button
-        android:id="@+id/brealth_uebungen5"
+        android:id="@+id/brealth_powerlogic"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PowerLogic" />
+        android:layout_marginBottom="-5dp"
+        android:layout_marginLeft="-5dp"
+        android:layout_marginRight="-5dp"
+        android:layout_marginTop="-5dp"
+        android:layout_weight="20"
+        android:backgroundTint="@color/darkblue"
+        android:onClick="gotoPowerLogic"
+        android:text="@string/powerlogic"
+        android:fontFamily="casual"
+        android:padding="0dp"
+        android:textSize="36sp" />
+
+
 </LinearLayout>
