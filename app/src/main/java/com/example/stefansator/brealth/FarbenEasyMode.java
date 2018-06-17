@@ -16,6 +16,7 @@ public class FarbenEasyMode extends AppCompatActivity {
     private int LIMIT = 10,counter, falseCounter = 0;
     private long starttime, endtime;
     private String mainColor, textColor;
+    private static boolean wipeHighscore = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,11 +113,15 @@ public class FarbenEasyMode extends AppCompatActivity {
         endtime = System.currentTimeMillis();
         long duration = endtime - starttime;
         int rating = RateThePlayer(duration, falseCounter);
+        Highscore highscore = new Highscore(this,duration,rating,"fem");
+        boolean isNewHighscore = highscore.isNewHighscore();
+        highscore.deleteHighscore(wipeHighscore);
 
         Intent finishscreenIntent = new Intent(FarbenEasyMode.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", duration);
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", rating);
+        finishscreenIntent.putExtra("highscore", isNewHighscore);
         FarbenEasyMode.this.startActivity( finishscreenIntent);
         FarbenEasyMode.this.finish();
     }

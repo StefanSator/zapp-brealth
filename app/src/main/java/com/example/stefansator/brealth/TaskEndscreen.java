@@ -27,6 +27,8 @@ public class TaskEndscreen extends AppCompatActivity {
         falschFeld = findViewById(R.id.falschCounter_rechnenend);
         rating = findViewById(R.id.setRating);
 
+
+
         if (getIntent().hasExtra("dauer") == true && getIntent().hasExtra("falsch") == true) {
             bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
             falseCounter = getIntent().getExtras().getInt("falsch");
@@ -39,6 +41,13 @@ public class TaskEndscreen extends AppCompatActivity {
             TaskEndscreen.this.finish();
         }
 
+        if (getIntent().hasExtra("highscore") == true) {
+            boolean isHighscore = getIntent().getExtras().getBoolean("highscore");
+            if (isHighscore == true) {
+                TextView ergebnis = findViewById(R.id.ergebnis_rechnenend);
+                ergebnis.setText("NEW HIGHSCORE");
+            }
+        }
         /* Show right Star Rating */
         setStarRating();
     }

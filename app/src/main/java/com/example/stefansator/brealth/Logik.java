@@ -17,6 +17,7 @@ public class Logik extends AppCompatActivity{
     private EditText submitAnswer;
     private int symbolCNumber, symbolTNumber, endResult=0, counter = 0, falseCounter = 0, LIMIT = 10;
     private long starttime, endtime;
+    private static boolean wipeHighscore = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,10 +156,15 @@ public class Logik extends AppCompatActivity{
         long duration = endtime - starttime;
         int rating = RateTheGame(duration, falseCounter);
 
+        Highscore highscore = new Highscore(this,duration,rating,"logik");
+        boolean isNewHighscore = highscore.isNewHighscore();
+        highscore.deleteHighscore(wipeHighscore);
+
         Intent finishscreenIntent = new Intent(Logik.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", duration);
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", rating);
+        finishscreenIntent.putExtra("highscore", isNewHighscore);
         Logik.this.startActivity(finishscreenIntent);
         Logik.this.finish();
     }

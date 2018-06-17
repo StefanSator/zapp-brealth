@@ -21,6 +21,7 @@ public class RechnenTask extends AppCompatActivity {
     private long startzeit;
     private long endzeit;
     private int falseCounter = 0;
+    private static boolean wipeHighscore = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,10 +68,15 @@ public class RechnenTask extends AppCompatActivity {
         long bearbeitungsDauer = endzeit - startzeit;
         int bewertung = RateTheGame(bearbeitungsDauer, falseCounter, LIMIT);
 
+        Highscore highscore = new Highscore(this,bearbeitungsDauer,bewertung,"rechnen");
+        boolean isNewHighscore = highscore.isNewHighscore();
+        highscore.deleteHighscore(wipeHighscore);
+
         Intent finishscreenIntent = new Intent(RechnenTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", bewertung);
+        finishscreenIntent.putExtra("highscore", isNewHighscore);
         RechnenTask.this.startActivity(finishscreenIntent);
         RechnenTask.this.finish();
     }
