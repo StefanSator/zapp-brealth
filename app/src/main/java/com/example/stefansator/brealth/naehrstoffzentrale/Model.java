@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,65 +22,65 @@ import java.util.Map;
 })
 public class Model {
 
-    @JsonProperty("text")
+    @SerializedName("text")
     private String text;
-    @JsonProperty("parsed")
+    @SerializedName("parsed")
     private List<Object> parsed = null;
-    @JsonProperty("hints")
+    @SerializedName("hints")
     private List<Hint> hints = null;
-    @JsonProperty("page")
+    @SerializedName("page")
     private Integer page;
-    @JsonProperty("numPages")
+    @SerializedName("numPages")
     private Integer numPages;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("text")
+    @SerializedName("text")
     public String getText() {
         return text;
     }
 
-    @JsonProperty("text")
+    @SerializedName("text")
     public void setText(String text) {
         this.text = text;
     }
 
-    @JsonProperty("parsed")
+    @SerializedName("parsed")
     public List<Object> getParsed() {
         return parsed;
     }
 
-    @JsonProperty("parsed")
+    @SerializedName("parsed")
     public void setParsed(List<Object> parsed) {
         this.parsed = parsed;
     }
 
-    @JsonProperty("hints")
+    @SerializedName("hints")
     public List<Hint> getHints() {
         return hints;
     }
 
-    @JsonProperty("hints")
+    @SerializedName("hints")
     public void setHints(List<Hint> hints) {
         this.hints = hints;
     }
 
-    @JsonProperty("page")
+    @SerializedName("page")
     public Integer getPage() {
         return page;
     }
 
-    @JsonProperty("page")
+    @SerializedName("page")
     public void setPage(Integer page) {
         this.page = page;
     }
 
-    @JsonProperty("numPages")
+    @SerializedName("numPages")
     public Integer getNumPages() {
         return numPages;
     }
 
-    @JsonProperty("numPages")
+    @SerializedName("numPages")
     public void setNumPages(Integer numPages) {
         this.numPages = numPages;
     }

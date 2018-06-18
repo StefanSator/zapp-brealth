@@ -1,5 +1,9 @@
-package com.example.stefansator.brealth.naehrstoffzentrale;
 
+package com.example.stefansator.brealth.naehrstoffzentrale.apiobjects;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -8,41 +12,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "uri",
-        "label"
+    "parsed"
 })
-public class Measure {
+public class Ingredient {
 
-    @SerializedName("uri")
-    private String uri;
-    @SerializedName("label")
-    private String label;
+    @SerializedName("parsed")
+    private List<Parsed> parsed = null;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @SerializedName("uri")
-    public String getUri() {
-        return uri;
+    @SerializedName("parsed")
+    public List<Parsed> getParsed() {
+        return parsed;
     }
 
-    @SerializedName("uri")
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
-    @SerializedName("label")
-    public String getLabel() {
-        return label;
-    }
-
-    @SerializedName("label")
-    public void setLabel(String label) {
-        this.label = label;
+    @SerializedName("parsed")
+    public void setParsed(List<Parsed> parsed) {
+        this.parsed = parsed;
     }
 
     @JsonAnyGetter

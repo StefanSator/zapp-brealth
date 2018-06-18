@@ -37,62 +37,62 @@ public class Food {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("uri")
+    @SerializedName("uri")
     public String getUri() {
         return uri;
     }
 
-    @JsonProperty("uri")
+    @SerializedName("uri")
     public void setUri(String uri) {
         this.uri = uri;
     }
 
-    @JsonProperty("label")
+    @SerializedName("label")
     public String getLabel() {
         return label;
     }
 
-    @JsonProperty("label")
+    @SerializedName("label")
     public void setLabel(String label) {
         this.label = label;
     }
 
-    @JsonProperty("nutrients")
+    @SerializedName("nutrients")
     public Nutrients getNutrients() {
         return nutrients;
     }
 
-    @JsonProperty("nutrients")
+    @SerializedName("nutrients")
     public void setNutrients(Nutrients nutrients) {
         this.nutrients = nutrients;
     }
 
-    @JsonProperty("source")
+    @SerializedName("source")
     public String getSource() {
         return source;
     }
 
-    @JsonProperty("source")
+    @SerializedName("source")
     public void setSource(String source) {
         this.source = source;
     }
 
-    @JsonProperty("brand")
+    @SerializedName("brand")
     public String getBrand() {
         return brand;
     }
 
-    @JsonProperty("brand")
+    @SerializedName("brand")
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
-    @JsonProperty("foodContentsLabel")
+    @SerializedName("foodContentsLabel")
     public String getFoodContentsLabel() {
         return foodContentsLabel;
     }
 
-    @JsonProperty("foodContentsLabel")
+    @SerializedName("foodContentsLabel")
     public void setFoodContentsLabel(String foodContentsLabel) {
         this.foodContentsLabel = foodContentsLabel;
     }

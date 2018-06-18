@@ -26,22 +26,22 @@ public class Hint {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("food")
+    @SerializedName("food")
     public Food getFood() {
         return food;
     }
 
-    @JsonProperty("food")
+    @SerializedName("food")
     public void setFood(Food food) {
         this.food = food;
     }
 
-    @JsonProperty("measures")
+    @SerializedName("measures")
     public List<Measure> getMeasures() {
         return measures;
     }
 
-    @JsonProperty("measures")
+    @SerializedName("measures")
     public void setMeasures(List<Measure> measures) {
         this.measures = measures;
     }
