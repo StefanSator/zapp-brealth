@@ -17,6 +17,9 @@ import java.util.Map;
         "food",
         "measures"
 })
+/**
+ * Represents the top most node in the JSON object, which the API call returns
+ */
 public class Hint {
 
     @SerializedName("food")

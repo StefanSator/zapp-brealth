@@ -20,6 +20,7 @@ import java.util.Map;
         "brand",
         "foodContentsLabel"
 })
+
 public class Food {
 
     @SerializedName("uri")

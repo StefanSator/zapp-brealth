@@ -26,7 +26,7 @@ import com.google.gson.annotations.SerializedName;
 public class Parsed {
 
     @SerializedName("quantity")
-    private Integer quantity;
+    private Double quantity;
     @SerializedName("measure")
     private String measure;
     @SerializedName("food")
@@ -47,12 +47,12 @@ public class Parsed {
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @SerializedName("quantity")
-    public Integer getQuantity() {
+    public Double getQuantity() {
         return quantity;
     }
 
     @SerializedName("quantity")
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 

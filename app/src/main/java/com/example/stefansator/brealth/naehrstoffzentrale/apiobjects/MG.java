@@ -22,7 +22,7 @@ public class MG {
     @SerializedName("label")
     private String label;
     @SerializedName("quantity")
-    private Integer quantity;
+    private Double quantity;
     @SerializedName("unit")
     private String unit;
     @JsonIgnore
@@ -39,12 +39,12 @@ public class MG {
     }
 
     @SerializedName("quantity")
-    public Integer getQuantity() {
+    public Double getQuantity() {
         return quantity;
     }
 
     @SerializedName("quantity")
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(Double quantity) {
         this.quantity = quantity;
     }
 

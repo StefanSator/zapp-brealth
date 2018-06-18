@@ -32,29 +32,16 @@ public class NahrungsMittelFragment extends Fragment {
     private String url = "https://api.edamam.com/api/food-database/";
     private List<Hint> hintList = null;
     private RecyclerView recyclerView;
-//    private NahrungAdapter adapter;
     private ArrayList<String> foodItems = new ArrayList<String>();
     private ArrayAdapter<String> adapter = null;
     private View contentView;
-
-    public List<Food> getData() {
-        List<Food> data = new ArrayList<>();
-        for(int i = 0; i < hintList.size(); i++) {
-            Food current = new Food();
-            current.setLabel(hintList.get(i).getFood().getLabel());
-            data.add(current);
-        }
-        return data;
-    }
+    private ResponseObject responseObject = null;
+    private Bundle foodBundle;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View layout = inflater.inflate(R.layout.fragment_nahrungsmittel, null);
-//        recyclerView = (RecyclerView)layout.findViewById(R.id.nahrungsmittel_list);
-//        adapter = new NahrungAdapter(getActivity(), getData());
-//        recyclerView.setAdapter(adapter);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         contentView = layout;
         return layout;
     }
@@ -67,10 +54,12 @@ public class NahrungsMittelFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String foodName = getFoodName();
-                getRetrofitObject();
+                RetrieveFoodTask rft = null;
+
+                rft = new RetrieveFoodTask(hintList, getFoodName(), NahrungsMittelFragment.this);
+                rft.execute();
             }
         });
-        // or  (ImageView) view.findViewById(R.id.foo);
     }
 
     private String getFoodName() {
@@ -78,67 +67,40 @@ public class NahrungsMittelFragment extends Fragment {
         return foodName.getText().toString();
     }
 
-    public void getRetrofitObject() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        final FoodSearchAPI service = retrofit.create(FoodSearchAPI.class);
-        Call<Model> call = service.getJsonObjectData(getFoodName(), "bfe5aa37", "c9cc3f70b3bf3964b7f583de92b22f10", 1);
-
-        call.enqueue(new Callback<Model>() {
-            @Override
-            public void onResponse(Call<Model> call, Response<Model> response) {
-                hintList = response.body().getHints();
-
-                if(!hintList.isEmpty()) {
-                    setListView();
-                } else {
-                    Log.d("mainAct", "test - empty");
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Model> call, Throwable t) {
-                Log.d("mainActivity", "error" + t.toString());
-            }
-        });
-    }
-
-    private void setListView() {
+    // set a list view, which displays the results from the api calls
+    public void setListView(List<Hint> hintList) {
         ListView listView = (ListView) getView().findViewById(R.id.foodList);
+
+        // set adapter
         adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, foodItems);
         adapter.clear();
         for(int i = 0; i < hintList.size(); i++) {
             adapter.add(hintList.get(i).getFood().getLabel());
         }
         listView.setAdapter(adapter);
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Bundle foodBundle = getFoodInfo(position);
-                createNutrientPostData(position);
-                Intent zentraleIntent = new Intent(getActivity(), NahrungDetails.class);
-                startActivity(zentraleIntent);
+                buildPostRequest(position);
                 Log.d("blabla", adapter.getItem(position).toString());
             }
         });
     }
 
-    private void createNutrientPostData(int position) {
+    private void buildPostRequest(int position) {
 
         String measureURI = "http://www.edamam.com/ontologies/edamam.owl#Measure_gram";
         String foodURI = hintList.get(position).getFood().getUri();
-        Ingredient ingredient = new Ingredient(100, measureURI, foodURI);
+        Ingredient ingredient = new Ingredient(100.0, measureURI, foodURI);
         List<Ingredient> ingredientList = new ArrayList<Ingredient>();
         ingredientList.add(ingredient);
         NutrientPostDetails postData = new NutrientPostDetails(1, ingredientList);
         
-        sendPostRequest(postData);
+        sendPostRequest(postData, position);
     }
 
-    private void sendPostRequest(NutrientPostDetails postData) {
+    private void sendPostRequest(NutrientPostDetails postData, final int position) {
         Retrofit.Builder builder = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create());
@@ -148,11 +110,14 @@ public class NahrungsMittelFragment extends Fragment {
         NutrientsAccessAPI client = retrofit.create(NutrientsAccessAPI.class);
         Call<ResponseObject> call = client.createPostData("bfe5aa37", "c9cc3f70b3bf3964b7f583de92b22f10", postData);
 
-        // TODO: Wrong callback return type ! 
         call.enqueue(new Callback<ResponseObject>() {
             @Override
             public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
-                Log.d("YEAH!", response.body().getUri());
+                responseObject = response.body();
+                foodBundle = getFoodBundle(position);
+                Intent nahrungDetailsIntent = new Intent(getActivity(), NahrungDetails.class);
+                nahrungDetailsIntent.putExtras(foodBundle);
+                startActivity(nahrungDetailsIntent);
             }
 
             @Override
@@ -162,9 +127,23 @@ public class NahrungsMittelFragment extends Fragment {
         });
     }
 
-//    private Bundle getFoodInfo(int position) {
-//        Bundle b = new Bundle();
-//        b.putInt("amount", hintList.get(position).getMeasures().);
-//    }
+    public void setHintList(List<Hint> hintList) {
+        this.hintList = hintList;
+    }
+
+    private Bundle getFoodBundle(int position) {
+        foodBundle = new Bundle();
+        foodBundle.putString("title", responseObject.getIngredients().get(position).getParsed().get(0).getFood());
+        foodBundle.putInt("amount", responseObject.getTotalWeight());
+        foodBundle.putString("unit", "grams");
+
+        //build string of nutrient + unit
+        //TODO: catch null objects
+        foodBundle.putString("calories", responseObject.getTotalNutrients().getENERCKCAL().getQuantity() + " " + responseObject.getTotalNutrients().getENERCKCAL().getUnit());
+        foodBundle.putString("protein", responseObject.getTotalNutrients().getPROCNT().getQuantity() + " " + responseObject.getTotalNutrients().getPROCNT().getUnit());
+        foodBundle.putString("carbs", responseObject.getTotalNutrients().getCHOCDF().getQuantity() + " " + responseObject.getTotalNutrients().getCHOCDF().getUnit());
+        foodBundle.putString("fat", responseObject.getTotalNutrients().getFAT().getQuantity() + " " + responseObject.getTotalNutrients().getFAT().getUnit());
+        return foodBundle;
+    }
 
 }
