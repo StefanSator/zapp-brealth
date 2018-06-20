@@ -27,6 +27,8 @@ public class TaskEndscreen extends AppCompatActivity {
         falschFeld = findViewById(R.id.falschCounter_rechnenend);
         rating = findViewById(R.id.setRating);
 
+
+
         if (getIntent().hasExtra("dauer") == true && getIntent().hasExtra("falsch") == true) {
             bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
             falseCounter = getIntent().getExtras().getInt("falsch");
@@ -34,11 +36,21 @@ public class TaskEndscreen extends AppCompatActivity {
         } else if (getIntent().hasExtra("dauer") == true && getIntent().hasExtra("falsch") == false) {
             bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
             setOnlyDauerFeld();
+        } else if (getIntent().hasExtra("dauer") == false && getIntent().hasExtra("falsch") == true){
+            falseCounter = getIntent().getExtras().getInt("falsch");
+            setOnlyFalschFeld();
         } else {
             System.out.println("Error in RechnenEnd");
             TaskEndscreen.this.finish();
         }
 
+        if (getIntent().hasExtra("highscore") == true) {
+            boolean isHighscore = getIntent().getExtras().getBoolean("highscore");
+            if (isHighscore == true) {
+                TextView ergebnis = findViewById(R.id.ergebnis_rechnenend);
+                ergebnis.setText("NEW HIGHSCORE");
+            }
+        }
         /* Show right Star Rating */
         setStarRating();
     }
@@ -54,6 +66,12 @@ public class TaskEndscreen extends AppCompatActivity {
         falschText.setText("");
     }
 
+    private void setOnlyFalschFeld() {
+        falschFeld.setText("" + falseCounter);
+        TextView dauerText = findViewById(R.id.bemerkung_rechnenend);
+        dauerText.setText("");
+    }
+
     private void setStarRating() {
         if (getIntent().hasExtra("rating") == true) {
             setNumberOfStars();
@@ -63,7 +81,9 @@ public class TaskEndscreen extends AppCompatActivity {
     }
 
     private void setNumberOfStars() {
-        bewertung = getIntent().getExtras().getInt("rating");
+        if (getIntent().hasExtra("rating")) {
+            bewertung = getIntent().getExtras().getInt("rating");
+        }
 
         switch (bewertung) {
             case 0:

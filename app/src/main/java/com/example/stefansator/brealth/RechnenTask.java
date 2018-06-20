@@ -21,6 +21,7 @@ public class RechnenTask extends AppCompatActivity {
     private long startzeit;
     private long endzeit;
     private int falseCounter = 0;
+    private static final boolean wipeHighscore = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,8 +43,14 @@ public class RechnenTask extends AppCompatActivity {
     }
 
     public void showIfRight(View view) {
+        Integer ergebnis;
         ergebnisfeld = findViewById(R.id.rechenaufgabe_answer);
-        Integer ergebnis = Integer.parseInt(ergebnisfeld.getText().toString());
+
+        if (ergebnisfeld.getText().toString().isEmpty()) {
+            return;
+        } else {
+            ergebnis = Integer.parseInt(ergebnisfeld.getText().toString());
+        }
 
         /* Control if result is right */
         if (rechenaufgaben[aufgabeNr].getErgebnis() == ergebnis) {
@@ -55,6 +62,7 @@ public class RechnenTask extends AppCompatActivity {
                 endGame();
             }
             aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
+            ergebnisfeld.setText("");
         } else {
             falseCounter++;
             Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);
@@ -67,10 +75,15 @@ public class RechnenTask extends AppCompatActivity {
         long bearbeitungsDauer = endzeit - startzeit;
         int bewertung = RateTheGame(bearbeitungsDauer, falseCounter, LIMIT);
 
+        Highscore highscore = new Highscore(this,bearbeitungsDauer,bewertung,"rechnen");
+        boolean isNewHighscore = highscore.isNewHighscore();
+        highscore.deleteHighscore(wipeHighscore);
+
         Intent finishscreenIntent = new Intent(RechnenTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", bewertung);
+        finishscreenIntent.putExtra("highscore", isNewHighscore);
         RechnenTask.this.startActivity(finishscreenIntent);
         RechnenTask.this.finish();
     }

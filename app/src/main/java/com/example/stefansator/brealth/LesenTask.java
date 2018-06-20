@@ -29,6 +29,7 @@ public class LesenTask extends AppCompatActivity {
     private long startZeit, endZeit;
     private String difficulty;
     private float animationSpeed;
+    private static final boolean wipeHighscore = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,9 +81,14 @@ public class LesenTask extends AppCompatActivity {
         long bearbeitungsdauer = endZeit - startZeit;
         int bewertung = RateThePlayer(bearbeitungsdauer);
 
+        Highscore highscore = new Highscore(this,bearbeitungsdauer,bewertung,"lesen");
+        boolean isNewHighscore = highscore.isNewHighscoreLesen();
+        highscore.deleteHighscore(wipeHighscore);
+
         Intent finishscreenIntent = new Intent(LesenTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsdauer);
         finishscreenIntent.putExtra("rating", bewertung);
+        finishscreenIntent.putExtra("highscore", isNewHighscore);
         LesenTask.this.startActivity(finishscreenIntent);
         LesenTask.this.finish();
     }

@@ -37,20 +37,20 @@ public class LeseRater implements GameRater {
         if (difficulty.equals("leicht")) {
             perfectDuration = 510; // Zahl 510 durch praktische Tests im Schwierigkeitsgrad Leicht ermittelt
         } else if (difficulty.equals("normal")) {
-            perfectDuration = (int) (1.3 * 510); // Normal ist 1.3 mal schneller als leicht
+            perfectDuration = (int) (0.75 * 510); // Normal ist 1.3 mal schneller als leicht
         } else {
-            perfectDuration = (int) (2.17 * 510); // Schwer ist 2.17 mal schneller als leicht
+            perfectDuration = (int) (0.45 * 510); // Schwer ist 2.17 mal schneller als leicht
         }
 
-        if (duration < perfectDuration) {
+        if (duration >= perfectDuration) {
             return 5;
-        } else if (duration >= perfectDuration && duration < perfectDuration) {
+        } else if (duration >= 0.75 * perfectDuration) {
             return 4;
-        } else if (duration >= perfectDuration && duration < perfectDuration) {
+        } else if (duration >= 0.50 * perfectDuration) {
             return 3;
-        } else if (duration >= perfectDuration && duration < perfectDuration) {
+        } else if (duration >= 0.25 * perfectDuration) {
             return 2;
-        } else if (duration >= perfectDuration && duration < perfectDuration) {
+        } else if (duration >= 0.10 * perfectDuration) {
             return 1;
         } else {
             return 0;
