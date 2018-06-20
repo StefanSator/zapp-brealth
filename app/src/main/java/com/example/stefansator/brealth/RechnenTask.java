@@ -43,8 +43,14 @@ public class RechnenTask extends AppCompatActivity {
     }
 
     public void showIfRight(View view) {
+        Integer ergebnis;
         ergebnisfeld = findViewById(R.id.rechenaufgabe_answer);
-        Integer ergebnis = Integer.parseInt(ergebnisfeld.getText().toString());
+
+        if (ergebnisfeld.getText().toString().isEmpty()) {
+            return;
+        } else {
+            ergebnis = Integer.parseInt(ergebnisfeld.getText().toString());
+        }
 
         /* Control if result is right */
         if (rechenaufgaben[aufgabeNr].getErgebnis() == ergebnis) {
@@ -56,6 +62,7 @@ public class RechnenTask extends AppCompatActivity {
                 endGame();
             }
             aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
+            ergebnisfeld.setText("");
         } else {
             falseCounter++;
             Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);

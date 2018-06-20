@@ -59,14 +59,21 @@ public class EffortCalculatingTask extends AppCompatActivity {
     }
 
     public void gotoNextTask(View view) {
+        Integer ergebnis;
+
         if (aufgabeNr % 5 == 0 && aufgabeNr != 0) {
             switchToSportsTask();
             aufgabeNr++;
             aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
+            ergebnisfeld.setText("");
             return;
         }
 
-        Integer ergebnis = Integer.parseInt(ergebnisfeld.getText().toString());
+        if (ergebnisfeld.getText().toString().isEmpty()) {
+            return;
+        } else {
+            ergebnis = Integer.parseInt(ergebnisfeld.getText().toString());
+        }
 
         /* Control if result is right */
         if (rechenaufgaben[aufgabeNr].getErgebnis() == ergebnis) {
@@ -78,6 +85,7 @@ public class EffortCalculatingTask extends AppCompatActivity {
                 endGame();
             }
             aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
+            ergebnisfeld.setText("");
         } else {
             falseCounter++;
             Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);
