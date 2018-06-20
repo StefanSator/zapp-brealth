@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.stefansator.brealth.R;
 import com.example.stefansator.brealth.naehrstoffzentrale.apiobjects.ResponseObject;
@@ -53,16 +54,17 @@ public class NahrungsMittelFragment extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String foodName = getFoodName();
+                Toast.makeText(getContext(), "Waiting for response...", Toast.LENGTH_SHORT);
+                String foodName = getFoodViewContent();
                 RetrieveFoodTask rft = null;
 
-                rft = new RetrieveFoodTask(hintList, getFoodName(), NahrungsMittelFragment.this);
+                rft = new RetrieveFoodTask(hintList, getFoodViewContent(), NahrungsMittelFragment.this);
                 rft.execute();
             }
         });
     }
 
-    private String getFoodName() {
+    private String getFoodViewContent() {
         EditText foodName = (EditText) getView().findViewById(R.id.nahrungText);
         return foodName.getText().toString();
     }
@@ -82,6 +84,7 @@ public class NahrungsMittelFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getContext(), "Waiting for response...", Toast.LENGTH_SHORT);
                 buildPostRequest(position);
                 Log.d("blabla", adapter.getItem(position).toString());
             }
@@ -114,6 +117,9 @@ public class NahrungsMittelFragment extends Fragment {
             @Override
             public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
                 responseObject = response.body();
+                if (responseObject == null) {
+                    Toast.makeText(getContext(), "Response failed", Toast.LENGTH_SHORT);
+                }
                 foodBundle = getFoodBundle(position);
                 Intent nahrungDetailsIntent = new Intent(getActivity(), NahrungDetails.class);
                 nahrungDetailsIntent.putExtras(foodBundle);
@@ -122,7 +128,7 @@ public class NahrungsMittelFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseObject> call, Throwable t) {
-                Log.d("ERROR", "Something went wrong" + t);
+                Toast.makeText(getContext(), "No response", Toast.LENGTH_SHORT);
             }
         });
     }
@@ -133,12 +139,9 @@ public class NahrungsMittelFragment extends Fragment {
 
     private Bundle getFoodBundle(int position) {
         foodBundle = new Bundle();
-        foodBundle.putString("title", responseObject.getIngredients().get(position).getParsed().get(0).getFood());
-        foodBundle.putInt("amount", responseObject.getTotalWeight());
+        foodBundle.putString("title", getFoodName(position));
+        foodBundle.putInt("amount", getTotalWeight());
         foodBundle.putString("unit", "grams");
-
-        //build string of nutrient + unit
-        //TODO: catch null objects
         foodBundle.putString("calories", getCaloriesString());
         foodBundle.putString("protein", getProteinString());
         foodBundle.putString("carbs", getCarbsString());
@@ -146,9 +149,9 @@ public class NahrungsMittelFragment extends Fragment {
         foodBundle.putString("calcium", getCalcium());
         foodBundle.putString("iron", getIron());
         foodBundle.putString("fiber", getFiber());
-        foodBundle.putString("potassium", getKalium());
+        foodBundle.putString("kalium", getKalium());
         foodBundle.putString("magnesium", getMagnesium());
-        foodBundle.putString("sodium", getNatrium());
+        foodBundle.putString("natrium", getNatrium());
         foodBundle.putString("vitaminB3", getVitaminB3());
         foodBundle.putString("phosphorus", getPhosphorus());
         foodBundle.putString("vitaminB2", getVitaminB2());
@@ -161,11 +164,23 @@ public class NahrungsMittelFragment extends Fragment {
         return foodBundle;
     }
 
+    private int getTotalWeight() {
+        if(responseObject.getTotalWeight() == null) {
+            return 0;
+        } else {
+            return responseObject.getTotalWeight();
+        }
+    }
+
+    private String getFoodName(int position) {
+        return hintList.get(position).getFood().getLabel();
+    }
+
     private String getCaloriesString() {
         if(responseObject.getTotalNutrients().getENERCKCAL() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getENERCKCAL().getQuantity() + " " + responseObject.getTotalNutrients().getENERCKCAL().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getENERCKCAL().getQuantity()) + " " + responseObject.getTotalNutrients().getENERCKCAL().getUnit();
         }
     }
 
@@ -173,7 +188,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getPROCNT() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getPROCNT().getQuantity() + " " + responseObject.getTotalNutrients().getPROCNT().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getPROCNT().getQuantity()) + " " + responseObject.getTotalNutrients().getPROCNT().getUnit();
         }
     }
 
@@ -181,7 +196,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getFAT() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getFAT().getQuantity() + " " + responseObject.getTotalNutrients().getFAT().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getFAT().getQuantity()) + " " + responseObject.getTotalNutrients().getFAT().getUnit();
         }
     }
 
@@ -189,7 +204,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getCHOCDF() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getCHOCDF().getQuantity() + " " + responseObject.getTotalNutrients().getCHOCDF().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getCHOCDF().getQuantity()) + " " + responseObject.getTotalNutrients().getCHOCDF().getUnit();
         }
     }
 
@@ -197,7 +212,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getCA() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getCA().getQuantity() + " " + responseObject.getTotalNutrients().getCA().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getCA().getQuantity()) + " " + responseObject.getTotalNutrients().getCA().getUnit();
         }
     }
 
@@ -205,7 +220,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getFE() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getFE().getQuantity() + " " + responseObject.getTotalNutrients().getFE().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getFE().getQuantity()) + " " + responseObject.getTotalNutrients().getFE().getUnit();
         }
     }
 
@@ -213,7 +228,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getFIBTG() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getFIBTG().getQuantity() + " " + responseObject.getTotalNutrients().getFIBTG().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getFIBTG().getQuantity()) + " " + responseObject.getTotalNutrients().getFIBTG().getUnit();
         }
     }
 
@@ -222,7 +237,8 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getK() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getK().getQuantity() + " " + responseObject.getTotalNutrients().getK().getUnit();
+            String test = String.format("%.2f",responseObject.getTotalNutrients().getK().getQuantity()) + " " + responseObject.getTotalNutrients().getK().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getK().getQuantity()) + " " + responseObject.getTotalNutrients().getK().getUnit();
         }
     }
 
@@ -230,7 +246,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getMG() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getMG().getQuantity() + " " + responseObject.getTotalNutrients().getMG().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getMG().getQuantity()) + " " + responseObject.getTotalNutrients().getMG().getUnit();
         }
     }
 
@@ -239,7 +255,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getNA() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getNA().getQuantity() + " " + responseObject.getTotalNutrients().getNA().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getNA().getQuantity()) + " " + responseObject.getTotalNutrients().getNA().getUnit();
         }
     }
 
@@ -248,7 +264,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getNIA() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getNIA().getQuantity() + " " + responseObject.getTotalNutrients().getNIA().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getNIA().getQuantity()) + " " + responseObject.getTotalNutrients().getNIA().getUnit();
         }
     }
 
@@ -256,7 +272,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getP() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getP().getQuantity() + " " + responseObject.getTotalNutrients().getP().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getP().getQuantity()) + " " + responseObject.getTotalNutrients().getP().getUnit();
         }
     }
 
@@ -265,7 +281,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getRIBF() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getRIBF().getQuantity() + " " + responseObject.getTotalNutrients().getRIBF().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getRIBF().getQuantity()) + " " + responseObject.getTotalNutrients().getRIBF().getUnit();
         }
     }
 
@@ -274,7 +290,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getTHIA() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getTHIA().getQuantity() + " " + responseObject.getTotalNutrients().getTHIA().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getTHIA().getQuantity()) + " " + responseObject.getTotalNutrients().getTHIA().getUnit();
         }
     }
 
@@ -283,7 +299,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getTOCPHA() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getTOCPHA().getQuantity() + " " + responseObject.getTotalNutrients().getTOCPHA().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getTOCPHA().getQuantity()) + " " + responseObject.getTotalNutrients().getTOCPHA().getUnit();
         }
     }
 
@@ -292,7 +308,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getVITARAE() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getVITARAE().getQuantity() + " " + responseObject.getTotalNutrients().getVITARAE().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getVITARAE().getQuantity()) + " " + responseObject.getTotalNutrients().getVITARAE().getUnit();
         }
     }
 
@@ -300,7 +316,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getVITB6A() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getVITB6A().getQuantity() + " " + responseObject.getTotalNutrients().getVITB6A().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getVITB6A().getQuantity()) + " " + responseObject.getTotalNutrients().getVITB6A().getUnit();
         }
     }
 
@@ -308,7 +324,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getVITC() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getVITC().getQuantity() + " " + responseObject.getTotalNutrients().getVITC().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getVITC().getQuantity()) + " " + responseObject.getTotalNutrients().getVITC().getUnit();
         }
     }
 
@@ -316,7 +332,7 @@ public class NahrungsMittelFragment extends Fragment {
         if(responseObject.getTotalNutrients().getVITK1() == null) {
             return "N.A.";
         } else {
-            return responseObject.getTotalNutrients().getVITK1().getQuantity() + " " + responseObject.getTotalNutrients().getVITK1().getUnit();
+            return String.format("%.2f",responseObject.getTotalNutrients().getVITK1().getQuantity()) + " " + responseObject.getTotalNutrients().getVITK1().getUnit();
         }
     }
 

@@ -7,7 +7,7 @@
     tools:context=".naehrstoffzentrale.NahrungDetails">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/calciumView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -148,7 +148,7 @@
         android:layout_marginTop="4dp"
         android:text="TextView"
         app:layout_constraintStart_toEndOf="@+id/ironLabelView"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/calciumView" />
 
     <TextView
         android:id="@+id/fiberLabelView"
@@ -234,115 +234,90 @@
         android:id="@+id/vitaminB1LabelView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="8dp"
         android:text="Vitamin B1:"
-        app:layout_constraintEnd_toStartOf="@+id/vitaminB1View"
-        app:layout_constraintHorizontal_bias="0.724"
-        app:layout_constraintStart_toEndOf="@+id/caloriesView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amountView" />
 
     <TextView
         android:id="@+id/vitaminB2LabelView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin B2:"
-        app:layout_constraintEnd_toStartOf="@+id/vitaminB2View"
-        app:layout_constraintHorizontal_bias="0.717"
-        app:layout_constraintStart_toEndOf="@+id/proteinView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB1LabelView" />
 
     <TextView
         android:id="@+id/vitaminB3LabelView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin B3:"
-        app:layout_constraintEnd_toStartOf="@+id/vitaminB3View"
-        app:layout_constraintStart_toEndOf="@+id/carbsView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB2LabelView" />
 
     <TextView
         android:id="@+id/vitaminB6LabelView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin B6:"
-        app:layout_constraintEnd_toStartOf="@+id/vitaminB6View"
-        app:layout_constraintHorizontal_bias="0.785"
-        app:layout_constraintStart_toEndOf="@+id/fatView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB3LabelView" />
 
     <TextView
         android:id="@+id/phosphorusLabelView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Phosphor:"
-        app:layout_constraintEnd_toStartOf="@+id/phosphorusView"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB6LabelView" />
 
     <TextView
         android:id="@+id/vitaminELabelView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin E:"
-        app:layout_constraintEnd_toStartOf="@+id/vitaminEView"
-        app:layout_constraintHorizontal_bias="0.707"
-        app:layout_constraintStart_toEndOf="@+id/ironView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phosphorusLabelView" />
 
     <TextView
         android:id="@+id/vitaminALabelView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin A:"
-        app:layout_constraintEnd_toStartOf="@+id/vitaminAView"
-        app:layout_constraintStart_toEndOf="@+id/fiberView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminELabelView" />
 
     <TextView
         android:id="@+id/vitaminCLabelView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin C:"
-        app:layout_constraintEnd_toStartOf="@+id/vitaminCView"
-        app:layout_constraintHorizontal_bias="0.689"
-        app:layout_constraintStart_toEndOf="@+id/kaliumView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminALabelView" />
 
     <TextView
         android:id="@+id/vitaminKLabelView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin K:"
-        app:layout_constraintEnd_toStartOf="@+id/textView40"
-        app:layout_constraintHorizontal_bias="0.567"
-        app:layout_constraintStart_toEndOf="@+id/magnesiumView"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminCLabelView" />
 
     <TextView
@@ -426,7 +401,7 @@
         app:layout_constraintTop_toBottomOf="@+id/vitaminAView" />
 
     <TextView
-        android:id="@+id/textView40"
+        android:id="@+id/vitaminKView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
