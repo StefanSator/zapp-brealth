@@ -139,11 +139,201 @@ public class NahrungsMittelFragment extends Fragment {
 
         //build string of nutrient + unit
         //TODO: catch null objects
-        foodBundle.putString("calories", responseObject.getTotalNutrients().getENERCKCAL().getQuantity() + " " + responseObject.getTotalNutrients().getENERCKCAL().getUnit());
-        foodBundle.putString("protein", responseObject.getTotalNutrients().getPROCNT().getQuantity() + " " + responseObject.getTotalNutrients().getPROCNT().getUnit());
-        foodBundle.putString("carbs", responseObject.getTotalNutrients().getCHOCDF().getQuantity() + " " + responseObject.getTotalNutrients().getCHOCDF().getUnit());
-        foodBundle.putString("fat", responseObject.getTotalNutrients().getFAT().getQuantity() + " " + responseObject.getTotalNutrients().getFAT().getUnit());
+        foodBundle.putString("calories", getCaloriesString());
+        foodBundle.putString("protein", getProteinString());
+        foodBundle.putString("carbs", getCarbsString());
+        foodBundle.putString("fat", getFatString());
+        foodBundle.putString("calcium", getCalcium());
+        foodBundle.putString("iron", getIron());
+        foodBundle.putString("fiber", getFiber());
+        foodBundle.putString("potassium", getKalium());
+        foodBundle.putString("magnesium", getMagnesium());
+        foodBundle.putString("sodium", getNatrium());
+        foodBundle.putString("vitaminB3", getVitaminB3());
+        foodBundle.putString("phosphorus", getPhosphorus());
+        foodBundle.putString("vitaminB2", getVitaminB2());
+        foodBundle.putString("vitaminB1", getVitaminB1());
+        foodBundle.putString("vitaminE", getVitaminE());
+        foodBundle.putString("vitaminA", getVitaminA());
+        foodBundle.putString("vitaminB6", getVitaminB6());
+        foodBundle.putString("vitaminC", getVitaminC());
+        foodBundle.putString("vitaminK", getVitaminK());
         return foodBundle;
     }
+
+    private String getCaloriesString() {
+        if(responseObject.getTotalNutrients().getENERCKCAL() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getENERCKCAL().getQuantity() + " " + responseObject.getTotalNutrients().getENERCKCAL().getUnit();
+        }
+    }
+
+    private String getProteinString() {
+        if(responseObject.getTotalNutrients().getPROCNT() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getPROCNT().getQuantity() + " " + responseObject.getTotalNutrients().getPROCNT().getUnit();
+        }
+    }
+
+    private String getFatString() {
+        if(responseObject.getTotalNutrients().getFAT() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getFAT().getQuantity() + " " + responseObject.getTotalNutrients().getFAT().getUnit();
+        }
+    }
+
+    private String getCarbsString() {
+        if(responseObject.getTotalNutrients().getCHOCDF() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getCHOCDF().getQuantity() + " " + responseObject.getTotalNutrients().getCHOCDF().getUnit();
+        }
+    }
+
+    private String getCalcium() {
+        if(responseObject.getTotalNutrients().getCA() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getCA().getQuantity() + " " + responseObject.getTotalNutrients().getCA().getUnit();
+        }
+    }
+
+    private String getIron() {
+        if(responseObject.getTotalNutrients().getFE() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getFE().getQuantity() + " " + responseObject.getTotalNutrients().getFE().getUnit();
+        }
+    }
+
+    private String getFiber() {
+        if(responseObject.getTotalNutrients().getFIBTG() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getFIBTG().getQuantity() + " " + responseObject.getTotalNutrients().getFIBTG().getUnit();
+        }
+    }
+
+    private String getKalium() {
+        //Kalium
+        if(responseObject.getTotalNutrients().getK() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getK().getQuantity() + " " + responseObject.getTotalNutrients().getK().getUnit();
+        }
+    }
+
+    private String getMagnesium() {
+        if(responseObject.getTotalNutrients().getMG() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getMG().getQuantity() + " " + responseObject.getTotalNutrients().getMG().getUnit();
+        }
+    }
+
+    private String getNatrium() {
+        //Natrium
+        if(responseObject.getTotalNutrients().getNA() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getNA().getQuantity() + " " + responseObject.getTotalNutrients().getNA().getUnit();
+        }
+    }
+
+    private String getVitaminB3() {
+        //Niacin
+        if(responseObject.getTotalNutrients().getNIA() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getNIA().getQuantity() + " " + responseObject.getTotalNutrients().getNIA().getUnit();
+        }
+    }
+
+    private String getPhosphorus() {
+        if(responseObject.getTotalNutrients().getP() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getP().getQuantity() + " " + responseObject.getTotalNutrients().getP().getUnit();
+        }
+    }
+
+    private String getVitaminB2() {
+        //Riboflavin
+        if(responseObject.getTotalNutrients().getRIBF() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getRIBF().getQuantity() + " " + responseObject.getTotalNutrients().getRIBF().getUnit();
+        }
+    }
+
+    private String getVitaminB1() {
+        //Thiamin
+        if(responseObject.getTotalNutrients().getTHIA() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getTHIA().getQuantity() + " " + responseObject.getTotalNutrients().getTHIA().getUnit();
+        }
+    }
+
+    private String getVitaminE() {
+        //Tocopherol
+        if(responseObject.getTotalNutrients().getTOCPHA() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getTOCPHA().getQuantity() + " " + responseObject.getTotalNutrients().getTOCPHA().getUnit();
+        }
+    }
+
+    private String getVitaminA() {
+        //Retinol
+        if(responseObject.getTotalNutrients().getVITARAE() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getVITARAE().getQuantity() + " " + responseObject.getTotalNutrients().getVITARAE().getUnit();
+        }
+    }
+
+    private String getVitaminB6() {
+        if(responseObject.getTotalNutrients().getVITB6A() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getVITB6A().getQuantity() + " " + responseObject.getTotalNutrients().getVITB6A().getUnit();
+        }
+    }
+
+    private String getVitaminC() {
+        if(responseObject.getTotalNutrients().getVITC() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getVITC().getQuantity() + " " + responseObject.getTotalNutrients().getVITC().getUnit();
+        }
+    }
+
+    private String getVitaminK() {
+        if(responseObject.getTotalNutrients().getVITK1() == null) {
+            return "N.A.";
+        } else {
+            return responseObject.getTotalNutrients().getVITK1().getQuantity() + " " + responseObject.getTotalNutrients().getVITK1().getUnit();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
