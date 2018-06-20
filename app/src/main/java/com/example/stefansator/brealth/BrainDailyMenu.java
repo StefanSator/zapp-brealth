@@ -30,6 +30,13 @@ public class BrainDailyMenu extends AppCompatActivity {
         setupDailyNotification();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        loadPreferences();
+    }
+
     public void startDailyTask(View view) {
         setupDailyTask();
     }
