@@ -91,7 +91,7 @@
             android:name=".AlarmReceiver"
             android:enabled="true"
             android:process=":remote" />
-        
+
         <activity
             android:name=".VocableRunTask"
             android:label="VocableRun" />
