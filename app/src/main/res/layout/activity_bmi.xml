@@ -11,10 +11,10 @@
         android:id="@+id/bmiResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="52dp"
         android:fontFamily="casual"
-        android:text="TextView"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -137,6 +137,7 @@
         android:ems="10"
         android:fontFamily="casual"
         android:inputType="numberDecimal"
+        android:digits="0123456789.,"
         android:textColor="@color/white"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -145,14 +146,45 @@
 
     <Button
         android:id="@+id/calculateBMIButton"
-        android:layout_width="216dp"
+        android:layout_width="259dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="36dp"
+        android:fontFamily="casual"
         android:text="BMI berechnen"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heightLabelView" />
+
+    <TextView
+        android:id="@+id/bmiClassLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="casual"
+        android:text="Damit haben sie:"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmiResultLabel" />
+
+    <TextView
+        android:id="@+id/bmiClassResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="casual"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmiClassLabel" />
 
 </android.support.constraint.ConstraintLayout>
