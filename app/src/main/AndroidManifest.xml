@@ -87,28 +87,22 @@
             android:name=".YogaMemoryTask"
             android:label="YogaMemory" />
 
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:process=":remote" />
+        
+        <activity
+            android:name=".VocableRunTask"
+            android:label="VocableRun" />
+        <activity
+            android:name=".VocableEvaluationScreen"
+            android:label="VocableRun Evaluation" />
 
         <receiver
             android:name=".AlarmReceiver"
             android:enabled="true"
             android:process=":remote" />
-
-        <activity android:name=".LesenTask" android:label="Laut Lesen"></activity>
-        <activity android:name=".FarbenTaskMenu" android:label="Farben"></activity>
-        <activity android:name=".FarbenEasyMode" android:label="Farben Easy Mode"></activity>
-        <activity android:name=".FarbenHardMode" android:label="Farben Hard Mode"></activity>
-        <activity android:name=".FarbenEndscreen" android:label="Ergebnis"></activity>
-        <activity android:name=".BrealthUebungen" android:label="Uebungen"></activity>
-        <activity android:name=".BrealthTest" android:label="Test"></activity>
-        <activity android:name=".Logik" android:label="Logik"></activity>
-        <activity android:name=".EffortCalculatingMenu" android:label="EffortCalculating"></activity>
-        <activity android:name=".EffortCalculatingTask" android:label="EffortCalculating"></activity>
-        <activity android:name=".YogaMemoryMenu" android:label="YogaMemory"></activity>
-        <activity android:name=".YogaMemoryTask" android:label="YogaMemory"></activity>
-        <activity android:name=".VocableRunTask" android:label="VocableRun"></activity>
-        <activity android:name=".VocableEvaluationScreen" android:label="VocableRun Evaluation"></activity>
-        <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
-
 
         <activity
             android:name=".naehrstoffzentrale.NahrungDetails"
@@ -116,8 +110,8 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.stefansator.brealth.naehrstoffzentrale.Zentrale" />
-
         </activity>
+        <activity android:name=".BMIActivity"></activity>
     </application>
 
 </manifest>
