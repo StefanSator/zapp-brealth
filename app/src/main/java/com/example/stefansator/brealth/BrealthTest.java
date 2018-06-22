@@ -13,11 +13,12 @@ public class BrealthTest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brealthtest);
 
-        testTasks = new Intent[3];
-        testTasks[0] = new Intent(BrealthTest.this, LesenTask.class);
-        testTasks[1] = new Intent(BrealthTest.this, YogaMemoryTask.class);
-        testTasks[2] = new Intent(BrealthTest.this, EffortCalculatingTask.class);
-        testTasks[2].putExtra("limit", 20);
+        testTasks = new Intent[4];
+        testTasks[0] = new Intent(BrealthTest.this, YogaMemoryTask.class);
+        testTasks[1] = new Intent(BrealthTest.this, VocableRunTask.class);
+        testTasks[2] = new Intent(BrealthTest.this, LesenTask.class);
+        testTasks[3] = new Intent(BrealthTest.this, EffortCalculatingTask.class);
+        testTasks[3].putExtra("limit", 20);
 
         BrealthTest.this.startActivities(testTasks);
     }

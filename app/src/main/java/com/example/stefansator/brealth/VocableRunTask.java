@@ -25,12 +25,20 @@ public class VocableRunTask extends AppCompatActivity {
     private TextView taskTitle;
     private TextView taskVocable;
     private int exerciseNr = 0;
+    private CountDownTimer countDownTimer;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocablerun);
 
         createTutorialDialog();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        countDownTimer.cancel();
     }
 
     private String[] ReadVocablesFromFile(int fileid, int numberOfVocables) throws IOException {
@@ -88,7 +96,7 @@ public class VocableRunTask extends AppCompatActivity {
         taskVocable = findViewById(R.id.vocable_task);
 
         int secs = 25;
-        new CountDownTimer((secs +1) * 5000, 5000)
+        countDownTimer = new CountDownTimer((secs +1) * 5000, 5000)
         {
             @Override
             public final void onTick(final long millisUntilFinished)
