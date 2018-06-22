@@ -29,42 +29,42 @@ public class Nutrients {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("ENERC_KCAL")
+    @SerializedName("ENERC_KCAL")
     public Double getCalories() {
         return calories;
     }
 
-    @JsonProperty("ENERC_KCAL")
+    @SerializedName("ENERC_KCAL")
     public void setCalories(Double calories) {
         this.calories = calories;
     }
 
-    @JsonProperty("PROCNT")
+    @SerializedName("PROCNT")
     public Double getProtein() {
         return protein;
     }
 
-    @JsonProperty("PROCNT")
+    @SerializedName("PROCNT")
     public void setProtein(Double protein) {
         this.protein = protein;
     }
 
-    @JsonProperty("FAT")
+    @SerializedName("FAT")
     public Double getFat() {
         return fat;
     }
 
-    @JsonProperty("FAT")
+    @SerializedName("FAT")
     public void setFat(Double fat) {
         this.fat = fat;
     }
 
-    @JsonProperty("CHOCDF")
+    @SerializedName("CHOCDF")
     public Double getCarbohydrates() {
         return carbohydrates;
     }
 
-    @JsonProperty("CHOCDF")
+    @SerializedName("CHOCDF")
     public void setCarbohydrates(Double carbohydrates) {
         this.carbohydrates = carbohydrates;
     }
