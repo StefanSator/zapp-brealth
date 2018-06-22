@@ -86,7 +86,12 @@
         <activity
             android:name=".YogaMemoryTask"
             android:label="YogaMemory" />
-
+        <activity
+            android:name=".Powerlogic"
+            android:label="Powerlogic" />
+        <activity
+            android:name=".MindColors"
+            android:label="MindColors" />
         <receiver
             android:name=".AlarmReceiver"
             android:enabled="true"
