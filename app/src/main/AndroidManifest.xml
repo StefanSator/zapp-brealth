@@ -99,11 +99,6 @@
             android:name=".VocableEvaluationScreen"
             android:label="VocableRun Evaluation" />
 
-        <receiver
-            android:name=".AlarmReceiver"
-            android:enabled="true"
-            android:process=":remote" />
-
         <activity
             android:name=".naehrstoffzentrale.NahrungDetails"
             android:parentActivityName=".naehrstoffzentrale.Zentrale">

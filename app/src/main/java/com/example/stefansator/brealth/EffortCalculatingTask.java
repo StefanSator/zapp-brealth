@@ -27,6 +27,7 @@ public class EffortCalculatingTask extends AppCompatActivity {
     private long startzeit;
     private long endzeit;
     private int falseCounter = 0;
+    private TestScore testScore;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +57,9 @@ public class EffortCalculatingTask extends AppCompatActivity {
         submitButton = findViewById(R.id.submitEffort_button);
 
         startzeit = System.currentTimeMillis();
+
+        testScore = new TestScore(this, "effortcalculating");
+        testScore.resetPreferences();
     }
 
     public void gotoNextTask(View view) {
@@ -126,6 +130,8 @@ public class EffortCalculatingTask extends AppCompatActivity {
         endzeit = System.currentTimeMillis();
         long bearbeitungsDauer = endzeit - startzeit;
         int bewertung = RateTheGame(bearbeitungsDauer, falseCounter, LIMIT, 10);
+
+        testScore.save(bearbeitungsDauer, falseCounter);
 
         Intent finishscreenIntent = new Intent(EffortCalculatingTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
