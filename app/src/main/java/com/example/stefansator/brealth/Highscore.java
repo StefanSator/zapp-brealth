@@ -6,6 +6,7 @@ import android.util.Log;
 
 public class Highscore {
     private int rating;
+    private int falseAnswer;
     private long duration;
     private String task;
 
@@ -15,6 +16,13 @@ public class Highscore {
     public Highscore(Context context,long duration, int rating, String task) {
         this.rating = rating;
         this.duration = duration;
+        this.task = task;
+        this.preferences = context.getSharedPreferences(task,Context.MODE_PRIVATE);
+    }
+
+    public Highscore(Context context,int falseAnswer,int rating, String task) {
+        this.rating = rating;
+        this.falseAnswer = falseAnswer;
         this.task = task;
         this.preferences = context.getSharedPreferences(task,Context.MODE_PRIVATE);
     }

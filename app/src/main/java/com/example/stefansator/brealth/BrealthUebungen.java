@@ -33,6 +33,8 @@ public class BrealthUebungen extends AppCompatActivity {
 
     public void gotoPowerLogic(View view) {
         Intent powerLogicIntent= new Intent(BrealthUebungen.this, Powerlogic.class);
+        powerLogicIntent.putExtra("LIMIT", 2);
+        powerLogicIntent.putExtra("WIPE", false);
         BrealthUebungen.this.startActivity(powerLogicIntent);
     }
 }

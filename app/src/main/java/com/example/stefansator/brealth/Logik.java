@@ -17,7 +17,9 @@ public class Logik extends AppCompatActivity{
     private EditText submitAnswer;
     private int symbolCNumber, symbolTNumber, endResult=0, counter = 0, falseCounter = 0, LIMIT = 10;
     private long starttime, endtime;
+
     private static final boolean wipeHighscore = false;
+    private static final String taskName = "logik";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +34,16 @@ public class Logik extends AppCompatActivity{
         setFirstRow();
         setSecondRow();
         setThirdRow();
+
+        if (wipeHighscore == true)
+            wipeHighscore();
+
         starttime = System.currentTimeMillis();
+    }
+
+    private void wipeHighscore() {
+        Highscore highscore = new Highscore(this,0,0,taskName);
+        highscore.deleteHighscore(wipeHighscore);
     }
 
     public void setFirstRow() {
@@ -156,7 +167,7 @@ public class Logik extends AppCompatActivity{
         long duration = endtime - starttime;
         int rating = RateTheGame(duration, falseCounter);
 
-        Highscore highscore = new Highscore(this,duration,rating,"logik");
+        Highscore highscore = new Highscore(this,duration,rating,taskName);
         boolean isNewHighscore = highscore.isNewHighscore();
         highscore.deleteHighscore(wipeHighscore);
 
