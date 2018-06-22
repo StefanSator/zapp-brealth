@@ -1,5 +1,8 @@
-package com.example.stefansator.brealth.naehrstoffzentrale;
 
+package com.example.stefansator.brealth.naehrstoffzentrale.apiobjects;
+
+import java.util.HashMap;
+import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -8,32 +11,22 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.HashMap;
-import java.util.Map;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-        "uri",
-        "label"
+    "label",
+    "quantity",
+    "unit"
 })
-public class Measure {
+public class K {
 
-    @SerializedName("uri")
-    private String uri;
     @SerializedName("label")
     private String label;
+    @SerializedName("quantity")
+    private Double quantity;
+    @SerializedName("unit")
+    private String unit;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-    @SerializedName("uri")
-    public String getUri() {
-        return uri;
-    }
-
-    @SerializedName("uri")
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
 
     @SerializedName("label")
     public String getLabel() {
@@ -43,6 +36,26 @@ public class Measure {
     @SerializedName("label")
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    @SerializedName("quantity")
+    public Double getQuantity() {
+        return quantity;
+    }
+
+    @SerializedName("quantity")
+    public void setQuantity(Double quantity) {
+        this.quantity = quantity;
+    }
+
+    @SerializedName("unit")
+    public String getUnit() {
+        return unit;
+    }
+
+    @SerializedName("unit")
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 
     @JsonAnyGetter

@@ -13,7 +13,7 @@
         android:background="@color/colorButton3"
         android:fontFamily="casual"
         android:layout_weight="25"
-        android:textSize="36sp"
+        android:textSize="32dp"
         android:layout_marginBottom="2dp"/>
 
     <Button
@@ -25,7 +25,7 @@
         android:background="@color/colorButton1"
         android:fontFamily="casual"
         android:layout_weight="25"
-        android:textSize="36sp"
+        android:textSize="32dp"
         android:layout_marginBottom="2dp"/>
 
     <Button
@@ -37,7 +37,7 @@
         android:background="@color/colorButton2"
         android:fontFamily="casual"
         android:layout_weight="25"
-        android:textSize="36sp"
+        android:textSize="32dp"
         android:layout_marginBottom="2dp"/>
 
     <Button
@@ -49,6 +49,6 @@
         android:fontFamily="casual"
         android:text="@string/health_bmi_button"
         android:layout_weight="25"
-        android:textSize="36sp"/>
+        android:textSize="32dp"/>
 
 </LinearLayout>
