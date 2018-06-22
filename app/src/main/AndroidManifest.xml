@@ -107,6 +107,7 @@
                 android:value="com.example.stefansator.brealth.naehrstoffzentrale.Zentrale" />
         </activity>
         <activity android:name=".BMIActivity"></activity>
+        <activity android:name=".BrealthTestEndscreen" android:label="Test Statistik"></activity>
     </application>
 
 </manifest>

@@ -8,6 +8,8 @@ import android.widget.Toast;
 
 public class BrealthTest extends AppCompatActivity {
     private Intent testTasks[];
+    private int resultsAttempt[];
+    private long resultsDuration[];
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,16 +25,29 @@ public class BrealthTest extends AppCompatActivity {
         BrealthTest.this.startActivities(testTasks);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
-        TestScore testScore = new TestScore();
-        Toast rightToast = Toast.makeText(getApplicationContext(), "" + testScore.readTestAttempts(this, "EffortTest", "TEST_ATTEMPT_EFFORT") + ", " + testScore.readTestDuration(this, "EffortTest", "TEST_DURATION_EFFORT"), Toast.LENGTH_SHORT);
-        rightToast.show();
+    public void showTestResults(View view) {
+        Intent statisticIntent = new Intent(BrealthTest.this, BrealthTestEndscreen.class);
+        loadTestResults();
+        statisticIntent.putExtra("test_attempts", resultsAttempt); // pass int array
+        statisticIntent.putExtra("test_durations", resultsDuration); // pass long array
+        BrealthTest.this.startActivity(statisticIntent);
     }
 
-    public void showTestResults(View view) {
+    private void loadTestResults() {
+        TestScore testScore = new TestScore();
+        resultsAttempt = new int[testTasks.length];
+        resultsDuration = new long[testTasks.length];
 
+        /* Load Attempt results of the Tasks from SharedPreferences File */
+        resultsAttempt[0] = testScore.readTestAttempts(this, "EffortTest", "TEST_ATTEMPT_EFFORT");
+        resultsAttempt[1] = testScore.readTestAttempts(this, "LesenTest", "TEST_ATTEMPT_LESEN");
+        resultsAttempt[2] = testScore.readTestAttempts(this, "VocableRunTest", "TEST_ATTEMPT_VOCABLE");
+        resultsAttempt[3] = testScore.readTestAttempts(this, "YogaTest", "TEST_ATTEMPT_YOGA");
+
+        /* Load Duration results of the Tasks from SharedPreferences File */
+        resultsDuration[0] = testScore.readTestDuration(this, "EffortTest", "TEST_DURATION_EFFORT");
+        resultsDuration[1] = testScore.readTestDuration(this, "LesenTest", "TEST_DURATION_LESEN");
+        resultsDuration[2] = testScore.readTestDuration(this, "VocableRunTest", "TEST_DURATION_VOCABLE");
+        resultsDuration[3] = testScore.readTestDuration(this, "YogaTest", "TEST_DURATION_YOGA");
     }
 }

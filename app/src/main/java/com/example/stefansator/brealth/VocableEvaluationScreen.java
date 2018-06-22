@@ -12,10 +12,15 @@ import android.widget.Toast;
  */
 
 public class VocableEvaluationScreen extends AppCompatActivity {
+    private TestScore testScore;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocableevaluation);
+
+        /* Reset Score for later use in Test Task in Brealth Category */
+        testScore = new TestScore();
+        writeTestScore(0, 0);
     }
 
     public void endVocableRun(View view) {
@@ -34,6 +39,10 @@ public class VocableEvaluationScreen extends AppCompatActivity {
         }
 
         int rating = RateThePlayer(falseCounter);
+
+        /* Save Score for later use in Test Task in Brealth Category */
+        writeTestScore(falseCounter, 0);
+
         Intent finishScreenIntent = new Intent(VocableEvaluationScreen.this, TaskEndscreen.class);
         finishScreenIntent.putExtra("falsch", falseCounter);
         finishScreenIntent.putExtra("rating", rating);
@@ -44,5 +53,10 @@ public class VocableEvaluationScreen extends AppCompatActivity {
     private int RateThePlayer(int falseCounter) {
         GameRater gameRater = new VocableRunRater(falseCounter);
         return gameRater.getRating();
+    }
+
+    private void writeTestScore(int attempts, long duration) {
+        testScore.writeTestAttempts(this, "VocableRunTest", "TEST_ATTEMPT_VOCABLE", attempts);
+        testScore.writeTestDuration(this, "VocableRunTest", "TEST_DURATION_VOCABLE", duration);
     }
 }
