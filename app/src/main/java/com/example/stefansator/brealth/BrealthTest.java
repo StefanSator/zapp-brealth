@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Toast;
 
 public class BrealthTest extends AppCompatActivity {
-    private TestScore testScore;
     private Intent testTasks[];
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +14,7 @@ public class BrealthTest extends AppCompatActivity {
         setContentView(R.layout.activity_brealthtest);
 
         testTasks = new Intent[3];
-        testTasks[0] = new Intent(BrealthTest.this, VocableRunTask.class);
+        testTasks[0] = new Intent(BrealthTest.this, LesenTask.class);
         testTasks[1] = new Intent(BrealthTest.this, YogaMemoryTask.class);
         testTasks[2] = new Intent(BrealthTest.this, EffortCalculatingTask.class);
         testTasks[2].putExtra("limit", 20);
@@ -23,10 +22,16 @@ public class BrealthTest extends AppCompatActivity {
         BrealthTest.this.startActivities(testTasks);
     }
 
-    public void showTestResults(View view) {
-        testScore = new TestScore(BrealthTest.this, "effortcalulating");
+    @Override
+    public void onResume() {
+        super.onResume();
 
-        Toast rightToast = Toast.makeText(getApplicationContext(), "Attempts: "+ testScore.loadAttempts(), Toast.LENGTH_SHORT);
+        TestScore testScore = new TestScore();
+        Toast rightToast = Toast.makeText(getApplicationContext(), "" + testScore.readTestAttempts(this, "EffortTest", "TEST_ATTEMPT_EFFORT") + ", " + testScore.readTestDuration(this, "EffortTest", "TEST_DURATION_EFFORT"), Toast.LENGTH_SHORT);
         rightToast.show();
+    }
+
+    public void showTestResults(View view) {
+
     }
 }

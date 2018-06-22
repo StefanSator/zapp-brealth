@@ -3,45 +3,36 @@ package com.example.stefansator.brealth;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-import java.util.Calendar;
-
 /**
  * Created by StefanSator on 22.06.18.
  */
 
 public class TestScore {
-    private Context context;
-    private String task;
+    protected final static int DEFAULT = 0;
+    int attempts = 0;
+    long duration = 0;
 
-    SharedPreferences sharedPref;
-    SharedPreferences.Editor editor;
-
-    public TestScore(Context context, String task) {
-        this.context = context;
-        this.task = task;
-
-        initializeSharedPreferences();
+    public int readTestAttempts(Context context, String fileName, String key) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        return attempts = sharedPreferences.getInt(key,DEFAULT);
     }
 
-    private void initializeSharedPreferences() {
-        sharedPref = context.getSharedPreferences(task, Context.MODE_PRIVATE);
+    public void writeTestAttempts(Context context, String fileName,String key , int value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putInt(key, value);
+        editor.commit();
     }
 
-    public void save(long duration, int attempts) {
-        editor = sharedPref.edit();
-        editor.putLong("TEST_DURATION_" + task, duration);
-        editor.putInt("TEST_ATTEMPTS_" + task, attempts);
+    public long readTestDuration(Context context, String fileName, String key) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        return duration = sharedPreferences.getLong(key,DEFAULT);
     }
 
-    public void resetPreferences() {
-        save(0, 0);
-    }
-
-    public long loadDuration() {
-        return sharedPref.getLong("TEST_DURATION_" + task, 0L);
-    }
-
-    public int loadAttempts() {
-        return sharedPref.getInt("TEST_ATTEMPTS_" + task, 0);
+    public void writeTestDuration(Context context, String fileName, String key, long value) {
+        SharedPreferences sharedPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putLong(key, value);
+        editor.commit();
     }
 }
