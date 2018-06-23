@@ -16,7 +16,7 @@ public class BrealthTestEndscreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brealthtest_endscreen);
 
-        showExtras();
+        showExtras(); // only for testing purposes
     }
 
     private void showExtras() {
