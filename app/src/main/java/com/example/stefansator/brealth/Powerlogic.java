@@ -211,7 +211,7 @@ public class Powerlogic extends AppCompatActivity{
         dlgCdt = new CountDownTimer(12000, 1000) {
             public void onTick(long millisUntilFinished) {
                 long timeRemaining = millisUntilFinished/1000 - 1;
-                dlgText.setText("Skeunden: " + timeRemaining);
+                dlgText.setText("Sekunden: " + timeRemaining);
                 if (timeRemaining == 0) {
                     dlgText.setText("Fertig");
                     dlgButton.setVisibility(View.VISIBLE);

@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:background="@color/lightblack">
 
     <TextView
         android:id="@+id/powerlogic_Dlg_beschreibung"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/powerlogic_Dlg_Beschreibung"
         android:textAlignment="center"
         android:textSize="25sp"
@@ -21,47 +19,40 @@
 
     <TextView
         android:id="@+id/powerlogic_Dlg_Timer"
-        android:layout_below="@+id/powerlogic_Dlg_beschreibung"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:text=""
+        android:layout_marginBottom="10dp"
+        android:text="TIMER"
         android:textAlignment="center"
-        android:textSize="25sp"
-        android:textColor="@color/yellow" />
+        android:textColor="@color/yellow"
+        android:textSize="25sp" />
 
     <ImageView
         android:id="@+id/powerlogic_Dlg_Img"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/powerlogic_Dlg_cancel"
-        android:layout_below="@+id/powerlogic_Dlg_Timer"
-        android:layout_centerHorizontal="true"
-        android:padding="5dp"
-        android:src="@drawable/triangle" />
-
-    <Button
-        android:id="@+id/powerlogic_Dlg_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/powerlogic_Dlg_Bottom_Element"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:visibility="invisible"
-        android:onClick="closeDialog"
-        android:background="@color/neonred"
-        android:text="Nächste Aufgabe"
-        android:textSize="25sp" />
-
-    <TextView
-        android:id="@+id/powerlogic_Dlg_Bottom_Element"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:text="" />
+        android:adjustViewBounds="true"
+        android:padding="5dp"
+        android:src="@drawable/powerlogic_plank" />
 
-</RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/powerlogic_Dlg_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:background="@color/neonred"
+            android:onClick="closeDialog"
+            android:padding="10dp"
+            android:text="Nächste Aufgabe"
+            android:textSize="25sp"
+            android:visibility="invisible" />
+    </RelativeLayout>
+</LinearLayout>
