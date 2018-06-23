@@ -20,11 +20,27 @@ public class Highscore {
         this.preferences = context.getSharedPreferences(task,Context.MODE_PRIVATE);
     }
 
-    public Highscore(Context context,int falseAnswer,int rating, String task) {
-        this.rating = rating;
-        this.falseAnswer = falseAnswer;
-        this.task = task;
+    public Highscore(Context context, String task, boolean wipe) {
+        this.task = task;;
         this.preferences = context.getSharedPreferences(task,Context.MODE_PRIVATE);
+        preferencesEditor = preferences.edit();
+
+        if(wipe == true) {
+            preferencesEditor.clear();
+            preferencesEditor.apply();
+        }
+    }
+
+    public void setDuration(long duration) {
+        this.duration = duration;
+    }
+
+    public void setFalseAnswer(int falseAnswer) {
+        this.falseAnswer = falseAnswer;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 
     public boolean isNewHighscore() {
