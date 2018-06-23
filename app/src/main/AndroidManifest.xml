@@ -99,11 +99,6 @@
             android:name=".VocableEvaluationScreen"
             android:label="VocableRun Evaluation" />
 
-        <receiver
-            android:name=".AlarmReceiver"
-            android:enabled="true"
-            android:process=":remote" />
-
         <activity
             android:name=".naehrstoffzentrale.NahrungDetails"
             android:parentActivityName=".naehrstoffzentrale.Zentrale">
@@ -112,6 +107,7 @@
                 android:value="com.example.stefansator.brealth.naehrstoffzentrale.Zentrale" />
         </activity>
         <activity android:name=".BMIActivity"></activity>
+        <activity android:name=".BrealthTestEndscreen" android:label="Test Statistik"></activity>
     </application>
 
 </manifest>

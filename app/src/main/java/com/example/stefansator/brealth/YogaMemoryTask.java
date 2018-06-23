@@ -28,6 +28,7 @@ public class YogaMemoryTask extends AppCompatActivity {
     private int falseCounter = 0, rightCounter = 0;
     private AlertDialog alert;
     private AlertDialog.Builder dlgBuilder;
+    private TestScore testScore;
     /* variables which will later include index of drawn cards */
     private int firstDraw = -1;
     private int secondDraw = -1;
@@ -56,6 +57,10 @@ public class YogaMemoryTask extends AppCompatActivity {
         memoryGame = new YogaMemoryGame();
 
         startZeit = System.currentTimeMillis();
+
+        /* Reset Score for later use in Test Task in Brealth Category */
+        testScore = new TestScore();
+        writeTestScore(0, 0);
     }
 
     public void revealYogaTask(View view) throws InterruptedException {
@@ -98,6 +103,9 @@ public class YogaMemoryTask extends AppCompatActivity {
         endZeit = System.currentTimeMillis();
         long bearbeitungsDauer = endZeit - startZeit;
         int bewertung = RateThePlayer(bearbeitungsDauer, falseCounter);
+
+        /* Save Score for later use in Test Task in Brealth Category */
+        writeTestScore(falseCounter, bearbeitungsDauer/1000);
 
         Intent finishscreenIntent = new Intent(YogaMemoryTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
@@ -170,5 +178,10 @@ public class YogaMemoryTask extends AppCompatActivity {
         messageView.setGravity(Gravity.CENTER);
         messageView.setTextSize(32.0f);
         messageView.setTypeface(null, Typeface.BOLD);
+    }
+
+    private void writeTestScore(int attempts, long duration) {
+        testScore.writeTestAttempts(this, "YogaTest", "TEST_ATTEMPT_YOGA", attempts);
+        testScore.writeTestDuration(this, "YogaTest", "TEST_DURATION_YOGA", duration);
     }
 }
