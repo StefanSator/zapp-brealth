@@ -26,5 +26,14 @@ public class HealthMenu extends AppCompatActivity {
                 startActivity(zentraleIntent);
             }
         });
+
+        Button bmiCalculatorButton = (Button)findViewById(R.id.health_bmi_button);
+        bmiCalculatorButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent bmiIntent = new Intent(HealthMenu.this, BMIActivity.class);
+                startActivity(bmiIntent);
+            }
+        });
     }
 }

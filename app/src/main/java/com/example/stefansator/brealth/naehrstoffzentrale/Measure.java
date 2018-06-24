@@ -25,22 +25,22 @@ public class Measure {
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("uri")
+    @SerializedName("uri")
     public String getUri() {
         return uri;
     }
 
-    @JsonProperty("uri")
+    @SerializedName("uri")
     public void setUri(String uri) {
         this.uri = uri;
     }
 
-    @JsonProperty("label")
+    @SerializedName("label")
     public String getLabel() {
         return label;
     }
 
-    @JsonProperty("label")
+    @SerializedName("label")
     public void setLabel(String label) {
         this.label = label;
     }

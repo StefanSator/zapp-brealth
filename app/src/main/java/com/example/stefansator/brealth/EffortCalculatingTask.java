@@ -27,6 +27,7 @@ public class EffortCalculatingTask extends AppCompatActivity {
     private long startzeit;
     private long endzeit;
     private int falseCounter = 0;
+    private TestScore testScore;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,17 +57,28 @@ public class EffortCalculatingTask extends AppCompatActivity {
         submitButton = findViewById(R.id.submitEffort_button);
 
         startzeit = System.currentTimeMillis();
+
+        /* Reset Score for later use in Test Task in Brealth Category */
+        testScore = new TestScore();
+        writeTestScore(0, 0);
     }
 
     public void gotoNextTask(View view) {
+        Integer ergebnis;
+
         if (aufgabeNr % 5 == 0 && aufgabeNr != 0) {
             switchToSportsTask();
             aufgabeNr++;
             aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
+            ergebnisfeld.setText("");
             return;
         }
 
-        Integer ergebnis = Integer.parseInt(ergebnisfeld.getText().toString());
+        if (ergebnisfeld.getText().toString().isEmpty()) {
+            return;
+        } else {
+            ergebnis = Integer.parseInt(ergebnisfeld.getText().toString());
+        }
 
         /* Control if result is right */
         if (rechenaufgaben[aufgabeNr].getErgebnis() == ergebnis) {
@@ -78,6 +90,7 @@ public class EffortCalculatingTask extends AppCompatActivity {
                 endGame();
             }
             aufgabe.setText(rechenaufgaben[aufgabeNr].toString());
+            ergebnisfeld.setText("");
         } else {
             falseCounter++;
             Toast falseToast = Toast.makeText(getApplicationContext(), "False", Toast.LENGTH_SHORT);
@@ -119,6 +132,9 @@ public class EffortCalculatingTask extends AppCompatActivity {
         long bearbeitungsDauer = endzeit - startzeit;
         int bewertung = RateTheGame(bearbeitungsDauer, falseCounter, LIMIT, 10);
 
+        /* Save Score for later use in Test Task in Brealth Category */
+        writeTestScore(falseCounter, bearbeitungsDauer/1000);
+
         Intent finishscreenIntent = new Intent(EffortCalculatingTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
         finishscreenIntent.putExtra("falsch", falseCounter);
@@ -131,5 +147,10 @@ public class EffortCalculatingTask extends AppCompatActivity {
         long durationInSeconds = duration / 1000;
         GameRater gameRater = new EffortCalculatingRater(durationInSeconds, attempts, limit, sportTasksPerUnit);
         return gameRater.getRating();
+    }
+
+    private void writeTestScore(int attempts, long duration) {
+        testScore.writeTestAttempts(this, "EffortTest", "TEST_ATTEMPT_EFFORT", attempts);
+        testScore.writeTestDuration(this, "EffortTest", "TEST_DURATION_EFFORT", duration);
     }
 }

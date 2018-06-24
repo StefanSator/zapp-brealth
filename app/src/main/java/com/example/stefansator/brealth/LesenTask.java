@@ -30,10 +30,15 @@ public class LesenTask extends AppCompatActivity {
     private String difficulty;
     private float animationSpeed;
     private static final boolean wipeHighscore = false;
+    private TestScore testScore;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesen);
+
+        /* Reset Score for later use in Test Task in Brealth Category */
+        testScore = new TestScore();
+        writeTestScore(0, 0);
 
         createDifficultyDialog();
     }
@@ -85,6 +90,9 @@ public class LesenTask extends AppCompatActivity {
         boolean isNewHighscore = highscore.isNewHighscoreLesen();
         highscore.deleteHighscore(wipeHighscore);
 
+        /* Save Score for later use in Test Task in Brealth Category */
+        writeTestScore(0, bearbeitungsdauer/1000);
+
         Intent finishscreenIntent = new Intent(LesenTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsdauer);
         finishscreenIntent.putExtra("rating", bewertung);
@@ -133,5 +141,10 @@ public class LesenTask extends AppCompatActivity {
 
         alert = dlgBuilder.create();
         alert.show();
+    }
+
+    private void writeTestScore(int attempts, long duration) {
+        testScore.writeTestAttempts(this, "LesenTest", "TEST_ATTEMPT_LESEN", attempts);
+        testScore.writeTestDuration(this, "LesenTest", "TEST_DURATION_LESEN", duration);
     }
 }

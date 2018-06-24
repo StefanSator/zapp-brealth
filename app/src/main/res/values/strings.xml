@@ -63,5 +63,6 @@
     <string name="effortcalculating">EffortCalculating</string>
     <string name="vocablerun">VocableRun</string>
     <string name="powerlogic_Dlg_Beschreibung">Führen Sie die Übung aus</string>
+    <string name="testresult_button">Show Results</string>
 
 </resources>
