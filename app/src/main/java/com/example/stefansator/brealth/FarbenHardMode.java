@@ -15,9 +15,10 @@ public class FarbenHardMode extends AppCompatActivity {
     private TextView firsttext, sectext, thirdtext, explanation;
     private int LIMIT = 10, counter = 0, falseCounter = 0;
     private long starttime, endtime;
-    private String mainColor, ftextColor, stextColor, ttextColor;
+    private String mainColor, ftextColor, stextColor, ttextColor, taskName = "fhm";
     private VARIANTE variante;
-    private static final boolean wipeHighscore = false;
+    private boolean wipeHighscore = false;
+    private Highscore highscore;
 
     public enum VARIANTE {
         TEXTFARBE,GESCHRIEBEN
@@ -27,6 +28,10 @@ public class FarbenHardMode extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farbenhardmode);
+
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        highscore = new Highscore(this,taskName,wipeHighscore);
+
         firsttext = findViewById(R.id.farben_view1_hm);
         sectext = findViewById(R.id.farben_view2_hm);
         thirdtext = findViewById(R.id.farben_view3_hm);
@@ -200,9 +205,9 @@ public class FarbenHardMode extends AppCompatActivity {
         long duration = endtime - starttime;
         int rating = RateThePlayer(duration, falseCounter);
 
-        Highscore highscore = new Highscore(this,duration,rating,"fhm");
+        highscore.setDuration(duration);
+        highscore.setRating(rating);
         boolean isNewHighscore = highscore.isNewHighscore();
-        highscore.deleteHighscore(wipeHighscore);
 
         Intent finishscreenIntent = new Intent(FarbenHardMode.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", duration);

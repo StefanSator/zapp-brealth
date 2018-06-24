@@ -28,7 +28,9 @@ public class MemoryTask extends AppCompatActivity {
     private int falseCounter = 0, rightCounter = 0;
     private AlertDialog alert;
     private AlertDialog.Builder dlgBuilder;
-    private static final boolean wipeHighscore = false;
+    private boolean wipeHighscore = false;
+    private Highscore highscore;
+    private String taskName = "memory";
     /* variables which will later include index of drawn cards */
     private int firstDraw = -1;
     private int secondDraw = -1;
@@ -37,6 +39,9 @@ public class MemoryTask extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memory);
+
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        highscore = new Highscore(this,taskName,wipeHighscore);
 
         memoryCard = new TextView[12];
 
@@ -98,9 +103,9 @@ public class MemoryTask extends AppCompatActivity {
         long bearbeitungsDauer = endZeit - startZeit;
         int bewertung = RateThePlayer(bearbeitungsDauer, falseCounter);
 
-        Highscore highscore = new Highscore(this,bearbeitungsDauer,bewertung,"memory");
+        highscore.setDuration(bearbeitungsDauer);
+        highscore.setRating(bewertung);
         boolean isNewHighscore = highscore.isNewHighscore();
-        highscore.deleteHighscore(wipeHighscore);
 
         Intent finishscreenIntent = new Intent(MemoryTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);

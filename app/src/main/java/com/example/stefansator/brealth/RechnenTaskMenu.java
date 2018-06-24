@@ -15,10 +15,13 @@ import android.widget.Toast;
 public class RechnenTaskMenu extends AppCompatActivity {
     private AlertDialog alert;
     private AlertDialog.Builder dlgBuilder;
+    private boolean wipeHighscore = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rechnentaskmenu);
+
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
     }
 
     public void gotoRechnen(View view) {
@@ -69,22 +72,27 @@ public class RechnenTaskMenu extends AppCompatActivity {
         if (findViewById(R.id.rechnentask_button1) == view) {
             Intent rechnen20Intent = new Intent(RechnenTaskMenu.this, RechnenTask.class);
             rechnen20Intent.putExtra("limit", 20);
+            rechnen20Intent.putExtra("WIPE",wipeHighscore);
             RechnenTaskMenu.this.startActivity(rechnen20Intent);
         } else if (findViewById(R.id.rechnentask_button2) == view) {
             Intent rechnen50Intent = new Intent(RechnenTaskMenu.this, RechnenTask.class);
             rechnen50Intent.putExtra("limit", 50);
+            rechnen50Intent.putExtra("WIPE",wipeHighscore);
             RechnenTaskMenu.this.startActivity(rechnen50Intent);
         } else if (findViewById(R.id.rechnentask_button3) == view) {
             Intent rechnen75Intent = new Intent(RechnenTaskMenu.this, RechnenTask.class);
             rechnen75Intent.putExtra("limit", 75);
+            rechnen75Intent.putExtra("WIPE",wipeHighscore);
             RechnenTaskMenu.this.startActivity(rechnen75Intent);
         } else if (findViewById(R.id.rechnentask_button4) == view) {
             Intent rechnen100Intent = new Intent(RechnenTaskMenu.this, RechnenTask.class);
             rechnen100Intent.putExtra("limit", 100);
+            rechnen100Intent.putExtra("WIPE",wipeHighscore);
             RechnenTaskMenu.this.startActivity(rechnen100Intent);
         } else {
             Intent rechnen200Intent = new Intent(RechnenTaskMenu.this, RechnenTask.class);
             rechnen200Intent.putExtra("limit", 200);
+            rechnen200Intent.putExtra("WIPE",wipeHighscore);
             RechnenTaskMenu.this.startActivity(rechnen200Intent);
         }
     }

@@ -13,13 +13,6 @@ public class Highscore {
     SharedPreferences preferences;
     SharedPreferences.Editor preferencesEditor;
 
-    public Highscore(Context context,long duration, int rating, String task) {
-        this.rating = rating;
-        this.duration = duration;
-        this.task = task;
-        this.preferences = context.getSharedPreferences(task,Context.MODE_PRIVATE);
-    }
-
     public Highscore(Context context, String task, boolean wipe) {
         this.task = task;;
         this.preferences = context.getSharedPreferences(task,Context.MODE_PRIVATE);
@@ -72,10 +65,4 @@ public class Highscore {
         return false;
     }
 
-    public void deleteHighscore(boolean wipe){
-        if (wipe == true) {
-            preferencesEditor.clear();
-            preferencesEditor.apply();
-        }
-    }
 }

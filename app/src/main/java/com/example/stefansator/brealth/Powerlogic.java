@@ -238,7 +238,6 @@ public class Powerlogic extends AppCompatActivity{
         highscore.setDuration(duration);
         highscore.setRating(rating);
         boolean isNewHighscore = highscore.isNewHighscore();
-        highscore.deleteHighscore(wipeHighscore);
 
         Intent finishscreenIntent = new Intent(Powerlogic.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", duration);
