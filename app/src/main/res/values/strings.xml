@@ -46,6 +46,11 @@
     <string name="logiktask_rules">Finden Sie heraus was ? ist</string>
     <string name="startButtonDailyTask">Start Task</string>
     <string name="readyEffort_button">Fertig</string>
+    <string name="powerlogic_rules"> "Halten Sie für diese Aufgaben Hanteln parat\n\n""Sie werden eine Reihe von gleichen Bildern erhalten die aufaddiert eine Zahl ergibt\n"
+        "Dies gilt ebenfalls für die zweite Reihe\n"
+        "In der letzten müssen Sie die jeweiligen Bilder addieren und das Ergebnis angeben\n\n"
+        "Danach müssen Sie eines der gezeigten Bilder ausführen.\n"
+        "Sie bekommen 10 Sekunden um die Übung anzuschauen und müssen Sie solange ausführen wie das Ergebis der Rechnung war</string>
     <string name="effortcalculating20">EffortCalculating20</string>
     <string name="effortcalculating50">EffortCalculating50</string>
     <string name="effortcalculating75">EffortCalculating75</string>
@@ -57,6 +62,7 @@
     <string name="yogamemory">YogaMemory</string>
     <string name="effortcalculating">EffortCalculating</string>
     <string name="vocablerun">VocableRun</string>
+    <string name="powerlogic_Dlg_Beschreibung">Führen Sie die Übung aus</string>
     <string name="testresult_button">Show Results</string>
 
 </resources>
