@@ -165,6 +165,7 @@ public class Logik extends AppCompatActivity{
 
         highscore.setDuration(duration);
         highscore.setRating(rating);
+        highscore.setFalseAnswer(falseCounter);
         boolean isNewHighscore = highscore.isNewHighscore();
 
         Intent finishscreenIntent = new Intent(Logik.this, TaskEndscreen.class);

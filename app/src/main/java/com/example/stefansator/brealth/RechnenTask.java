@@ -83,6 +83,7 @@ public class RechnenTask extends AppCompatActivity {
 
         highscore.setDuration(bearbeitungsDauer);
         highscore.setRating(bewertung);
+        highscore.setFalseAnswer(falseCounter);
         boolean isNewHighscore = highscore.isNewHighscore();
 
         Intent finishscreenIntent = new Intent(RechnenTask.this, TaskEndscreen.class);

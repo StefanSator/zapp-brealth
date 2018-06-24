@@ -105,6 +105,7 @@ public class MemoryTask extends AppCompatActivity {
 
         highscore.setDuration(bearbeitungsDauer);
         highscore.setRating(bewertung);
+        highscore.setFalseAnswer(falseCounter);
         boolean isNewHighscore = highscore.isNewHighscore();
 
         Intent finishscreenIntent = new Intent(MemoryTask.this, TaskEndscreen.class);

@@ -121,6 +121,7 @@ public class FarbenEasyMode extends AppCompatActivity {
 
         highscore.setDuration(duration);
         highscore.setRating(rating);
+        highscore.setFalseAnswer(falseCounter);
         boolean isNewHighscore = highscore.isNewHighscore();
 
         Intent finishscreenIntent = new Intent(FarbenEasyMode.this, TaskEndscreen.class);

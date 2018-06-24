@@ -39,13 +39,14 @@ public class Highscore {
     public boolean isNewHighscore() {
         preferencesEditor = preferences.edit();
 
-        if (preferences.getInt(task+"rating",0) <= rating){
-            if (preferences.getLong(task+"duration", Long.MAX_VALUE) > duration) {
-                Log.d("TESTT","highscore ist "+rating+" "+duration);
-                preferencesEditor.putInt(task+"rating", rating);
-                preferencesEditor.putLong(task+"duration",duration);
-                preferencesEditor.apply();
-                return true;
+        if (preferences.getInt(task+"rating",0) <= rating) {
+            if (preferences.getInt(task + "falseAnswer",Integer.MAX_VALUE) >= falseAnswer) {
+                if (preferences.getLong(task + "duration", Long.MAX_VALUE) > duration) {
+                    preferencesEditor.putInt(task + "rating", rating);
+                    preferencesEditor.putLong(task + "duration", duration);
+                    preferencesEditor.apply();
+                    return true;
+                }
             }
         }
         return false;
