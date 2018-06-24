@@ -15,10 +15,13 @@ import android.widget.Toast;
 public class EffortCalculatingMenu extends AppCompatActivity {
     private AlertDialog alert;
     private AlertDialog.Builder dlgBuilder;
+    private boolean wipeHighscore = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_effortcalculatingmenu);
+
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
     }
 
     public void gotoEffortCalculating(View view) {
@@ -74,22 +77,27 @@ public class EffortCalculatingMenu extends AppCompatActivity {
         if (findViewById(R.id.efforttask_button1) == view) {
             Intent effort20Intent = new Intent(EffortCalculatingMenu.this, EffortCalculatingTask.class);
             effort20Intent.putExtra("limit", 20);
+            effort20Intent.putExtra("WIPE", wipeHighscore);
             EffortCalculatingMenu.this.startActivity(effort20Intent);
         } else if (findViewById(R.id.efforttask_button2) == view) {
             Intent effort50Intent = new Intent(EffortCalculatingMenu.this, EffortCalculatingTask.class);
             effort50Intent.putExtra("limit", 50);
+            effort50Intent.putExtra("WIPE", wipeHighscore);
             EffortCalculatingMenu.this.startActivity(effort50Intent);
         } else if (findViewById(R.id.efforttask_button3) == view) {
             Intent effort75Intent = new Intent(EffortCalculatingMenu.this, EffortCalculatingTask.class);
             effort75Intent.putExtra("limit", 75);
+            effort75Intent.putExtra("WIPE", wipeHighscore);
             EffortCalculatingMenu.this.startActivity(effort75Intent);
         } else if (findViewById(R.id.efforttask_button4) == view) {
             Intent effort100Intent = new Intent(EffortCalculatingMenu.this, EffortCalculatingTask.class);
             effort100Intent.putExtra("limit", 100);
+            effort100Intent.putExtra("WIPE", wipeHighscore);
             EffortCalculatingMenu.this.startActivity(effort100Intent);
         } else {
             Intent effort200Intent = new Intent(EffortCalculatingMenu.this, EffortCalculatingTask.class);
             effort200Intent.putExtra("limit", 200);
+            effort200Intent.putExtra("WIPE", wipeHighscore);
             EffortCalculatingMenu.this.startActivity(effort200Intent);
         }
     }

@@ -43,6 +43,7 @@ public class Highscore {
             if (preferences.getInt(task + "falseAnswer",Integer.MAX_VALUE) >= falseAnswer) {
                 if (preferences.getLong(task + "duration", Long.MAX_VALUE) > duration) {
                     preferencesEditor.putInt(task + "rating", rating);
+                    preferencesEditor.putInt(task+ "falseAnswer", falseAnswer);
                     preferencesEditor.putLong(task + "duration", duration);
                     preferencesEditor.apply();
                     return true;
@@ -59,6 +60,20 @@ public class Highscore {
             if (preferences.getLong(task+"duration", Long.MIN_VALUE) < duration) {
                 preferencesEditor.putInt(task+"rating", rating);
                 preferencesEditor.putLong(task+"duration",duration);
+                preferencesEditor.apply();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isNewHighscoreVocablerun() {
+        preferencesEditor = preferences.edit();
+
+        if (preferences.getInt(task+"rating",0) <= rating){
+            if (preferences.getInt(task+"falseAnswer",Integer.MAX_VALUE) > falseAnswer) {
+                preferencesEditor.putInt(task+"rating", rating);
+                preferencesEditor.putLong(task+"falseAnswer",falseAnswer);
                 preferencesEditor.apply();
                 return true;
             }

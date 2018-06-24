@@ -11,6 +11,7 @@ import android.widget.Toast;
 public class BrealthUebungen extends AppCompatActivity {
     private AlertDialog alert;
     private AlertDialog.Builder dlgBuilder;
+    private boolean wipeHighscore = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,21 +20,25 @@ public class BrealthUebungen extends AppCompatActivity {
 
     public void gotoEffortCalculatingMenu(View view) {
         Intent effortIntent = new Intent(BrealthUebungen.this, EffortCalculatingMenu.class);
+        effortIntent.putExtra("WIPE",wipeHighscore);
         BrealthUebungen.this.startActivity(effortIntent);
     }
 
     public void gotoYogaMemoryMenu(View view) {
         Intent yogaIntent = new Intent(BrealthUebungen.this, YogaMemoryMenu.class);
+        yogaIntent.putExtra("WIPE",wipeHighscore);
         BrealthUebungen.this.startActivity(yogaIntent);
     }
   
     public void gotoVocableRun(View view) {
         Intent vocableIntent = new Intent(BrealthUebungen.this, VocableRunTask.class);
+        vocableIntent.putExtra("WIPE",wipeHighscore);
         BrealthUebungen.this.startActivity(vocableIntent);
     }
   
     public void gotoMindColors(View view) {
         Intent mindColorIntent= new Intent(BrealthUebungen.this, MindColors.class);
+        mindColorIntent.putExtra("WIPE", wipeHighscore);
         BrealthUebungen.this.startActivity(mindColorIntent);
     }
 
