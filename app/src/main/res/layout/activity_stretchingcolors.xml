@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/lightblack">
+
+    <TextView
+        android:id="@+id/stretching_color_beschreibung"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Sagen Sie die geschriebene Farbe aus aus!"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:textColor="@color/yellow" />
+
+    <TextView
+        android:id="@+id/stretching_color_word"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="FARBE"
+        android:textAlignment="center"
+        android:textColor="@color/yellow"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:id="@+id/stretching_colors_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:adjustViewBounds="true"
+        android:padding="5dp"
+        android:src="@drawable/stretchingcolors_shoulder_stretch_left" />
+
+</LinearLayout>
