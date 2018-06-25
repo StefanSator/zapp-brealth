@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorButton3"
     tools:context=".naehrstoffzentrale.NahrungDetails">
 
     <TextView
@@ -13,6 +14,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/calciumLabelView"
         app:layout_constraintTop_toBottomOf="@+id/fatView" />
 
@@ -24,6 +29,9 @@
         android:layout_marginStart="8dp"
         android:text="TextView"
         android:textSize="24dp"
+        android:fontFamily="casual"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -36,6 +44,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="(100 Gramm)"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nahrungDetailsTitleText" />
@@ -47,6 +59,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="Proteine:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/caloriesLabelView" />
 
@@ -57,6 +73,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="Kohlenhydrate:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/proteinLabelView" />
 
@@ -67,6 +87,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="Fett:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/carbsLabelView" />
 
@@ -77,6 +101,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/proteinLabelView"
         app:layout_constraintTop_toBottomOf="@+id/caloriesView" />
 
@@ -87,6 +115,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/carbsLabelView"
         app:layout_constraintTop_toBottomOf="@+id/proteinView" />
 
@@ -97,6 +129,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="Kalorien:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amountView" />
 
@@ -107,6 +143,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/caloriesLabelView"
         app:layout_constraintTop_toBottomOf="@+id/amountView" />
 
@@ -117,6 +157,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/fatLabelView"
         app:layout_constraintTop_toBottomOf="@+id/carbsView" />
 
@@ -127,6 +171,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="Calcium:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fatLabelView" />
 
@@ -137,6 +185,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="Eisen:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calciumLabelView" />
 
@@ -147,6 +199,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/ironLabelView"
         app:layout_constraintTop_toBottomOf="@+id/calciumView" />
 
@@ -157,6 +213,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="Ballaststoffe:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ironLabelView" />
 
@@ -167,6 +227,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/fiberLabelView"
         app:layout_constraintTop_toBottomOf="@+id/ironView" />
 
@@ -177,6 +241,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="Kalium:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fiberLabelView" />
 
@@ -187,6 +255,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/kaliumLabelView"
         app:layout_constraintTop_toBottomOf="@+id/fiberView" />
 
@@ -197,6 +269,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="Magnesium:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/kaliumLabelView" />
 
@@ -207,6 +283,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/magnesiumLabelView"
         app:layout_constraintTop_toBottomOf="@+id/kaliumView" />
 
@@ -217,6 +297,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
         android:text="Natrium:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/magnesiumLabelView" />
 
@@ -227,6 +311,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/natriumLabelView"
         app:layout_constraintTop_toBottomOf="@+id/magnesiumView" />
 
@@ -237,6 +325,10 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="8dp"
         android:text="Vitamin B1:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amountView" />
 
@@ -247,6 +339,10 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin B2:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB1LabelView" />
 
@@ -257,6 +353,10 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin B3:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB2LabelView" />
 
@@ -267,6 +367,10 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin B6:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB3LabelView" />
 
@@ -277,6 +381,10 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Phosphor:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB6LabelView" />
 
@@ -287,6 +395,10 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin E:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phosphorusLabelView" />
 
@@ -297,6 +409,10 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin A:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminELabelView" />
 
@@ -307,6 +423,10 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin C:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminALabelView" />
 
@@ -317,6 +437,10 @@
         android:layout_marginStart="200dp"
         android:layout_marginTop="4dp"
         android:text="Vitamin K:"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminCLabelView" />
 
@@ -327,6 +451,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="8dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amountView" />
 
@@ -337,6 +465,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB1View" />
 
@@ -347,6 +479,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB2View" />
 
@@ -357,6 +493,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB3View" />
 
@@ -367,6 +507,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminB6View" />
 
@@ -377,6 +521,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phosphorusView" />
 
@@ -387,6 +535,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminEView" />
 
@@ -397,6 +549,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminAView" />
 
@@ -407,6 +563,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginTop="4dp"
         android:text="TextView"
+        android:fontFamily="casual"
+        android:textSize="12dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vitaminCView" />
 

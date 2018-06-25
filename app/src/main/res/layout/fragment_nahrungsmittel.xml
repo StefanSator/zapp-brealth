@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/colorButton3">
+
 
 
     <EditText
@@ -14,6 +16,9 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:fontFamily="casual"
+        android:textSize="16dp"
+        android:textColor="@color/white"
         android:ems="10"
         android:inputType="text"
         android:text=""
@@ -30,6 +35,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="Submit"
+        android:fontFamily="casual"
+        android:textSize="16dp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/nahrungText"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +58,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="(Please enter in English)"
-        android:textSize="12dp"
+        android:fontFamily="casual"
+        android:textSize="16dp"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nahrungText" />
 
