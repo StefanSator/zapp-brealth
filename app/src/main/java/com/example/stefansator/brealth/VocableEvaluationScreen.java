@@ -23,9 +23,7 @@ public class VocableEvaluationScreen extends AppCompatActivity {
 
         wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
         highscore = new Highscore(this,taskName,wipeHighscore);
-        /* Reset Score for later use in Test Task in Brealth Category */
         testScore = new TestScore();
-        writeTestScore(0, 0);
     }
 
     public void endVocableRun(View view) {
