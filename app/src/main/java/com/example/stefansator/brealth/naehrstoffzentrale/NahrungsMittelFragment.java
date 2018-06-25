@@ -1,18 +1,17 @@
 package com.example.stefansator.brealth.naehrstoffzentrale;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -35,8 +34,7 @@ public class NahrungsMittelFragment extends Fragment {
     private List<Hint> hintList = null;
     private RecyclerView recyclerView;
     private ArrayList<String> foodItems = new ArrayList<String>();
-    private ArrayAdapter<String> adapter = null;
-    private MyBaseAdapter myBaseAdapter;
+    private FoodListAdapter foodListAdapter;
     private View contentView;
     private ResponseObject responseObject = null;
     private Bundle foodBundle;
@@ -62,6 +60,13 @@ public class NahrungsMittelFragment extends Fragment {
 
                 rft = new RetrieveFoodTask(hintList, getFoodViewContent(), NahrungsMittelFragment.this);
                 rft.execute();
+
+                //hide keyboard after button click
+                View view = NahrungsMittelFragment.this.getActivity().getCurrentFocus();
+                if (view != null) {
+                    InputMethodManager imm = (InputMethodManager)getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
             }
         });
     }
@@ -76,20 +81,19 @@ public class NahrungsMittelFragment extends Fragment {
         ListView listView = (ListView) getView().findViewById(R.id.foodList);
 
         // set adapter
-//        listView.setAdapter(new MyBaseAdapter(this.getContext()));
-        adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, foodItems);
-        adapter.clear();
+        foodListAdapter = new FoodListAdapter(this.getContext(), foodItems);
+        foodListAdapter.clear();
         for(int i = 0; i < hintList.size(); i++) {
-            adapter.add(hintList.get(i).getFood().getLabel());
+            foodListAdapter.add(hintList.get(i).getFood().getLabel());
         }
-        listView.setAdapter(adapter);
+        listView.setAdapter(foodListAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(getContext(), "Waiting for response...", Toast.LENGTH_SHORT);
                 buildPostRequest(position);
-                Log.d("blabla", adapter.getItem(position).toString());
+//                Log.d("blabla", adapter.getItem(position).toString());
             }
         });
     }
