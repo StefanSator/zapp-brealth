@@ -1,10 +1,9 @@
 package com.example.stefansator.brealth.naehrstoffzentrale;
 
-import com.example.stefansator.brealth.naehrstoffzentrale.apiobjects.ResponseObject;
+import com.example.stefansator.brealth.naehrstoffzentrale.apiclasses.ResponseObject;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
-import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 

@@ -18,7 +18,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.stefansator.brealth.R;
-import com.example.stefansator.brealth.naehrstoffzentrale.apiobjects.ResponseObject;
+import com.example.stefansator.brealth.naehrstoffzentrale.apiclasses.ResponseObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +54,7 @@ public class NahrungsMittelFragment extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Waiting for response...", Toast.LENGTH_SHORT);
+                Toast.makeText(getContext(), "Waiting for response...", Toast.LENGTH_SHORT).show();
                 String foodName = getFoodViewContent();
                 RetrieveFoodTask rft = null;
 
@@ -91,9 +91,8 @@ public class NahrungsMittelFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getContext(), "Waiting for response...", Toast.LENGTH_SHORT);
+                Toast.makeText(getContext(), "Waiting for response...", Toast.LENGTH_SHORT).show();
                 buildPostRequest(position);
-//                Log.d("blabla", adapter.getItem(position).toString());
             }
         });
     }
@@ -125,7 +124,7 @@ public class NahrungsMittelFragment extends Fragment {
             public void onResponse(Call<ResponseObject> call, Response<ResponseObject> response) {
                 responseObject = response.body();
                 if (responseObject == null) {
-                    Toast.makeText(getContext(), "Response failed", Toast.LENGTH_SHORT);
+                    Toast.makeText(getContext(), "Response failed", Toast.LENGTH_SHORT).show();
                 }
                 foodBundle = getFoodBundle(position);
                 Intent nahrungDetailsIntent = new Intent(getActivity(), NahrungDetails.class);
@@ -135,7 +134,7 @@ public class NahrungsMittelFragment extends Fragment {
 
             @Override
             public void onFailure(Call<ResponseObject> call, Throwable t) {
-                Toast.makeText(getContext(), "No response", Toast.LENGTH_SHORT);
+                Toast.makeText(getContext(), "No response", Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -342,21 +341,4 @@ public class NahrungsMittelFragment extends Fragment {
             return String.format("%.2f",responseObject.getTotalNutrients().getVITK1().getQuantity()) + " " + responseObject.getTotalNutrients().getVITK1().getUnit();
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
