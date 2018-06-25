@@ -244,6 +244,7 @@ public class Powerlogic extends AppCompatActivity{
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", rating);
         finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         Powerlogic.this.startActivity(finishscreenIntent);
         Powerlogic.this.finish();
     }

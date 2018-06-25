@@ -151,6 +151,7 @@ public class EffortCalculatingTask extends AppCompatActivity {
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", bewertung);
         finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         EffortCalculatingTask.this.startActivity(finishscreenIntent);
         EffortCalculatingTask.this.finish();
     }

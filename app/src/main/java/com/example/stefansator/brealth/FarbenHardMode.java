@@ -215,6 +215,7 @@ public class FarbenHardMode extends AppCompatActivity {
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", rating);
         finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         FarbenHardMode.this.startActivity( finishscreenIntent);
         FarbenHardMode.this.finish();
     }

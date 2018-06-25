@@ -26,15 +26,13 @@ public class VocableRunTask extends AppCompatActivity {
     private TextView taskVocable;
     private int exerciseNr = 0;
     private CountDownTimer countDownTimer;
-    private static final String taskName = "vocablerun";
-    Highscore highscore;
+    private boolean wipeHighscore;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocablerun);
 
-        boolean wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
-        highscore = new Highscore(this,taskName,wipeHighscore);
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
 
         createTutorialDialog();
     }
@@ -130,6 +128,7 @@ public class VocableRunTask extends AppCompatActivity {
 
     private void endVocableRunTask() {
         Intent evaluationScreenIntent = new Intent(VocableRunTask.this, VocableEvaluationScreen.class);
+        evaluationScreenIntent.putExtra("WIPE",wipeHighscore);
         VocableRunTask.this.startActivity(evaluationScreenIntent);
         VocableRunTask.this.finish();
     }

@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -103,6 +104,7 @@ public class LesenTask extends AppCompatActivity {
         finishscreenIntent.putExtra("dauer", bearbeitungsdauer);
         finishscreenIntent.putExtra("rating", bewertung);
         finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         LesenTask.this.startActivity(finishscreenIntent);
         LesenTask.this.finish();
     }

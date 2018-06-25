@@ -123,6 +123,7 @@ public class YogaMemoryTask extends AppCompatActivity {
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", bewertung);
         finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         YogaMemoryTask.this.startActivity(finishscreenIntent);
         YogaMemoryTask.this.finish();
     }
