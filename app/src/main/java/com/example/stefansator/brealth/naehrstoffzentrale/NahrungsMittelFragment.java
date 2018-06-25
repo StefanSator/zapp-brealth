@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -35,6 +36,7 @@ public class NahrungsMittelFragment extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<String> foodItems = new ArrayList<String>();
     private ArrayAdapter<String> adapter = null;
+    private MyBaseAdapter myBaseAdapter;
     private View contentView;
     private ResponseObject responseObject = null;
     private Bundle foodBundle;
@@ -74,6 +76,7 @@ public class NahrungsMittelFragment extends Fragment {
         ListView listView = (ListView) getView().findViewById(R.id.foodList);
 
         // set adapter
+//        listView.setAdapter(new MyBaseAdapter(this.getContext()));
         adapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, foodItems);
         adapter.clear();
         for(int i = 0; i < hintList.size(); i++) {
