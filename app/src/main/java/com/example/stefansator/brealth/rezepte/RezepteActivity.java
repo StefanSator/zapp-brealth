@@ -34,8 +34,8 @@ public class RezepteActivity extends AppCompatActivity {
         final ArrayList<Rezept> rezeptList = new ArrayList<Rezept>();
         ArrayList<String> rezeptNameList = new ArrayList<String>();
 
-        Rezept testRezept = new Rezept("Spargel mit Sauce Hollandaise", readTextFromFile(R.raw.derfalschetag));
-        Rezept testRezept2 = new Rezept("Müsli", "Geilo Müsli !");
+        Rezept testRezept = new Rezept("Kartoffelpizza", readTextFromFile(R.raw.kartoffelpizza), R.drawable.kartoffelpizza);
+        Rezept testRezept2 = new Rezept("Müsli", "Geilo Müsli !", R.drawable.brain);
         rezeptList.add(testRezept);
         rezeptList.add(testRezept2);
         
@@ -59,6 +59,7 @@ public class RezepteActivity extends AppCompatActivity {
                 Intent rezeptDetailsIntent = new Intent(RezepteActivity.this, RezeptDetailsActivity.class);
                 rezeptDetailsIntent.putExtra("instructions", rezeptList.get(position).getInstructions());
                 rezeptDetailsIntent.putExtra("title", rezeptList.get(position).getName());
+                rezeptDetailsIntent.putExtra("image", rezeptList.get(position).getImageResource());
                 startActivity(rezeptDetailsIntent);
             }
         });
