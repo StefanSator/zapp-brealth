@@ -26,10 +26,15 @@ public class VocableRunTask extends AppCompatActivity {
     private TextView taskVocable;
     private int exerciseNr = 0;
     private CountDownTimer countDownTimer;
+    private static final String taskName = "vocablerun";
+    Highscore highscore;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocablerun);
+
+        boolean wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        highscore = new Highscore(this,taskName,wipeHighscore);
 
         createTutorialDialog();
     }

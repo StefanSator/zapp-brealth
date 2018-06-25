@@ -13,13 +13,6 @@ public class Highscore {
     SharedPreferences preferences;
     SharedPreferences.Editor preferencesEditor;
 
-    public Highscore(Context context,long duration, int rating, String task) {
-        this.rating = rating;
-        this.duration = duration;
-        this.task = task;
-        this.preferences = context.getSharedPreferences(task,Context.MODE_PRIVATE);
-    }
-
     public Highscore(Context context, String task, boolean wipe) {
         this.task = task;;
         this.preferences = context.getSharedPreferences(task,Context.MODE_PRIVATE);
@@ -46,13 +39,15 @@ public class Highscore {
     public boolean isNewHighscore() {
         preferencesEditor = preferences.edit();
 
-        if (preferences.getInt(task+"rating",0) <= rating){
-            if (preferences.getLong(task+"duration", Long.MAX_VALUE) > duration) {
-                Log.d("TESTT","highscore ist "+rating+" "+duration);
-                preferencesEditor.putInt(task+"rating", rating);
-                preferencesEditor.putLong(task+"duration",duration);
-                preferencesEditor.apply();
-                return true;
+        if (preferences.getInt(task+"rating",0) <= rating) {
+            if (preferences.getInt(task + "falseAnswer",Integer.MAX_VALUE) >= falseAnswer) {
+                if (preferences.getLong(task + "duration", Long.MAX_VALUE) > duration) {
+                    preferencesEditor.putInt(task + "rating", rating);
+                    preferencesEditor.putInt(task+ "falseAnswer", falseAnswer);
+                    preferencesEditor.putLong(task + "duration", duration);
+                    preferencesEditor.apply();
+                    return true;
+                }
             }
         }
         return false;
@@ -72,10 +67,18 @@ public class Highscore {
         return false;
     }
 
-    public void deleteHighscore(boolean wipe){
-        if (wipe == true) {
-            preferencesEditor.clear();
-            preferencesEditor.apply();
+    public boolean isNewHighscoreVocablerun() {
+        preferencesEditor = preferences.edit();
+
+        if (preferences.getInt(task+"rating",0) <= rating){
+            if (preferences.getInt(task+"falseAnswer",Integer.MAX_VALUE) > falseAnswer) {
+                preferencesEditor.putInt(task+"rating", rating);
+                preferencesEditor.putLong(task+"falseAnswer",falseAnswer);
+                preferencesEditor.apply();
+                return true;
+            }
         }
+        return false;
     }
+
 }

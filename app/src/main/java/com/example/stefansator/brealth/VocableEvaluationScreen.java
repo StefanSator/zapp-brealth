@@ -13,11 +13,16 @@ import android.widget.Toast;
 
 public class VocableEvaluationScreen extends AppCompatActivity {
     private TestScore testScore;
+    private boolean wipeHighscore = false;
+    private Highscore highscore;
+    private String taskName = "vocablerun";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocableevaluation);
 
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        highscore = new Highscore(this,taskName,wipeHighscore);
         /* Reset Score for later use in Test Task in Brealth Category */
         testScore = new TestScore();
         writeTestScore(0, 0);
@@ -43,9 +48,14 @@ public class VocableEvaluationScreen extends AppCompatActivity {
         /* Save Score for later use in Test Task in Brealth Category */
         writeTestScore(falseCounter, 0);
 
+        highscore.setRating(rating);
+        highscore.setFalseAnswer(falseCounter);
+        boolean isNewHighscore = highscore.isNewHighscoreVocablerun();
+
         Intent finishScreenIntent = new Intent(VocableEvaluationScreen.this, TaskEndscreen.class);
         finishScreenIntent.putExtra("falsch", falseCounter);
         finishScreenIntent.putExtra("rating", rating);
+        finishScreenIntent.putExtra("highscore", isNewHighscore);
         VocableEvaluationScreen.this.startActivity(finishScreenIntent);
         VocableEvaluationScreen.this.finish();
     }

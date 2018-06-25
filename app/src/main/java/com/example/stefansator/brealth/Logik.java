@@ -18,12 +18,16 @@ public class Logik extends AppCompatActivity{
     private int symbolCNumber, symbolTNumber, endResult=0, counter = 0, falseCounter = 0, LIMIT = 10;
     private long starttime, endtime;
 
-    private static final boolean wipeHighscore = false;
-    private static final String taskName = "logik";
+    private boolean wipeHighscore = false;
+    private Highscore highscore;
+    private String taskName = "logik";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logik);
+
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        highscore = new Highscore(this,taskName,wipeHighscore);
 
         firstSymbol = findViewById(R.id.logik_symbol_7);
         secondSymbol = findViewById(R.id.logik_symbol_8);
@@ -35,15 +39,7 @@ public class Logik extends AppCompatActivity{
         setSecondRow();
         setThirdRow();
 
-        if (wipeHighscore == true)
-            wipeHighscore();
-
         starttime = System.currentTimeMillis();
-    }
-
-    private void wipeHighscore() {
-        Highscore highscore = new Highscore(this,0,0,taskName);
-        highscore.deleteHighscore(wipeHighscore);
     }
 
     public void setFirstRow() {
@@ -167,9 +163,10 @@ public class Logik extends AppCompatActivity{
         long duration = endtime - starttime;
         int rating = RateTheGame(duration, falseCounter);
 
-        Highscore highscore = new Highscore(this,duration,rating,taskName);
+        highscore.setDuration(duration);
+        highscore.setRating(rating);
+        highscore.setFalseAnswer(falseCounter);
         boolean isNewHighscore = highscore.isNewHighscore();
-        highscore.deleteHighscore(wipeHighscore);
 
         Intent finishscreenIntent = new Intent(Logik.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", duration);
