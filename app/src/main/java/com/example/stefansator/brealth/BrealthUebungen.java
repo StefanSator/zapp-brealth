@@ -32,9 +32,9 @@ public class BrealthUebungen extends AppCompatActivity {
         BrealthUebungen.this.startActivity(vocableIntent);
     }
   
-    public void gotoMindColors(View view) {
-        Intent mindColorIntent= new Intent(BrealthUebungen.this, MindColors.class);
-        BrealthUebungen.this.startActivity(mindColorIntent);
+    public void gotoSretchingColors(View view) {
+        Intent stretchingColors= new Intent(BrealthUebungen.this, StretchingColors.class);
+        BrealthUebungen.this.startActivity(stretchingColors);
     }
 
     public void gotoPowerLogic(View view) {

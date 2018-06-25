@@ -3,11 +3,11 @@ package com.example.stefansator.brealth;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-public class MindColors extends AppCompatActivity {
+public class StretchingColors extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_powerlogic);
+        setContentView(R.layout.activity_warmupcolors);
     }
 }
