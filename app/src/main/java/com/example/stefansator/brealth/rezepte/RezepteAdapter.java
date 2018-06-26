@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.example.stefansator.brealth.R;
+
 import java.util.ArrayList;
 
 public class RezepteAdapter extends BaseAdapter{
@@ -50,6 +52,9 @@ public class RezepteAdapter extends BaseAdapter{
 
         tv.setTextSize(24);
         tv.setTextColor(Color.WHITE);
+        if(position % 2 != 0) {
+            tv.setBackgroundColor(tv.getResources().getColor(R.color.colorButton4));
+        }
 
         return tv;
     }

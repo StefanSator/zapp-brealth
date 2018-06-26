@@ -10,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.stefansator.brealth.R;
+
 import java.util.ArrayList;
 
 public class FoodListAdapter extends BaseAdapter {
@@ -50,6 +52,10 @@ public class FoodListAdapter extends BaseAdapter {
 
         tv.setTextSize(24);
         tv.setTextColor(Color.WHITE);
+
+        if(position % 2 != 0) {
+            tv.setBackgroundColor(tv.getResources().getColor(R.color.colorButton4));
+        }
 
         return tv;
     }

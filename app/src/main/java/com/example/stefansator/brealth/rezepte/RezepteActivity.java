@@ -34,10 +34,11 @@ public class RezepteActivity extends AppCompatActivity {
         final ArrayList<Rezept> rezeptList = new ArrayList<Rezept>();
         ArrayList<String> rezeptNameList = new ArrayList<String>();
 
-        Rezept testRezept = new Rezept("Kartoffelpizza", readTextFromFile(R.raw.kartoffelpizza), R.drawable.kartoffelpizza);
-        Rezept testRezept2 = new Rezept("Müsli", "Geilo Müsli !", R.drawable.brain);
-        rezeptList.add(testRezept);
-        rezeptList.add(testRezept2);
+        setRezepteList(rezeptList);
+//        Rezept testRezept = new Rezept("Kartoffelpizza", readTextFromFile(R.raw.kartoffelpizza), R.drawable.kartoffelpizza);
+//        Rezept testRezept2 = new Rezept("Müsli", "Geilo Müsli !", R.drawable.brain);
+//        rezeptList.add(testRezept);
+//        rezeptList.add(testRezept2);
         
         for(int i = 0; i < rezeptList.size(); i++) {
 //            rezeptNameList.set(i, rezeptList.get(i).getName());
@@ -63,6 +64,20 @@ public class RezepteActivity extends AppCompatActivity {
                 startActivity(rezeptDetailsIntent);
             }
         });
+    }
+
+    private void setRezepteList(ArrayList<Rezept> rezeptList) {
+        Rezept kartoffelpizza = new Rezept("Kartoffelpizza", readTextFromFile(R.raw.kartoffelpizza), R.drawable.kartoffelpizza);
+        Rezept spinatsalat = new Rezept("Spinatsalat", readTextFromFile(R.raw.spinatsalat), R.drawable.spinatsalat);
+        Rezept broccoliLinsenPasta = new Rezept("Broccoli-Linsen-Pasta", readTextFromFile(R.raw.broccoli_linsen_pasta), R.drawable.broccoli_linsen_pasta);
+        Rezept bohnenLauchTortilla = new Rezept("Bohnen-Lauch-Tortilla", readTextFromFile(R.raw.bohnen_lauch_tortilla), R.drawable.bohnen_lauch_tortilla);
+        Rezept weizenRisotto = new Rezept("Weizenrisotto", readTextFromFile(R.raw.weizenrisotto), R.drawable.weizenrisotto);
+
+        rezeptList.add(kartoffelpizza);
+        rezeptList.add(spinatsalat);
+        rezeptList.add(broccoliLinsenPasta);
+        rezeptList.add(bohnenLauchTortilla);
+        rezeptList.add(weizenRisotto);
     }
 
     private String readTextFromFile(int file) {
