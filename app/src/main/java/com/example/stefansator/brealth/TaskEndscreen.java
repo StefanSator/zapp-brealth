@@ -144,7 +144,7 @@ public class TaskEndscreen extends AppCompatActivity {
 
         if(hsTask.toLowerCase().contains("lesen")) {
             dlgBuilder.setMessage("Sterne: " + hsRating+"\n"+ "Dauer: "+ hsduration);
-        } else if (hsTask.toLowerCase().contains("vocable")){
+        } else if (hsTask.toLowerCase().contains("vocable") || hsTask.toLowerCase().contains("stretching")){
             dlgBuilder.setMessage("Sterne: " + hsRating+"\n"+ "Fehler: "+ hsFalseAnswer);
         } else {
             dlgBuilder.setMessage("Sterne: " + hsRating+ "\n"+ "Dauer: "+ hsduration + "\n"+ "Fehler: "+ hsFalseAnswer);

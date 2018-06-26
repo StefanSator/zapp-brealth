@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
+
 
 public class Highscore implements Parcelable{
     private int rating;
@@ -119,7 +119,7 @@ public class Highscore implements Parcelable{
         return false;
     }
 
-    public boolean isNewHighscoreVocablerun() {
+    public boolean isNewHighscoreOnlyRatingFalse() {
         preferencesEditor = preferences.edit();
 
         int curRatingHS = preferences.getInt(task+"rating",0);
@@ -127,7 +127,6 @@ public class Highscore implements Parcelable{
 
         if (rating >= curRatingHS){
             if (falseAnswer < curfalseAnswerHS) {
-                Log.d("SUCESS","sucess inner");
                 preferencesEditor.putInt(task+"rating", rating);
                 preferencesEditor.putInt(task+"falseAnswer",falseAnswer);
                 preferencesEditor.apply();
