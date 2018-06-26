@@ -1,37 +1,38 @@
-package com.example.stefansator.brealth.naehrstoffzentrale;
+package com.example.stefansator.brealth.rezepte;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.text.Layout;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.stefansator.brealth.R;
 
 import java.util.ArrayList;
 
-public class FoodListAdapter extends BaseAdapter {
+public class RezepteAdapter extends BaseAdapter{
 
-    private ArrayList<String> foodLabels;
+    private ArrayList<String> rezepteNames;
     private final Context context;
 
-    public FoodListAdapter(Context context, ArrayList<String> foodLabels) {
+    public RezepteAdapter(Context context, ArrayList<String> rezepteNames) {
         this.context = context;
-        this.foodLabels = foodLabels;
+        this.rezepteNames = rezepteNames;
+    }
+
+    public void clear() {
     }
 
     @Override
     public int getCount() {
-        return foodLabels.size();
+        return rezepteNames.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return foodLabels.get(position);
+        return rezepteNames.get(position);
     }
 
     @Override
@@ -40,9 +41,8 @@ public class FoodListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-
-        Object obj = foodLabels.get(position);
+    public View getView(int position, View view, ViewGroup viewGroup) {
+        Object obj = rezepteNames.get(position);
         TextView tv = new TextView(context);
 
         tv.setText(obj.toString());
@@ -52,7 +52,6 @@ public class FoodListAdapter extends BaseAdapter {
 
         tv.setTextSize(24);
         tv.setTextColor(Color.WHITE);
-
         if(position % 2 != 0) {
             tv.setBackgroundColor(tv.getResources().getColor(R.color.colorButton4));
         }
@@ -60,11 +59,7 @@ public class FoodListAdapter extends BaseAdapter {
         return tv;
     }
 
-    public void add(String label) {
-        foodLabels.add(label);
-    }
-
-    public void clear() {
-        foodLabels.clear();
+    public void add(Rezept rezept) {
+        rezepteNames.add(rezept.getName());
     }
 }

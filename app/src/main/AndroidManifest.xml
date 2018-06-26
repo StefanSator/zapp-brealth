@@ -110,7 +110,12 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.stefansator.brealth.naehrstoffzentrale.Zentrale" />
         </activity>
-        <activity android:name=".BMIActivity"></activity>
+
+        <activity android:name=".BMIActivity" />
+        <activity android:name=".rezepte.RezepteActivity" />
+        <activity android:name=".rezepte.RezeptDetailsActivity" />
+        <activity android:name=".TippsActivity"></activity>
+
         <activity android:name=".BrealthTestEndscreen" android:label="Test Statistik"></activity>
     </application>
 
