@@ -28,6 +28,10 @@ public class YogaMemoryTask extends AppCompatActivity {
     private int falseCounter = 0, rightCounter = 0;
     private AlertDialog alert;
     private AlertDialog.Builder dlgBuilder;
+    private TestScore testScore;
+    private boolean wipeHighscore = false;
+    private Highscore highscore;
+    private String taskName = "yogamemory";
     /* variables which will later include index of drawn cards */
     private int firstDraw = -1;
     private int secondDraw = -1;
@@ -36,6 +40,9 @@ public class YogaMemoryTask extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_yogamemorytask);
+
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        highscore = new Highscore(this,taskName,wipeHighscore);
 
         memoryCard = new ImageView[12];
 
@@ -56,6 +63,10 @@ public class YogaMemoryTask extends AppCompatActivity {
         memoryGame = new YogaMemoryGame();
 
         startZeit = System.currentTimeMillis();
+
+        /* Reset Score for later use in Test Task in Brealth Category */
+        testScore = new TestScore();
+        writeTestScore(0, 0);
     }
 
     public void revealYogaTask(View view) throws InterruptedException {
@@ -99,10 +110,20 @@ public class YogaMemoryTask extends AppCompatActivity {
         long bearbeitungsDauer = endZeit - startZeit;
         int bewertung = RateThePlayer(bearbeitungsDauer, falseCounter);
 
+        /* Save Score for later use in Test Task in Brealth Category */
+        writeTestScore(falseCounter, bearbeitungsDauer/1000);
+
+        highscore.setDuration(bearbeitungsDauer);
+        highscore.setRating(bewertung);
+        highscore.setFalseAnswer(falseCounter);
+        boolean isNewHighscore = highscore.isNewHighscore();
+
         Intent finishscreenIntent = new Intent(YogaMemoryTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", bewertung);
+        finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         YogaMemoryTask.this.startActivity(finishscreenIntent);
         YogaMemoryTask.this.finish();
     }
@@ -170,5 +191,10 @@ public class YogaMemoryTask extends AppCompatActivity {
         messageView.setGravity(Gravity.CENTER);
         messageView.setTextSize(32.0f);
         messageView.setTypeface(null, Typeface.BOLD);
+    }
+
+    private void writeTestScore(int attempts, long duration) {
+        testScore.writeTestAttempts(this, "YogaTest", "TEST_ATTEMPT_YOGA", attempts);
+        testScore.writeTestDuration(this, "YogaTest", "TEST_DURATION_YOGA", duration);
     }
 }

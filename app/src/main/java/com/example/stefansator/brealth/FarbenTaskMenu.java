@@ -11,11 +11,14 @@ import android.widget.Toast;
 public class FarbenTaskMenu extends AppCompatActivity {
     private AlertDialog alert;
     private AlertDialog.Builder dlgBuilder;
+    private boolean wipeHighscore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farbentaskmenu);
+
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
     }
 
     public void createInformationDialog(final View view) {
@@ -62,10 +65,12 @@ public class FarbenTaskMenu extends AppCompatActivity {
        switch (view.getId()) {
            case R.id.farben_easymode_button:
                farbenModeIntent = new Intent(FarbenTaskMenu.this, FarbenEasyMode.class);
+               farbenModeIntent.putExtra("WIPE",wipeHighscore);
                FarbenTaskMenu.this.startActivity(farbenModeIntent);
                break;
            case R.id.farben_hardmode_button:
                farbenModeIntent = new Intent(FarbenTaskMenu.this, FarbenHardMode.class);
+               farbenModeIntent.putExtra("WIPE",wipeHighscore);
                FarbenTaskMenu.this.startActivity(farbenModeIntent);
                break;
            default:

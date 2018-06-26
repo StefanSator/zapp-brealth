@@ -86,24 +86,23 @@
         <activity
             android:name=".YogaMemoryTask"
             android:label="YogaMemory" />
-
+        <activity
+            android:name=".Powerlogic"
+            android:label="Powerlogic" />
+        <activity
+            android:name=".StretchingColors"
+            android:label="Stretching Colors" />
         <receiver
             android:name=".AlarmReceiver"
             android:enabled="true"
             android:process=":remote" />
-
+        <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
         <activity
             android:name=".VocableRunTask"
             android:label="VocableRun" />
         <activity
             android:name=".VocableEvaluationScreen"
             android:label="VocableRun Evaluation" />
-
-        <receiver
-            android:name=".AlarmReceiver"
-            android:enabled="true"
-            android:process=":remote" />
-
         <activity
             android:name=".naehrstoffzentrale.NahrungDetails"
             android:parentActivityName=".naehrstoffzentrale.Zentrale">
@@ -111,10 +110,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.stefansator.brealth.naehrstoffzentrale.Zentrale" />
         </activity>
+
         <activity android:name=".BMIActivity" />
         <activity android:name=".rezepte.RezepteActivity" />
         <activity android:name=".rezepte.RezeptDetailsActivity" />
         <activity android:name=".TippsActivity"></activity>
+
+        <activity android:name=".BrealthTestEndscreen" android:label="Test Statistik"></activity>
     </application>
 
 </manifest>

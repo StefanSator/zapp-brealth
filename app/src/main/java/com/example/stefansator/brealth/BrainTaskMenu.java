@@ -16,6 +16,7 @@ public class BrainTaskMenu extends AppCompatActivity {
 
     private AlertDialog alert;
     private AlertDialog.Builder dlgBuilder;
+    private boolean wipeHighscore = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +25,7 @@ public class BrainTaskMenu extends AppCompatActivity {
 
     public void gotoTaskRechnen(View view) {
         Intent rechnenMenuIntent = new Intent(BrainTaskMenu.this, RechnenTaskMenu.class);
+        rechnenMenuIntent.putExtra("WIPE",wipeHighscore);
         BrainTaskMenu.this.startActivity(rechnenMenuIntent);
     }
 
@@ -33,6 +35,7 @@ public class BrainTaskMenu extends AppCompatActivity {
 
     public void gotoTaskFarben(View view) {
         Intent farbenMenuIntent = new Intent(BrainTaskMenu.this, FarbenTaskMenu.class);
+        farbenMenuIntent.putExtra("WIPE", wipeHighscore);
         BrainTaskMenu.this.startActivity(farbenMenuIntent);
     }
 
@@ -81,12 +84,15 @@ public class BrainTaskMenu extends AppCompatActivity {
     private void startBrainTask(View view) {
         if (findViewById(R.id.braintask_button3) == view) {
             Intent memoryIntent = new Intent(BrainTaskMenu.this, MemoryTask.class);
+            memoryIntent.putExtra("WIPE",wipeHighscore);
             BrainTaskMenu.this.startActivity(memoryIntent);
         } else if (findViewById(R.id.braintask_button2) == view) {
             Intent lesenIntent = new Intent(BrainTaskMenu.this, LesenTask.class);
+            lesenIntent.putExtra("WIPE", wipeHighscore);
             BrainTaskMenu.this.startActivity(lesenIntent);
         } else if (findViewById(R.id.braintask_button4) == view) {
             Intent logikIntent = new Intent(BrainTaskMenu.this,Logik.class);
+            logikIntent.putExtra("WIPE", wipeHighscore);
             BrainTaskMenu.this.startActivity(logikIntent);
         }
     }

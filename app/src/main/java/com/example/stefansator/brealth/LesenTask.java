@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -29,16 +30,27 @@ public class LesenTask extends AppCompatActivity {
     private long startZeit, endZeit;
     private String difficulty;
     private float animationSpeed;
-    private static final boolean wipeHighscore = false;
+    private boolean wipeHighscore = false;
+    private Highscore highscore;
+    private TestScore testScore;
+    private String taskName = "lesen";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lesen);
 
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+
+        /* Reset Score for later use in Test Task in Brealth Category */
+        testScore = new TestScore();
+        writeTestScore(0, 0);
+
         createDifficultyDialog();
+
     }
 
     private void startReadingGame() {
+        highscore = new Highscore(this,taskName+difficulty,wipeHighscore);
         rl = (RelativeLayout) findViewById(R.id.lesen_layout);
         tv = new ScrollingTextView(getApplicationContext(), animationSpeed);
 
@@ -81,14 +93,18 @@ public class LesenTask extends AppCompatActivity {
         long bearbeitungsdauer = endZeit - startZeit;
         int bewertung = RateThePlayer(bearbeitungsdauer);
 
-        Highscore highscore = new Highscore(this,bearbeitungsdauer,bewertung,"lesen");
+        highscore.setDuration(bearbeitungsdauer);
+        highscore.setRating(bewertung);
         boolean isNewHighscore = highscore.isNewHighscoreLesen();
-        highscore.deleteHighscore(wipeHighscore);
+
+        /* Save Score for later use in Test Task in Brealth Category */
+        writeTestScore(0, bearbeitungsdauer/1000);
 
         Intent finishscreenIntent = new Intent(LesenTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsdauer);
         finishscreenIntent.putExtra("rating", bewertung);
         finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         LesenTask.this.startActivity(finishscreenIntent);
         LesenTask.this.finish();
     }
@@ -133,5 +149,10 @@ public class LesenTask extends AppCompatActivity {
 
         alert = dlgBuilder.create();
         alert.show();
+    }
+
+    private void writeTestScore(int attempts, long duration) {
+        testScore.writeTestAttempts(this, "LesenTest", "TEST_ATTEMPT_LESEN", attempts);
+        testScore.writeTestDuration(this, "LesenTest", "TEST_DURATION_LESEN", duration);
     }
 }

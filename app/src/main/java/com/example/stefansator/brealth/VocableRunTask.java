@@ -19,18 +19,33 @@ import java.io.InputStreamReader;
  */
 
 public class VocableRunTask extends AppCompatActivity {
+    private TestScore testScore;
     private AlertDialog.Builder dlgBuilder;
     private AlertDialog alert;
     private VocableExercise exercises[];
     private TextView taskTitle;
     private TextView taskVocable;
     private int exerciseNr = 0;
+    private CountDownTimer countDownTimer;
+    private boolean wipeHighscore;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocablerun);
 
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        /* Reset Score for later use in Test Task in Brealth Category */
+        testScore = new TestScore();
+        writeTestScore(0, 0);
+      
         createTutorialDialog();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+
+        countDownTimer.cancel();
     }
 
     private String[] ReadVocablesFromFile(int fileid, int numberOfVocables) throws IOException {
@@ -88,7 +103,7 @@ public class VocableRunTask extends AppCompatActivity {
         taskVocable = findViewById(R.id.vocable_task);
 
         int secs = 25;
-        new CountDownTimer((secs +1) * 5000, 5000)
+        countDownTimer = new CountDownTimer((secs +1) * 5000, 5000)
         {
             @Override
             public final void onTick(final long millisUntilFinished)
@@ -117,7 +132,13 @@ public class VocableRunTask extends AppCompatActivity {
 
     private void endVocableRunTask() {
         Intent evaluationScreenIntent = new Intent(VocableRunTask.this, VocableEvaluationScreen.class);
+        evaluationScreenIntent.putExtra("WIPE",wipeHighscore);
         VocableRunTask.this.startActivity(evaluationScreenIntent);
         VocableRunTask.this.finish();
+    }
+
+    private void writeTestScore(int attempts, long duration) {
+        testScore.writeTestAttempts(this, "VocableRunTest", "TEST_ATTEMPT_VOCABLE", attempts);
+        testScore.writeTestDuration(this, "VocableRunTest", "TEST_DURATION_VOCABLE", duration);
     }
 }

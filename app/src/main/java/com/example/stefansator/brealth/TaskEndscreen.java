@@ -1,23 +1,37 @@
 package com.example.stefansator.brealth;
 
+import android.app.ActionBar;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * Created by stefansator on 07.05.18.
  * Revised by stefansator on 28.05.18
+ * Revised by juliansellner on 26.06.18
  */
 
 public class TaskEndscreen extends AppCompatActivity {
     private TextView dauerFeld;
     private TextView falschFeld;
     private RatingBar rating;
-    private long bearbeitungsDauer;
-    private int falseCounter;
+    private String hsTask;
+    private long bearbeitungsDauer, hsduration;
+    private int falseCounter, hsRating, hsFalseAnswer;
     private int bewertung;
+    private AlertDialog.Builder dlgBuilder;
+    private AlertDialog alert;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +40,7 @@ public class TaskEndscreen extends AppCompatActivity {
         dauerFeld = findViewById(R.id.zeit_rechnen);
         falschFeld = findViewById(R.id.falschCounter_rechnenend);
         rating = findViewById(R.id.setRating);
-
-
+        ImageView highscoreImg = findViewById(R.id.highscore);
 
         if (getIntent().hasExtra("dauer") == true && getIntent().hasExtra("falsch") == true) {
             bearbeitungsDauer = getIntent().getExtras().getLong("dauer");
@@ -51,6 +64,17 @@ public class TaskEndscreen extends AppCompatActivity {
                 ergebnis.setText("NEW HIGHSCORE");
             }
         }
+
+        if (getIntent().hasExtra("highscoreObject")){
+            Highscore highscore = getIntent().getParcelableExtra("highscoreObject");
+            hsRating = highscore.getRating();
+            hsFalseAnswer = highscore.getFalseAnswer();
+            hsTask = highscore.getTask();
+            hsduration = highscore.getDuration()/1000;
+        } else {
+            highscoreImg.setVisibility(View.INVISIBLE);
+        }
+
         /* Show right Star Rating */
         setStarRating();
     }
@@ -112,5 +136,21 @@ public class TaskEndscreen extends AppCompatActivity {
 
     public void endResultScreen(View view) {
         TaskEndscreen.this.finish();
+    }
+
+    public void showHighscore(View view) {
+       dlgBuilder = new AlertDialog.Builder(TaskEndscreen.this);
+        dlgBuilder.setTitle("Highscore");
+
+        if(hsTask.toLowerCase().contains("lesen")) {
+            dlgBuilder.setMessage("Sterne: " + hsRating+"\n"+ "Dauer: "+ hsduration);
+        } else if (hsTask.toLowerCase().contains("vocable")){
+            dlgBuilder.setMessage("Sterne: " + hsRating+"\n"+ "Fehler: "+ hsFalseAnswer);
+        } else {
+            dlgBuilder.setMessage("Sterne: " + hsRating+ "\n"+ "Dauer: "+ hsduration + "\n"+ "Fehler: "+ hsFalseAnswer);
+        }
+
+        alert = dlgBuilder.create();
+        alert.show();
     }
 }
