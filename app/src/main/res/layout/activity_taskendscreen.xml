@@ -91,4 +91,17 @@
         android:text="Fertig"
         android:textSize="24sp" />
 
+
+    <ImageView
+        android:id="@+id/highscore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/zeit_rechnen"
+        android:layout_alignParentBottom="true"
+        android:adjustViewBounds="true"
+        android:onClick="showHighscore"
+        android:src="@drawable/trophy" />
+
+
+
 </RelativeLayout>

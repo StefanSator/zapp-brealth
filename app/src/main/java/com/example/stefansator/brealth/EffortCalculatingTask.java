@@ -28,6 +28,9 @@ public class EffortCalculatingTask extends AppCompatActivity {
     private long endzeit;
     private int falseCounter = 0;
     private TestScore testScore;
+    private boolean wipeHighscore = false;
+    private Highscore highscore;
+    private String taskName = "effort";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +40,9 @@ public class EffortCalculatingTask extends AppCompatActivity {
             LIMIT = getIntent().getExtras().getInt("limit");
         }
         rechenaufgaben = new Rechenaufgabe[LIMIT];
+
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        highscore = new Highscore(this,taskName+LIMIT,wipeHighscore);
 
         /* Initialize Array with Addition Tasks */
         for (int i = 0 ; i < LIMIT ; i++) {
@@ -135,10 +141,17 @@ public class EffortCalculatingTask extends AppCompatActivity {
         /* Save Score for later use in Test Task in Brealth Category */
         writeTestScore(falseCounter, bearbeitungsDauer/1000);
 
+        highscore.setDuration(bearbeitungsDauer);
+        highscore.setRating(bewertung);
+        highscore.setFalseAnswer(falseCounter);
+        boolean isNewHighscore = highscore.isNewHighscore();
+
         Intent finishscreenIntent = new Intent(EffortCalculatingTask.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", bearbeitungsDauer);
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", bewertung);
+        finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         EffortCalculatingTask.this.startActivity(finishscreenIntent);
         EffortCalculatingTask.this.finish();
     }

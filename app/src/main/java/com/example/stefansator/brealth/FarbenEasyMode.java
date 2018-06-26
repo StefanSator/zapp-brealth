@@ -15,13 +15,18 @@ public class FarbenEasyMode extends AppCompatActivity {
     private TextView text, explanation;
     private int LIMIT = 10,counter, falseCounter = 0;
     private long starttime, endtime;
-    private String mainColor, textColor;
-    private static final boolean wipeHighscore = false;
+    private String mainColor, textColor, taskName = "fem";
+    private boolean wipeHighscore = false;
+    private Highscore highscore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_farbeneasymode);
+
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        highscore = new Highscore(this,taskName,wipeHighscore);
+
         text = findViewById(R.id.farbenView_em);
         explanation = findViewById(R.id.farben_explanation_em);
         mainColor = setColorText();
@@ -113,15 +118,18 @@ public class FarbenEasyMode extends AppCompatActivity {
         endtime = System.currentTimeMillis();
         long duration = endtime - starttime;
         int rating = RateThePlayer(duration, falseCounter);
-        Highscore highscore = new Highscore(this,duration,rating,"fem");
+
+        highscore.setDuration(duration);
+        highscore.setRating(rating);
+        highscore.setFalseAnswer(falseCounter);
         boolean isNewHighscore = highscore.isNewHighscore();
-        highscore.deleteHighscore(wipeHighscore);
 
         Intent finishscreenIntent = new Intent(FarbenEasyMode.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("dauer", duration);
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", rating);
         finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         FarbenEasyMode.this.startActivity( finishscreenIntent);
         FarbenEasyMode.this.finish();
     }

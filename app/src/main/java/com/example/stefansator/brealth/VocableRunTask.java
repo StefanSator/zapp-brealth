@@ -19,6 +19,7 @@ import java.io.InputStreamReader;
  */
 
 public class VocableRunTask extends AppCompatActivity {
+    private TestScore testScore;
     private AlertDialog.Builder dlgBuilder;
     private AlertDialog alert;
     private VocableExercise exercises[];
@@ -26,11 +27,17 @@ public class VocableRunTask extends AppCompatActivity {
     private TextView taskVocable;
     private int exerciseNr = 0;
     private CountDownTimer countDownTimer;
+    private boolean wipeHighscore;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vocablerun);
 
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        /* Reset Score for later use in Test Task in Brealth Category */
+        testScore = new TestScore();
+        writeTestScore(0, 0);
+      
         createTutorialDialog();
     }
 
@@ -125,7 +132,13 @@ public class VocableRunTask extends AppCompatActivity {
 
     private void endVocableRunTask() {
         Intent evaluationScreenIntent = new Intent(VocableRunTask.this, VocableEvaluationScreen.class);
+        evaluationScreenIntent.putExtra("WIPE",wipeHighscore);
         VocableRunTask.this.startActivity(evaluationScreenIntent);
         VocableRunTask.this.finish();
+    }
+
+    private void writeTestScore(int attempts, long duration) {
+        testScore.writeTestAttempts(this, "VocableRunTest", "TEST_ATTEMPT_VOCABLE", attempts);
+        testScore.writeTestDuration(this, "VocableRunTest", "TEST_DURATION_VOCABLE", duration);
     }
 }

@@ -20,7 +20,7 @@ import java.util.Map;
         "page",
         "numPages"
 })
-public class Model {
+public class FoodModel {
 
     @SerializedName("text")
     private String text;

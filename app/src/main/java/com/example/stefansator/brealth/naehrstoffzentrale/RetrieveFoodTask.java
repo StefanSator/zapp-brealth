@@ -1,12 +1,8 @@
 package com.example.stefansator.brealth.naehrstoffzentrale;
 
-import android.app.Activity;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.View;
 import android.widget.ProgressBar;
-
-import com.example.stefansator.brealth.R;
 
 import java.util.List;
 
@@ -38,10 +34,10 @@ public class RetrieveFoodTask extends AsyncTask<String, Void, String> {
 
 
         final FoodSearchAPI service = retrofit.create(FoodSearchAPI.class);
-        Call<Model> call = service.getJsonObjectData(foodName, "bfe5aa37", "c9cc3f70b3bf3964b7f583de92b22f10", 1);
-        call.enqueue(new Callback<Model>() {
+        Call<FoodModel> call = service.getJsonObjectData(foodName, "bfe5aa37", "c9cc3f70b3bf3964b7f583de92b22f10", 1);
+        call.enqueue(new Callback<FoodModel>() {
             @Override
-            public void onResponse(Call<Model> call, Response<Model> response) {
+            public void onResponse(Call<FoodModel> call, Response<FoodModel> response) {
                 hintList = response.body().getHints();
 
                 if(!hintList.isEmpty()) {
@@ -53,7 +49,7 @@ public class RetrieveFoodTask extends AsyncTask<String, Void, String> {
             }
 
             @Override
-            public void onFailure(Call<Model> call, Throwable t) {
+            public void onFailure(Call<FoodModel> call, Throwable t) {
                 Log.d("mainActivity", "error" + t.toString());
             }
         });
