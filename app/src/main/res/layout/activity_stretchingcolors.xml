@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/lightblack">
+    android:background="@color/lightblack" >
 
     <TextView
-        android:id="@+id/stretching_color_beschreibung"
+        android:id="@+id/stretching_color_instruction"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:text="Sagen Sie die geschriebene Farbe aus aus!"
+        android:layout_margin="5dp"
+        android:text="Sagen Sie die Farbe in der geschrieben wurde !"
         android:textAlignment="center"
         android:textSize="25sp"
         android:textColor="@color/yellow" />
@@ -20,20 +20,58 @@
         android:id="@+id/stretching_color_word"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:text="FARBE"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        android:text="gelb"
         android:textAlignment="center"
         android:textColor="@color/yellow"
-        android:textSize="25sp" />
+        android:textSize="25sp"/>
+
 
     <ImageView
         android:id="@+id/stretching_colors_image"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp"
+        android:layout_height="282dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:adjustViewBounds="true"
-        android:padding="5dp"
         android:src="@drawable/stretchingcolors_shoulder_stretch_left" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/stretching_color_falseAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:inputType="number"
+            android:visibility="invisible"
+            android:textColor="@color/yellow" />
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+        <Button
+            android:id="@+id/stretching_color_Submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/neonred"
+            android:onClick="checkAnswer"
+            android:text="Submit"
+            android:textSize="20sp"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
 
 </LinearLayout>

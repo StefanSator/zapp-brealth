@@ -91,7 +91,7 @@
             android:label="Powerlogic" />
         <activity
             android:name=".StretchingColors"
-            android:label="Warm Up Colors" />
+            android:label="Stretching Colors" />
         <receiver
             android:name=".AlarmReceiver"
             android:enabled="true"

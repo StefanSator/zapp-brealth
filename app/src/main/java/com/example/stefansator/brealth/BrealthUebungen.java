@@ -33,8 +33,7 @@ public class BrealthUebungen extends AppCompatActivity {
     }
   
     public void gotoSretchingColors(View view) {
-        Intent stretchingColors= new Intent(BrealthUebungen.this, StretchingColors.class);
-        BrealthUebungen.this.startActivity(stretchingColors);
+        createInformationDialog(view);
     }
 
     public void gotoPowerLogic(View view) {
@@ -75,6 +74,13 @@ public class BrealthUebungen extends AppCompatActivity {
                     "In der letzten müssen Sie die jeweiligen Bilder addieren und das Ergebnis angeben.\n\n" +
                     "Danach müssen Sie eines der gezeigten Bilder ausführen.\n" +
                     "Sie bekommen 10 Sekunden um die Übung anzuschauen und müssen Sie solange ausführen wie das Ergebis der Rechnung war.");
+        } else if (findViewById(R.id.brealth_stretching_colors) == view) {
+            dlgBuilder.setMessage("In dieser Aufgabe müssen sie 60 Sekunden lang Dehnübungen ausführen.\n\n"+
+                    "Bevor es losgeht bekommen Sie ein wenig Zeit um sich vorzubereiten.\n" +
+                    "Zu den Übungen wird Ihnen ein Wort gezeigt,welches Unterschiedliche Farben haben kann.\n" +
+                    "Sagen Sie die Farbe laut in der das Wort geschrieben wurde.\n\n" +
+                    "Am Ende müssen sie die Anzahl der Fehler eingeben.\n" +
+                    "Seien Sie ehrlich!");
         }
     }
 
@@ -85,6 +91,9 @@ public class BrealthUebungen extends AppCompatActivity {
             powerLogicIntent.putExtra("LIMIT", 10);
             powerLogicIntent.putExtra("WIPE", true);
             BrealthUebungen.this.startActivity(powerLogicIntent);
+        } else if (findViewById(R.id.brealth_stretching_colors) == view){
+            Intent stretchingColors= new Intent(BrealthUebungen.this, StretchingColors.class);
+            BrealthUebungen.this.startActivity(stretchingColors);
         }
     }
 
