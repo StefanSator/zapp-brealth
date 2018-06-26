@@ -90,13 +90,12 @@
             android:name=".Powerlogic"
             android:label="Powerlogic" />
         <activity
-            android:name=".MindColors"
-            android:label="MindColors" />
+            android:name=".StretchingColors"
+            android:label="Stretching Colors" />
         <receiver
             android:name=".AlarmReceiver"
             android:enabled="true"
             android:process=":remote" />
-
         <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
         <activity
             android:name=".VocableRunTask"
