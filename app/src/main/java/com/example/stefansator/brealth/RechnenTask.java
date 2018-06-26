@@ -91,6 +91,7 @@ public class RechnenTask extends AppCompatActivity {
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", bewertung);
         finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         RechnenTask.this.startActivity(finishscreenIntent);
         RechnenTask.this.finish();
     }

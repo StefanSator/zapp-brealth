@@ -113,6 +113,7 @@ public class MemoryTask extends AppCompatActivity {
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", bewertung);
         finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         MemoryTask.this.startActivity(finishscreenIntent);
         MemoryTask.this.finish();
     }
