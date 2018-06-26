@@ -45,5 +45,14 @@ public class HealthMenu extends AppCompatActivity {
                 startActivity(rezepteIntent);
             }
         });
+
+        Button tippsButton = (Button)findViewById(R.id.health_tipps_button);
+        tippsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent tippsIntent = new Intent(HealthMenu.this, TippsActivity.class);
+                startActivity(tippsIntent);
+            }
+        });
     }
 }

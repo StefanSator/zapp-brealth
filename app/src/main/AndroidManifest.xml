@@ -113,7 +113,8 @@
         </activity>
         <activity android:name=".BMIActivity" />
         <activity android:name=".rezepte.RezepteActivity" />
-        <activity android:name=".rezepte.RezeptDetailsActivity"></activity>
+        <activity android:name=".rezepte.RezeptDetailsActivity" />
+        <activity android:name=".TippsActivity"></activity>
     </application>
 
 </manifest>
