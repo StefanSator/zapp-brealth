@@ -1,85 +1,134 @@
 package com.example.stefansator.brealth;
 
+
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.Legend;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.components.YAxis;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
-import com.jjoe64.graphview.GraphView;
-import com.jjoe64.graphview.ValueDependentColor;
-import com.jjoe64.graphview.series.BarGraphSeries;
-import com.jjoe64.graphview.series.DataPoint;
-import com.jjoe64.graphview.series.LineGraphSeries;
+import java.util.ArrayList;
+
 
 public class BrealthStatistik extends AppCompatActivity {
-    GraphView firstgraph, attemptGraph;
+    BarChart durationGraph, attemptGraph;
+    int arrayAttempts[];
+    long arrayDurations[] ;
+    private String [] taskString;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brealthstatistik);
 
-        firstgraph= findViewById(R.id.firstgraph);
-        attemptGraph = findViewById(R.id.secondgraph);
+        attemptGraph = findViewById(R.id.attemptgraph);
+        durationGraph= findViewById(R.id.durationgraph);
+        taskString = new String[] {"Effort","Lesen","Vocable","Yoga"};
 
+        getExtras();
+    }
+
+    private void getExtras() {
+        arrayAttempts = getIntent().getExtras().getIntArray("test_attempts");
+        arrayDurations = getIntent().getExtras().getLongArray("test_durations");
         makeGraph();
     }
 
     private void makeGraph() {
-        makefirstGraph();
         makeAttemptGraph();
+        makeDurationGraph();
     }
+
 
     private void makeAttemptGraph() {
-        BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, -1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 21)
-        });
-        attemptGraph.addSeries(series);
-        attemptGraph.setTitle("Versuche");
-        attemptGraph.setTitleColor(Color.YELLOW);
+        ArrayList<BarEntry> barEntries = new ArrayList<>();
+        for (int i = 0 ; i < arrayAttempts.length ; i++) {
+            barEntries.add(new BarEntry(i,arrayAttempts[i]));
+        }
+        BarDataSet barDataSet = new BarDataSet(barEntries,"Versuche");
+        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        barDataSet.setValueTextColor(Color.YELLOW);
+        barDataSet.setValueTextSize(10f);
 
-// styling
-        series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
-            @Override
-            public int get(DataPoint data) {
-                return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
-            }
-        });
+        BarData data = new BarData(barDataSet);
+        data.setBarWidth(0.8f);
+        barDataSet.setValueTextColor(Color.YELLOW);
 
-        series.setSpacing(50);
+        attemptGraph.getDescription().setEnabled(false);
+        attemptGraph.setTouchEnabled(false);
+        attemptGraph.setData(data);
 
-// draw values on top
-        series.setDrawValuesOnTop(true);
-        series.setValuesOnTopColor(Color.RED);
+        XAxis xAxis = attemptGraph.getXAxis();
+        xAxis.setTextColor(Color.YELLOW);
+        xAxis.setValueFormatter(new MyXAxisValueFormatter(taskString));
+        xAxis.setGranularityEnabled(true);
+
+        YAxis yAxisLeft = attemptGraph.getAxisLeft();
+        yAxisLeft.setTextColor(Color.YELLOW);
+        yAxisLeft.setAxisMinimum(0f);
+        YAxis yAxisRight = attemptGraph.getAxisRight();
+        yAxisRight.setTextColor(Color.YELLOW);
+        yAxisRight.setAxisMinimum(0f);
+
+        Legend legend = attemptGraph.getLegend();
+        legend.setTextColor(Color.YELLOW);
+        legend.setTextSize(20f);
     }
 
-    private void makefirstGraph() {
-        BarGraphSeries<DataPoint> series = new BarGraphSeries<>(new DataPoint[] {
-                new DataPoint(0, -1),
-                new DataPoint(1, 5),
-                new DataPoint(2, 3),
-                new DataPoint(3, 2),
-                new DataPoint(4, 6)
-        });
-        firstgraph.addSeries(series);
-        firstgraph.setTitle("Dauer");
-        firstgraph.setTitleColor(Color.YELLOW);
-// styling
-        series.setValueDependentColor(new ValueDependentColor<DataPoint>() {
-            @Override
-            public int get(DataPoint data) {
-                return Color.rgb((int) data.getX()*255/4, (int) Math.abs(data.getY()*255/6), 100);
-            }
-        });
+    private void makeDurationGraph() {
+        ArrayList<BarEntry> barEntries = new ArrayList<>();
+        for (int i = 0 ; i < arrayDurations.length ; i++) {
+           barEntries.add(new BarEntry(i,arrayDurations[i]));
+        }
 
-        series.setSpacing(50);
+        BarDataSet barDataSet = new BarDataSet(barEntries,"Dauer in Sekunden");
+        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+        barDataSet.setValueTextColor(Color.YELLOW);
+        barDataSet.setValueTextSize(10f);
 
-// draw values on top
-        series.setDrawValuesOnTop(true);
-        series.setValuesOnTopColor(Color.RED);
+        BarData data = new BarData(barDataSet);
+        data.setBarWidth(0.8f);
+
+        durationGraph.getDescription().setEnabled(false);
+        durationGraph.setTouchEnabled(false);
+        durationGraph.setData(data);
+
+        XAxis xAxis = durationGraph.getXAxis();
+        xAxis.setTextColor(Color.YELLOW);
+        xAxis.setValueFormatter(new MyXAxisValueFormatter(taskString));
+        xAxis.setGranularityEnabled(true);
+
+        YAxis yAxisLeft = durationGraph.getAxisLeft();
+        yAxisLeft.setTextColor(Color.YELLOW);
+        yAxisLeft.setAxisMinimum(0f);
+        YAxis yAxisRight = durationGraph.getAxisRight();
+        yAxisRight.setTextColor(Color.YELLOW);
+        yAxisRight.setAxisMinimum(0f);
+
+        Legend legend = durationGraph.getLegend();
+        legend.setTextColor(Color.YELLOW);
+        legend.setTextSize(20f);
+    }
+
+    public class MyXAxisValueFormatter implements IAxisValueFormatter {
+
+        private String[] mValues;
+
+        public MyXAxisValueFormatter(String[] values) {
+            this.mValues = values;
+        }
+
+        @Override
+        public String getFormattedValue(float value, AxisBase axis) {
+            return mValues[(int) value];
+        }
     }
 }
