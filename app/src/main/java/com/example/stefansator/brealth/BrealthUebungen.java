@@ -93,11 +93,12 @@ public class BrealthUebungen extends AppCompatActivity {
         if (findViewById(R.id.brealth_powerlogic) == view) {
             Intent powerLogicIntent= new Intent(BrealthUebungen.this, Powerlogic.class);
             powerLogicIntent.putExtra("LIMIT", 10);
-            powerLogicIntent.putExtra("WIPE", true);
+            powerLogicIntent.putExtra("WIPE", wipeHighscore);
             BrealthUebungen.this.startActivity(powerLogicIntent);
         } else if (findViewById(R.id.brealth_stretching_colors) == view){
-            Intent stretchingColors= new Intent(BrealthUebungen.this, StretchingColors.class);
-            BrealthUebungen.this.startActivity(stretchingColors);
+            Intent stretchingColorsIntent= new Intent(BrealthUebungen.this, StretchingColors.class);
+            stretchingColorsIntent.putExtra("WIPE",wipeHighscore);
+            BrealthUebungen.this.startActivity(stretchingColorsIntent);
         }
     }
 

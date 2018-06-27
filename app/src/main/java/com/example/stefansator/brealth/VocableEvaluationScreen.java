@@ -48,7 +48,7 @@ public class VocableEvaluationScreen extends AppCompatActivity {
 
         highscore.setRating(rating);
         highscore.setFalseAnswer(falseCounter);
-        boolean isNewHighscore = highscore.isNewHighscoreVocablerun();
+        boolean isNewHighscore = highscore.isNewHighscoreOnlyRatingFalse();
 
         Intent finishScreenIntent = new Intent(VocableEvaluationScreen.this, TaskEndscreen.class);
         finishScreenIntent.putExtra("falsch", falseCounter);

@@ -21,15 +21,20 @@ public class StretchingColors extends AppCompatActivity {
     private EditText falseAnswer;
     private Button submitAnswer;
     private CountDownTimer countDownTimer;
-    private String textColor, stretchingExercise;
+    private String textColor, stretchingExercise, taskName = "stretching";
     private boolean waiting = false;
     private int switchCounter = 0, chkExercise[],exerciseNr = 6,imageCounter =0, falseCounter, colorCounter = 0;
     private long exerciseDuration = 60000;
+    private boolean wipeHighscore = true;
+    private Highscore highscore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stretchingcolors);
+
+        wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
+        highscore = new Highscore(this,taskName,wipeHighscore);
 
         stretchingImg =findViewById(R.id.stretching_colors_image);
         stretchingColorText = findViewById(R.id.stretching_color_word);
@@ -150,9 +155,15 @@ public class StretchingColors extends AppCompatActivity {
     public void gotoEndscreen() {
         int rating = RateTheGame(falseCounter);
 
+        highscore.setRating(rating);
+        highscore.setFalseAnswer(falseCounter);
+        boolean isNewHighscore = highscore.isNewHighscoreOnlyRatingFalse();
+
         Intent finishscreenIntent = new Intent(StretchingColors.this, TaskEndscreen.class);
         finishscreenIntent.putExtra("falsch", falseCounter);
         finishscreenIntent.putExtra("rating", rating);
+        finishscreenIntent.putExtra("highscore", isNewHighscore);
+        finishscreenIntent.putExtra("highscoreObject", highscore);
         StretchingColors.this.startActivity(finishscreenIntent);
         StretchingColors.this.finish();
     }
