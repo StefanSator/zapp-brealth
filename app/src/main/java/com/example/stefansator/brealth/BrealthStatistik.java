@@ -47,88 +47,15 @@ public class BrealthStatistik extends AppCompatActivity {
         makeDurationGraph();
     }
 
-
     private void makeAttemptGraph() {
-        ArrayList<BarEntry> barEntries = new ArrayList<>();
-        for (int i = 0 ; i < arrayAttempts.length ; i++) {
-            barEntries.add(new BarEntry(i,arrayAttempts[i]));
-        }
-        BarDataSet barDataSet = new BarDataSet(barEntries,"Versuche");
-        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        barDataSet.setValueTextColor(Color.YELLOW);
-        barDataSet.setValueTextSize(10f);
-
-        BarData data = new BarData(barDataSet);
-        data.setBarWidth(0.8f);
-        barDataSet.setValueTextColor(Color.YELLOW);
-
-        attemptGraph.getDescription().setEnabled(false);
-        attemptGraph.setTouchEnabled(false);
-        attemptGraph.setData(data);
-
-        XAxis xAxis = attemptGraph.getXAxis();
-        xAxis.setTextColor(Color.YELLOW);
-        xAxis.setValueFormatter(new MyXAxisValueFormatter(taskString));
-        xAxis.setGranularityEnabled(true);
-
-        YAxis yAxisLeft = attemptGraph.getAxisLeft();
-        yAxisLeft.setTextColor(Color.YELLOW);
-        yAxisLeft.setAxisMinimum(0f);
-        YAxis yAxisRight = attemptGraph.getAxisRight();
-        yAxisRight.setTextColor(Color.YELLOW);
-        yAxisRight.setAxisMinimum(0f);
-
-        Legend legend = attemptGraph.getLegend();
-        legend.setTextColor(Color.YELLOW);
-        legend.setTextSize(20f);
+        MyBarChart myAttemptGraph = new MyBarChart(taskString, attemptGraph, "Versuche");
+        myAttemptGraph.intBarEntry(arrayAttempts);
+        myAttemptGraph.createChart();
     }
 
     private void makeDurationGraph() {
-        ArrayList<BarEntry> barEntries = new ArrayList<>();
-        for (int i = 0 ; i < arrayDurations.length ; i++) {
-           barEntries.add(new BarEntry(i,arrayDurations[i]));
-        }
-
-        BarDataSet barDataSet = new BarDataSet(barEntries,"Dauer in Sekunden");
-        barDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        barDataSet.setValueTextColor(Color.YELLOW);
-        barDataSet.setValueTextSize(10f);
-
-        BarData data = new BarData(barDataSet);
-        data.setBarWidth(0.8f);
-
-        durationGraph.getDescription().setEnabled(false);
-        durationGraph.setTouchEnabled(false);
-        durationGraph.setData(data);
-
-        XAxis xAxis = durationGraph.getXAxis();
-        xAxis.setTextColor(Color.YELLOW);
-        xAxis.setValueFormatter(new MyXAxisValueFormatter(taskString));
-        xAxis.setGranularityEnabled(true);
-
-        YAxis yAxisLeft = durationGraph.getAxisLeft();
-        yAxisLeft.setTextColor(Color.YELLOW);
-        yAxisLeft.setAxisMinimum(0f);
-        YAxis yAxisRight = durationGraph.getAxisRight();
-        yAxisRight.setTextColor(Color.YELLOW);
-        yAxisRight.setAxisMinimum(0f);
-
-        Legend legend = durationGraph.getLegend();
-        legend.setTextColor(Color.YELLOW);
-        legend.setTextSize(20f);
-    }
-
-    public class MyXAxisValueFormatter implements IAxisValueFormatter {
-
-        private String[] mValues;
-
-        public MyXAxisValueFormatter(String[] values) {
-            this.mValues = values;
-        }
-
-        @Override
-        public String getFormattedValue(float value, AxisBase axis) {
-            return mValues[(int) value];
-        }
+        MyBarChart myDurationGraph = new MyBarChart(taskString, durationGraph, "Dauer in Sekunden");
+        myDurationGraph.longBarEntry(arrayDurations);
+        myDurationGraph.createChart();
     }
 }
