@@ -63,9 +63,6 @@
             android:name=".FarbenHardMode"
             android:label="Farben Hard Mode" />
         <activity
-            android:name=".FarbenEndscreen"
-            android:label="Ergebnis" />
-        <activity
             android:name=".BrealthUebungen"
             android:label="Uebungen" />
         <activity

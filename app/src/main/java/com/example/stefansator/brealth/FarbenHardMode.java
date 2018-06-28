@@ -36,6 +36,7 @@ public class FarbenHardMode extends AppCompatActivity {
         sectext = findViewById(R.id.farben_view2_hm);
         thirdtext = findViewById(R.id.farben_view3_hm);
         explanation = findViewById(R.id.farben_explanation_hm);
+        
         changeColor();
         starttime = System.currentTimeMillis();
     }
