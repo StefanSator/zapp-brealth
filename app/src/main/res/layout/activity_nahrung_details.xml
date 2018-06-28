@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorButton3"
-    tools:context=".naehrstoffzentrale.NahrungDetails">
+    tools:context=".health.naehrstoffzentrale.nahrungsmittel.NahrungDetails">
 
     <TextView
         android:id="@+id/calciumView"

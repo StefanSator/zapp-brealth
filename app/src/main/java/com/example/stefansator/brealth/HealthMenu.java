@@ -6,8 +6,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.stefansator.brealth.rezepte.RezepteActivity;
-import com.example.stefansator.brealth.naehrstoffzentrale.Zentrale;
+import com.example.stefansator.brealth.health.bmi_rechner.BMIActivity;
+import com.example.stefansator.brealth.health.tipps.TippsActivity;
+import com.example.stefansator.brealth.health.rezepte.RezepteActivity;
+import com.example.stefansator.brealth.health.naehrstoffzentrale.nahrungsmittel.Zentrale;
 
 /**
  * Created by stefansator on 04.05.18.
