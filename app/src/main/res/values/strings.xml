@@ -41,8 +41,6 @@
     <string name="memorytask_rules">In dieser Übung haben Sie die Möglichkeit Ihre Gedächtnis durch ein einfaches Memory Spiel zu trainieren.</string>
     <string name="yogamemorytask_rules">In dieser Übung haben Sie die Möglichkeit gleichzeitig Ihr Gedächtnis durch ein Memory-Spiel, sowie Ihren Körper durch Yoga zu trainieren. Wenn Sie ein zusammenpassendes Kartenpaar aufdecken, müssen Sie die Yoga-Übung die darauf abgebildet ist ausführen</string>
     <string name="farbentaskEM_rules">Klicken Sie die Richtig Taste wenn die jeweilige "Farbe" geschrieben ist"</string>
-    <string name="farbentaskHM_rules">-Tippen Sie den Text der in der jeweiligen Farbe geschriebenoder ist \n-Tippen sie den Text wenn Farbe
-                                      geschrieben ist \n-Klicke nicht vorhanden Taste wenn nicht existend</string>
     <string name="logiktask_rules">Finden Sie heraus was ? ist</string>
     <string name="startButtonDailyTask">Start Task</string>
     <string name="readyEffort_button">Fertig</string>

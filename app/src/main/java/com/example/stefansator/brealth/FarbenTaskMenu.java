@@ -53,7 +53,10 @@ public class FarbenTaskMenu extends AppCompatActivity {
                dlgBuilder.setMessage(R.string.farbentaskEM_rules);
                break;
            case R.id.farben_hardmode_button:
-               dlgBuilder.setMessage(R.string.farbentaskHM_rules);
+               dlgBuilder.setMessage("In dieser Aufgabe wird Ihnen oben eine Farbe gennant und Sie müssen eines von zwei Anweisungen ausführen.\n\n"+
+                       "Tippen Sie den Text an, der in der jeweiligen Farbe geschrieben ist.\n\n" +
+                       "Tippen Sie den Text an, wenn in diesem die Farbe geschrieben ist.\n\n" +
+                       "Falls kein solcher Text existiert klicken Sie die nicht vorhanden Taste.");
                break;
            default:
                return;
