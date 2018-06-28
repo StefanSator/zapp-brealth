@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorButton1"
-    tools:context=".rezepte.RezeptDetailsActivity">
+    tools:context=".health.rezepte.RezeptDetailsActivity">
 
     <ScrollView
         android:layout_width="match_parent"

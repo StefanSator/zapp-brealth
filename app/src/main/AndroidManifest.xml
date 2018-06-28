@@ -43,7 +43,7 @@
             android:name=".MemoryTask"
             android:label="Memory" />
         <activity
-            android:name=".naehrstoffzentrale.Zentrale"
+            android:name=".health.naehrstoffzentrale.nahrungsmittel.Zentrale"
             android:label="@string/title_activity_zentrale"
             android:parentActivityName=".HealthMenu">
             <meta-data
@@ -104,17 +104,17 @@
             android:name=".VocableEvaluationScreen"
             android:label="VocableRun Evaluation" />
         <activity
-            android:name=".naehrstoffzentrale.NahrungDetails"
-            android:parentActivityName=".naehrstoffzentrale.Zentrale">
+            android:name=".health.naehrstoffzentrale.nahrungsmittel.NahrungDetails"
+            android:parentActivityName=".health.naehrstoffzentrale.nahrungsmittel.Zentrale">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.stefansator.brealth.naehrstoffzentrale.Zentrale" />
+                android:value=".health.naehrstoffzentrale.nahrungsmittel.Zentrale" />
         </activity>
 
-        <activity android:name=".BMIActivity" />
-        <activity android:name=".rezepte.RezepteActivity" />
-        <activity android:name=".rezepte.RezeptDetailsActivity" />
-        <activity android:name=".TippsActivity"></activity>
+        <activity android:name=".health.bmi_rechner.BMIActivity" />
+        <activity android:name=".health.rezepte.RezepteActivity" />
+        <activity android:name=".health.rezepte.RezeptDetailsActivity" />
+        <activity android:name=".health.tipps.TippsActivity"></activity>
 
         <activity android:name=".BrealthTestEndscreen" android:label="Test Statistik"></activity>
         <activity
