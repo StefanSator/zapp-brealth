@@ -117,6 +117,9 @@
         <activity android:name=".health.tipps.TippsActivity"></activity>
 
         <activity android:name=".BrealthTestEndscreen" android:label="Test Statistik"></activity>
+        <activity
+            android:name=".BrealthStatistik"
+            android:label="Statistik"/>
     </application>
 
 </manifest>

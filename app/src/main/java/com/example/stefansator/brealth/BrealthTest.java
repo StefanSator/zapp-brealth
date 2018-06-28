@@ -26,7 +26,7 @@ public class BrealthTest extends AppCompatActivity {
     }
 
     public void showTestResults(View view) {
-        Intent statisticIntent = new Intent(BrealthTest.this, BrealthTestEndscreen.class);
+        Intent statisticIntent = new Intent(BrealthTest.this, BrealthStatistik.class);
         loadTestResults();
         statisticIntent.putExtra("test_attempts", resultsAttempt); // pass int array
         statisticIntent.putExtra("test_durations", resultsDuration); // pass long array

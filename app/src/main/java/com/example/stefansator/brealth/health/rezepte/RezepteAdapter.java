@@ -3,6 +3,7 @@ package com.example.stefansator.brealth.health.rezepte;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,19 +15,16 @@ import java.util.ArrayList;
 
 public class RezepteAdapter extends BaseAdapter{
 
-    private ArrayList<String> rezepteNames;
+    private ArrayList<String> rezepteNames = new ArrayList<String>();
     private final Context context;
 
-    public RezepteAdapter(Context context, ArrayList<String> rezepteNames) {
+    public RezepteAdapter(Context context) {
         this.context = context;
-        this.rezepteNames = rezepteNames;
-    }
-
-    public void clear() {
     }
 
     @Override
     public int getCount() {
+        Log.d("NAMESIZE: ", "size = " + rezepteNames.size());
         return rezepteNames.size();
     }
 

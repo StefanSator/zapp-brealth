@@ -28,23 +28,11 @@ public class RezepteActivity extends AppCompatActivity {
 
         ListView listView = (ListView) findViewById(R.id.rezepteList);
         final ArrayList<Rezept> rezeptList = new ArrayList<Rezept>();
-        ArrayList<String> rezeptNameList = new ArrayList<String>();
 
         setRezepteList(rezeptList);
-//        Rezept testRezept = new Rezept("Kartoffelpizza", readTextFromFile(R.raw.kartoffelpizza), R.drawable.kartoffelpizza);
-//        Rezept testRezept2 = new Rezept("Müsli", "Geilo Müsli !", R.drawable.brain);
-//        rezeptList.add(testRezept);
-//        rezeptList.add(testRezept2);
-        
-        for(int i = 0; i < rezeptList.size(); i++) {
-//            rezeptNameList.set(i, rezeptList.get(i).getName());
-            Log.d("REZEPTSTUFF: ", rezeptList.get(i).getName());
-        }
-        
-        RezepteAdapter rezepteAdapter;
+        RezepteAdapter rezepteAdapter  = new RezepteAdapter(this);;
 
         // set adapter
-        rezepteAdapter = new RezepteAdapter(this, rezeptNameList);
         for(int i = 0; i < rezeptList.size(); i++) {
             rezepteAdapter.add(rezeptList.get(i));
         }
@@ -68,12 +56,22 @@ public class RezepteActivity extends AppCompatActivity {
         Rezept broccoliLinsenPasta = new Rezept("Broccoli-Linsen-Pasta", readTextFromFile(R.raw.broccoli_linsen_pasta), R.drawable.broccoli_linsen_pasta);
         Rezept bohnenLauchTortilla = new Rezept("Bohnen-Lauch-Tortilla", readTextFromFile(R.raw.bohnen_lauch_tortilla), R.drawable.bohnen_lauch_tortilla);
         Rezept weizenRisotto = new Rezept("Weizenrisotto", readTextFromFile(R.raw.weizenrisotto), R.drawable.weizenrisotto);
+        Rezept gefuelltePaprika = new Rezept("Gefüllte Spitzpaprika", readTextFromFile(R.raw.gefuellte_spitzpaprika), R.drawable.gefuellte_spitzpaprika);
+        Rezept blumenkohlHummus = new Rezept("Blumenkohl mit Hummus", readTextFromFile(R.raw.blumenkohl_hummus), R.drawable.blumenkohl_mit_linsen_hummus);
+        Rezept chiliConCouscous = new Rezept("Chili con Couscous", readTextFromFile(R.raw.chili_con_couscous), R.drawable.chili_con_couscous);
+        Rezept kichererbsenCurry = new Rezept("Kichererbsen-Curry", readTextFromFile(R.raw.kichererbsen_curry), R.drawable.kichererbsen_curry);
+        Rezept tofuGemuesePfanne = new Rezept("Tofu-Gemüse-Pfanne", readTextFromFile(R.raw.tofu_gemuese_pfanne), R.drawable.tofu_gemuese_pfanne);
 
         rezeptList.add(kartoffelpizza);
         rezeptList.add(spinatsalat);
         rezeptList.add(broccoliLinsenPasta);
         rezeptList.add(bohnenLauchTortilla);
         rezeptList.add(weizenRisotto);
+        rezeptList.add(gefuelltePaprika);
+        rezeptList.add(blumenkohlHummus);
+        rezeptList.add(chiliConCouscous);
+        rezeptList.add(kichererbsenCurry);
+        rezeptList.add(tofuGemuesePfanne);
     }
 
     private String readTextFromFile(int file) {

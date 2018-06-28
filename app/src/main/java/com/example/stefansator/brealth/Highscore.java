@@ -73,6 +73,13 @@ public class Highscore implements Parcelable{
         return task;
     }
 
+    private void setHighscoreRFD(){
+        preferencesEditor.putInt(task + "rating", rating);
+        preferencesEditor.putInt(task+ "falseAnswer", falseAnswer);
+        preferencesEditor.putLong(task + "duration", duration);
+        preferencesEditor.apply();
+    }
+
     public boolean isNewHighscore() {
         preferencesEditor = preferences.edit();
 
@@ -80,13 +87,18 @@ public class Highscore implements Parcelable{
         int curfalseAnswerHS = preferences.getInt(task + "falseAnswer",Integer.MAX_VALUE);
         long curDurationHS = preferences.getLong(task + "duration", Long.MAX_VALUE);
 
-        if (curRatingHS <= rating) {
+        if (curRatingHS < rating){
+            setHighscoreRFD();
+            return true;
+        } else if (curRatingHS <= rating) {
+            if (curfalseAnswerHS > falseAnswer) {
+                setHighscoreRFD();
+                return true;
+            }
+        } else if (curRatingHS <= rating) {
             if (curfalseAnswerHS >= falseAnswer) {
                 if (curDurationHS > duration) {
-                    preferencesEditor.putInt(task + "rating", rating);
-                    preferencesEditor.putInt(task+ "falseAnswer", falseAnswer);
-                    preferencesEditor.putLong(task + "duration", duration);
-                    preferencesEditor.apply();
+                    setHighscoreRFD();
                     return true;
                 }
             }
@@ -98,17 +110,27 @@ public class Highscore implements Parcelable{
 
         return false;
     }
+
+    private void setHighscoreRD(){
+        preferencesEditor.putInt(task + "rating", rating);
+        preferencesEditor.putLong(task + "duration", duration);
+        preferencesEditor.apply();
+    }
+
     public boolean isNewHighscoreLesen() {
         preferencesEditor = preferences.edit();
 
         int curRatingHS = preferences.getInt(task+"rating",0);
         long curDurationHS = preferences.getLong(task + "duration", Long.MAX_VALUE);
 
+        if (curRatingHS < rating){
+            setHighscoreRD();
+            return true;
+        }
+
         if (curRatingHS  <= rating){
             if (curDurationHS < duration) {
-                preferencesEditor.putInt(task+"rating", rating);
-                preferencesEditor.putLong(task+"duration",duration);
-                preferencesEditor.apply();
+                setHighscoreRD();
                 return true;
             }
         }
@@ -119,17 +141,25 @@ public class Highscore implements Parcelable{
         return false;
     }
 
+    private void setHighscoreRF(){
+        preferencesEditor.putInt(task+"rating", rating);
+        preferencesEditor.putInt(task+"falseAnswer",falseAnswer);
+        preferencesEditor.apply();
+    }
+
     public boolean isNewHighscoreOnlyRatingFalse() {
         preferencesEditor = preferences.edit();
 
         int curRatingHS = preferences.getInt(task+"rating",0);
         int curfalseAnswerHS = preferences.getInt(task + "falseAnswer",Integer.MAX_VALUE);
 
+        if (rating > curRatingHS) {
+            setHighscoreRF();
+            return true;
+        }
         if (rating >= curRatingHS){
             if (falseAnswer < curfalseAnswerHS) {
-                preferencesEditor.putInt(task+"rating", rating);
-                preferencesEditor.putInt(task+"falseAnswer",falseAnswer);
-                preferencesEditor.apply();
+                setHighscoreRF();
                 return true;
             }
         }
