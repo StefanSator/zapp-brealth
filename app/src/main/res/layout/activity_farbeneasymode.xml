@@ -28,7 +28,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
+        android:padding="10dp"
         android:textSize="10pt"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,6 +44,7 @@
         android:layout_marginStart="32dp"
         android:onClick="checkOption"
         android:text="Richtig"
+        android:background="@drawable/button_bg_rounded_corners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/farben_buttonFalse_em"
         app:layout_constraintStart_toStartOf="parent" />
@@ -55,6 +58,7 @@
         android:layout_marginStart="24dp"
         android:onClick="checkOption"
         android:text="Falsch"
+        android:background="@drawable/button_bg_rounded_corners"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/farben_buttonTrue_em" />
