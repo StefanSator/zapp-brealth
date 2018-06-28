@@ -99,9 +99,6 @@ public class YogaMemoryTask extends AppCompatActivity {
             createFalseDialog(memoryCard[firstDraw], memoryCard[secondDraw]);
         }
 
-        if (rightCounter == 6) {
-            endGame();
-        }
         beginNewDraw();
     }
 
@@ -159,6 +156,9 @@ public class YogaMemoryTask extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 alert.dismiss();
+                if (rightCounter == 6) {
+                    endGame();
+                }
             }
         });
 
