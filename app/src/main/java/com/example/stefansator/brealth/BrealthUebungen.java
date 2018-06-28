@@ -24,10 +24,8 @@ public class BrealthUebungen extends AppCompatActivity {
         BrealthUebungen.this.startActivity(effortIntent);
     }
 
-    public void gotoYogaMemoryMenu(View view) {
-        Intent yogaIntent = new Intent(BrealthUebungen.this, YogaMemoryMenu.class);
-        yogaIntent.putExtra("WIPE",wipeHighscore);
-        BrealthUebungen.this.startActivity(yogaIntent);
+    public void gotoYogaMemory(View view) {
+        createInformationDialog(view);
     }
   
     public void gotoVocableRun(View view) {
@@ -85,6 +83,8 @@ public class BrealthUebungen extends AppCompatActivity {
                     "Sagen Sie die Farbe laut in der das Wort geschrieben wurde.\n\n" +
                     "Am Ende müssen sie die Anzahl der Fehler eingeben.\n" +
                     "Seien Sie ehrlich!");
+        } else if (findViewById(R.id.brealth_uebungen3) == view) {
+            dlgBuilder.setMessage(R.string.yogamemorytask_rules);
         }
     }
 
@@ -99,6 +99,10 @@ public class BrealthUebungen extends AppCompatActivity {
             Intent stretchingColorsIntent= new Intent(BrealthUebungen.this, StretchingColors.class);
             stretchingColorsIntent.putExtra("WIPE",wipeHighscore);
             BrealthUebungen.this.startActivity(stretchingColorsIntent);
+        } else if (findViewById(R.id.brealth_uebungen3) == view) {
+            Intent yogaIntent = new Intent(BrealthUebungen.this, YogaMemoryTask.class);
+            yogaIntent.putExtra("WIPE",wipeHighscore);
+            BrealthUebungen.this.startActivity(yogaIntent);
         }
     }
 

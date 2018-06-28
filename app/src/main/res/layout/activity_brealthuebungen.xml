@@ -51,7 +51,7 @@
         android:layout_marginTop="-5dp"
         android:layout_weight="20"
         android:backgroundTint="@color/bluegreen"
-        android:onClick="gotoYogaMemoryMenu"
+        android:onClick="gotoYogaMemory"
         android:text="@string/yogamemory"
         android:fontFamily="casual"
         android:padding="0dp"
