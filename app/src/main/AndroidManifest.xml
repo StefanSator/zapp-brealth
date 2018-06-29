@@ -86,11 +86,12 @@
         <activity
             android:name=".uebungen.brealth.stretchingcolors.StretchingColors"
             android:label="Stretching Colors" />
+
         <receiver
             android:name=".uebungen.dailytask.AlarmReceiver"
             android:enabled="true"
             android:process=":remote" />
-        <receiver android:name=".uebungen.dailytask.AlarmReceiver" android:enabled="true" android:process=":remote" />
+
         <activity
             android:name=".uebungen.brealth.vocablerun.VocableRunTask"
             android:label="VocableRun" />
@@ -110,10 +111,12 @@
         <activity android:name=".health.rezepte.RezeptDetailsActivity" />
         <activity android:name=".health.tipps.TippsActivity"></activity>
 
-        <activity android:name=".uebungen.test.BrealthTestEndscreen" android:label="Test Statistik"></activity>
+        <activity
+            android:name=".uebungen.test.BrealthTestEndscreen"
+            android:label="Test Statistik" />
         <activity
             android:name=".uebungen.test.BrealthStatistik"
-            android:label="Statistik"/>
+            android:label="Statistik" />
     </application>
 
 </manifest>
