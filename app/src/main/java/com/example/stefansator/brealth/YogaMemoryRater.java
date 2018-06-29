@@ -36,7 +36,7 @@ public class YogaMemoryRater implements GameRater {
     @Override
     public int getRating() {
         int numberOfYogaTasks = 6;
-        int durationForYogaTasks = numberOfYogaTasks * 150; // 150s per Yoga Task
+        int durationForYogaTasks = numberOfYogaTasks * 240; // 240s (4min) per Yoga Task
 
         if (attempts < 3) {
             if (duration <= 15 + durationForYogaTasks) {

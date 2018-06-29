@@ -21,7 +21,7 @@ public class EffortCalculatingTask extends AppCompatActivity {
     private LottieAnimationView stopwatch;
     private TextView sporttask;
     private Button submitButton, readyButton;
-    private int LIMIT;
+    private int LIMIT, COUNTSPORTTASKS;
     private int aufgabeNr = 0;
     private Rechenaufgabe rechenaufgaben[];
     private long startzeit;
@@ -36,9 +36,15 @@ public class EffortCalculatingTask extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_effortcalculating);
 
-        if (getIntent().hasExtra("limit") == true) {
+        if (getIntent().hasExtra("limit")) {
             LIMIT = getIntent().getExtras().getInt("limit");
         }
+        if (getIntent().hasExtra("numberOfSportTasks")) {
+            COUNTSPORTTASKS = getIntent().getExtras().getInt("numberOfSportTasks");
+        } else {
+            COUNTSPORTTASKS = 10;
+        }
+
         rechenaufgaben = new Rechenaufgabe[LIMIT];
 
         wipeHighscore = getIntent().getBooleanExtra("WIPE",false);
@@ -118,7 +124,7 @@ public class EffortCalculatingTask extends AppCompatActivity {
         /* Show Sport Task */
         stopwatch.setVisibility(View.VISIBLE);
         sporttask.setVisibility(View.VISIBLE);
-        sporttask.setText(new Leistungsaufgabe(10).toString());
+        sporttask.setText(new Leistungsaufgabe(COUNTSPORTTASKS).toString());
         readyButton.setVisibility(View.VISIBLE);
     }
 
@@ -136,7 +142,7 @@ public class EffortCalculatingTask extends AppCompatActivity {
     private void endGame() {
         endzeit = System.currentTimeMillis();
         long bearbeitungsDauer = endzeit - startzeit;
-        int bewertung = RateTheGame(bearbeitungsDauer, falseCounter, LIMIT, 10);
+        int bewertung = RateTheGame(bearbeitungsDauer, falseCounter, LIMIT, COUNTSPORTTASKS);
 
         /* Save Score for later use in Test Task in Brealth Category */
         writeTestScore(falseCounter, bearbeitungsDauer/1000);

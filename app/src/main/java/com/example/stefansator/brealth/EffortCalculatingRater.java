@@ -36,7 +36,7 @@ public class EffortCalculatingRater implements GameRater {
     public int getRating() {
         int sportUnits = ((LIMIT / 5) - 1);
         int sportTasks = sportUnits * sportTasksPerUnit; // Anzahl Sportaufgaben
-        int calculatingTasks = LIMIT - sportTasks; // Anzahl Rechenaufgaben
+        int calculatingTasks = LIMIT - sportUnits; // Anzahl Rechenaufgaben
         int perfectDuration = 3 * calculatingTasks + 4 * sportTasks;
         int normalDuration = 4 * calculatingTasks + 5 * sportTasks;
 
