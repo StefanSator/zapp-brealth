@@ -11,91 +11,92 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".menus.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainMenu" />
+        <activity android:name=".menus.MainMenu" />
         <activity
-            android:name=".BrainMenu"
+            android:name=".menus.BrainMenu"
             android:label="Gehirntraining" />
-        <activity android:name=".HealthMenu" />
-        <activity android:name=".BrealthMenu" />
+        <activity android:name=".menus.HealthMenu" />
+        <activity android:name=".menus.BrealthMenu" />
         <activity
-            android:name=".BrainTaskMenu"
+            android:name=".menus.BrainTaskMenu"
             android:label="Übungen" />
         <activity
-            android:name=".BrainDailyMenu"
+            android:name=".uebungen.dailytask.BrainDailyMenu"
             android:label="Tägliche Aufgabe" />
         <activity
-            android:name=".RechnenTaskMenu"
+            android:name=".menus.RechnenTaskMenu"
             android:label="Rechnen" />
         <activity
-            android:name=".RechnenTask"
+            android:name=".uebungen.brain.rechnen.RechnenTask"
             android:label="Rechnen" />
         <activity
-            android:name=".TaskEndscreen"
+            android:name=".uebungen.TaskEndscreen"
             android:label="Ergebnis" />
         <activity
-            android:name=".MemoryTask"
+            android:name=".uebungen.brain.memory.MemoryTask"
             android:label="Memory" />
         <activity
             android:name=".health.naehrstoffzentrale.nahrungsmittel.Zentrale"
             android:label="@string/title_activity_zentrale"
-            android:parentActivityName=".HealthMenu">
+            android:parentActivityName=".menus.HealthMenu">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.stefansator.brealth.HealthMenu" />
+                android:value="com.example.stefansator.brealth.menus.HealthMenu" />
         </activity>
         <activity
-            android:name=".LesenTask"
+            android:name=".uebungen.brain.lesen.LesenTask"
             android:label="Laut Lesen" />
         <activity
-            android:name=".FarbenTaskMenu"
+            android:name=".menus.FarbenTaskMenu"
             android:label="Farben" />
         <activity
-            android:name=".FarbenEasyMode"
+            android:name=".uebungen.brain.farben.FarbenEasyMode"
             android:label="Farben Easy Mode" />
         <activity
-            android:name=".FarbenHardMode"
+            android:name=".uebungen.brain.farben.FarbenHardMode"
             android:label="Farben Hard Mode" />
         <activity
-            android:name=".BrealthUebungen"
+            android:name=".menus.BrealthUebungen"
             android:label="Uebungen" />
         <activity
-            android:name=".BrealthTest"
+            android:name=".uebungen.test.BrealthTest"
             android:label="Test" />
         <activity
-            android:name=".Logik"
+            android:name=".uebungen.brain.logik.Logik"
             android:label="Logik" />
         <activity
-            android:name=".EffortCalculatingMenu"
+            android:name=".menus.EffortCalculatingMenu"
             android:label="EffortCalculating" />
         <activity
-            android:name=".EffortCalculatingTask"
+            android:name=".uebungen.brealth.effortcalculating.EffortCalculatingTask"
             android:label="EffortCalculating" />
         <activity
-            android:name=".YogaMemoryTask"
+            android:name=".uebungen.brealth.yogamemory.YogaMemoryTask"
             android:label="YogaMemory" />
         <activity
-            android:name=".Powerlogic"
+            android:name=".uebungen.brealth.powerlogic.Powerlogic"
             android:label="Powerlogic" />
         <activity
-            android:name=".StretchingColors"
+            android:name=".uebungen.brealth.stretchingcolors.StretchingColors"
             android:label="Stretching Colors" />
+
         <receiver
-            android:name=".AlarmReceiver"
+            android:name=".uebungen.dailytask.AlarmReceiver"
             android:enabled="true"
             android:process=":remote" />
-        <receiver android:name=".AlarmReceiver" android:enabled="true" android:process=":remote" />
+
         <activity
-            android:name=".VocableRunTask"
+            android:name=".uebungen.brealth.vocablerun.VocableRunTask"
             android:label="VocableRun" />
         <activity
-            android:name=".VocableEvaluationScreen"
+            android:name=".uebungen.brealth.vocablerun.VocableEvaluationScreen"
             android:label="VocableRun Evaluation" />
         <activity
             android:name=".health.naehrstoffzentrale.nahrungsmittel.NahrungDetails"
@@ -110,10 +111,12 @@
         <activity android:name=".health.rezepte.RezeptDetailsActivity" />
         <activity android:name=".health.tipps.TippsActivity"></activity>
 
-        <activity android:name=".BrealthTestEndscreen" android:label="Test Statistik"></activity>
         <activity
-            android:name=".BrealthStatistik"
-            android:label="Statistik"/>
+            android:name=".uebungen.test.BrealthTestEndscreen"
+            android:label="Test Statistik" />
+        <activity
+            android:name=".uebungen.test.BrealthStatistik"
+            android:label="Statistik" />
     </application>
 
 </manifest>

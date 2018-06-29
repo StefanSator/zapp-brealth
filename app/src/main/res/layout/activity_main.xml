@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/lightblack"
-    tools:context="com.example.stefansator.brealth.MainActivity">
+    tools:context="com.example.stefansator.brealth.menus.MainActivity">
 
     <ImageView
         android:id="@+id/brainImg"
