@@ -35,11 +35,11 @@ public class LeseRater implements GameRater {
         /* Set Perfect Duration dependent on difficulty */
         int perfectDuration;
         if (difficulty.equals("leicht")) {
-            perfectDuration = 510; // Zahl 510 durch praktische Tests im Schwierigkeitsgrad Leicht ermittelt
+            perfectDuration = 400; // Zahl 400 durch praktische Tests im Schwierigkeitsgrad Leicht ermittelt
         } else if (difficulty.equals("normal")) {
-            perfectDuration = (int) (0.75 * 510); // Normal ist 1.3 mal schneller als leicht
+            perfectDuration = (int) (0.75 * 400); // Normal ist 1.3 mal schneller als leicht
         } else {
-            perfectDuration = (int) (0.45 * 510); // Schwer ist 2.17 mal schneller als leicht
+            perfectDuration = (int) (0.45 * 400); // Schwer ist 2.17 mal schneller als leicht
         }
 
         if (duration >= perfectDuration) {

@@ -78,9 +78,6 @@
             android:name=".EffortCalculatingTask"
             android:label="EffortCalculating" />
         <activity
-            android:name=".YogaMemoryMenu"
-            android:label="YogaMemory" />
-        <activity
             android:name=".YogaMemoryTask"
             android:label="YogaMemory" />
         <activity
